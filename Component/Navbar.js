@@ -12,7 +12,7 @@ export default function Navbar() {
             <div className="container-fluid bg-pink">
       <div className="container bg-pink">
         <nav className="navbar navbar-expand-lg navbar-light bg-pink">
-          <Link href="/">
+          <Link href="/" className="navbar-brand pal-1" >
             <img src="images/logo.png" width="80" height="80" alt="logo.png" />
             </Link>
           <button
