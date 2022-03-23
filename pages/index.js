@@ -78,7 +78,7 @@ export default function Home() {
                   <div className="carousel-caption d-none d-md-block">
                     <h1 className="text-1 wow fadeInLeftBig">Buy best</h1>
                     <p className="text-2 wow fadeInRightBig">
-                      Buy medecines and other essentials for your dog
+                      Buy medicines and other essentials for your dog
                     </p>
                     <button type="button" className="btn btn-outline-lights">
                       Buy Now<i
@@ -117,6 +117,72 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      <div className="container mt-5">
+      <div className="row">
+        <div className="col-xl-5 overflow-h">
+          <img src="images/pic 1.jpg" />
+        </div>
+        <div className="col-xl-7">
+          <div className="body-text">
+            <h1 className="text-3 wow fadeInLeft">Dog is our best friend</h1>
+            <p className="mt-4 ml-4 wow fadeInRight">
+              Dogs provide us with unconditional love and companionship. They’re
+              at our sides when we’re sick, and they always seem to know when we
+              need a little extra affection. They love us without judgment, even
+              when we are ignoring them or not feeding them a second dinner.
+              Dogs seem to understand us on another level that transcends
+              language.
+            </p>
+            <button type="button" className="btn btn-outline-trans">
+              Know More
+            </button>
+            <p></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div className="container mt-5">
+      <div className="row">
+        <div className="card-deck">
+          <div className="card">
+            <i
+              className="fa fa-user-md fa-4x mt-3 ml-5 color-1"
+              aria-hidden="true"
+            ></i>
+            <div className="card-body">
+              <h5 className="card-title text-3 ml-3">24*7</h5>
+              <p className="card-text text-4 ml-3">
+                Vets are always available for everyone.
+              </p>
+            </div>
+          </div>
+          <div className="card">
+            <i className="fa fa-paw fa-4x mt-3 ml-5 color-1" aria-hidden="true"></i>
+            <div className="card-body">
+              <h5 className="card-title text-3 ml-3">Pet Care</h5>
+              <p className="card-text text-4 ml-3">
+                We always care about your pets so we give you the best products
+                for your pets.
+              </p>
+            </div>
+          </div>
+          <div className="card">
+            <i
+              className="fa fa-rocket fa-4x mt-3 ml-5 color-1"
+              aria-hidden="true"
+            ></i>
+            <div className="card-body">
+              <h5 className="card-title text-3 ml-3">Super Fast</h5>
+              <p className="card-text text-4 ml-3">
+                We provide super fast delivery for your pets.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
     </div>
