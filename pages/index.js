@@ -183,7 +183,163 @@ export default function Home() {
         </div>
       </div>
     </div>
+    {/* Vlogs */}
+    <div className="container-fluid">
+      <div className="container">
+        <div className="row mt-5">
+          <div className="col-xl-12">
+            <p className="text-center mb-5 text-7 wow fadeInLeft">Vlogs</p>
+            <div className="span12">
+              <div id="owl-demo">
+                <div className="item">
+                  <div className="card ml-3">
+                    <div className="overflow-h">
+                      <a href="#" className="">
+                        <img
+                          className="card-img-top c-img-effect"
+                          src="images/Celery.jpg"
+                          alt="Card image cap"
+                        />
+                      </a>
+                    </div>
+                    <div className="card-body">
+                      <h5 className="card-title text-5">
+                        Dog Nutrition: Can you feed your dog celery?
+                      </h5>
+                      <p className="card-text text-lg-1 text-md-3">
+                        Unlike cats, which are obligate carnivores, dogs are
+                        omnivores which means they can eat a mix of meats along
+                        with vegetables and fruits....
+                      </p>
+                    </div>
+                  </div>
+                </div>
 
+                <div className="item">
+                  <div className="card ml-3">
+                    <div className="overflow-h">
+                      <a href="#" className="">
+                        <img
+                          className="card-img-top c-img-effect"
+                          src="images/shutterstock_170532896-1024x683.jpg"
+                          alt="Card image cap"
+                        />
+                      </a>
+                    </div>
+                    <div className="card-body">
+                      <h5 className="card-title text-5">
+                        Puppy nutrition - 101 - Overview
+                      </h5>
+                      <p className="card-text text-lg-1 text-md-3">
+                        We love all things dog. In our endeavour to bring
+                        education to pet parents we collaborated with David
+                        Southey. David is an animal nutritionist...
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="item">
+                  <div className="card ml-3">
+                    <div className="overflow-h">
+                      <a href="#" className="">
+                        <img
+                          className="card-img-top c-img-effect"
+                          src="images/ezgif-4-fc82637d1b.jpg"
+                          alt="Card image cap"
+                        />
+                      </a>
+                    </div>
+                    <div className="card-body">
+                      <h5 className="card-title text-5">
+                        Training your puppy to prevent biting
+                      </h5>
+                      <p className="card-text text-lg-1 text-md-3">
+                        We love all things dog. In our endeavour to bring
+                        education to pet parents we collaborated with Roohi
+                        Kulkarni Kale to bring...
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="item">
+                  <div className="card ml-3">
+                    <div className="overflow-h">
+                      <a href="#" className="">
+                        <img
+                          className="card-img-top c-img-effect"
+                          src="images/CPP-100OFF-1024x1024.jpg"
+                          alt="Card image cap"
+                        />
+                      </a>
+                    </div>
+                    <div className="card-body">
+                      <h5 className="card-title text-5">
+                        Be A Responsible Dog Parent
+                      </h5>
+                      <p className="card-text text-lg-1 text-md-3">
+                        We love all things dog. In our endeavour to bring
+                        awareness and education to pet parents, we collaborated
+                        with Shharat Sharma, Ex- Civil Servant...
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="item">
+                  <div className="card ml-3">
+                    <div className="overflow-h">
+                      <a href="#" className="">
+                        <img
+                          className="card-img-top c-img-effect"
+                          src="images/mental-decline-senior-dogs-pet-med-zones-e1493751517883-1024x759.jpg"
+                          alt="Card image cap"
+                        />
+                      </a>
+                    </div>
+                    <div className="card-body">
+                      <h5 className="card-title text-5">
+                        Save Your Dog From Joint Pain, Forever!
+                      </h5>
+                      <p className="card-text text-lg-1 text-md-3">
+                        We love all things dog. In our endeavour to bring
+                        education to pet parents, we collaborated with Canine
+                        Behaviourist, Trainer and, Founder of PawsRUs....
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="item">
+                  <div className="card ml-3">
+                    <div className="overflow-h">
+                      <a href="#" className="">
+                        <img
+                          className="card-img-top c-img-effect"
+                          src="images/Pic-4.jpg"
+                          alt="Card image cap"
+                        />
+                      </a>
+                    </div>
+                    <div className="card-body">
+                      <h5 className="card-title text-5">
+                        Top 8 Questions on Dog Nutrition
+                      </h5>
+                      <p className="card-text text-lg-1 text-md-3">
+                        We love all things dogs. In our endeavor to bring
+                        education to pet parents, we collaborated with Dr. Anish
+                        Pillai, Veterinary Manager at Farmina...
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     </div>
   )

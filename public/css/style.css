@@ -183,6 +183,14 @@ li a:hover {
   font-size: 1rem !important ;
   font-family: "Rubik-SemiBold" !important;
 }
+.text-5 {
+  font-size: 1.5rem !important ;
+  font-family: "Rubik-SemiBold" !important;
+}
+.text-center {
+  font-family: "Rubik-SemiBold" !important;
+  font-size: 3rem !important;
+}
 .btn-outline-lights {
   color: #f8f9fa;
   background-color: transparent;
@@ -209,4 +217,12 @@ li a:hover {
 }
 .color-1 {
   color: pink;
+}
+.c-img-effect:hover {
+  transform: scale(1.1);
+  transition: transform 0.5s ease-in-out;
+}
+footer {
+  background-color: pink;
+  color: #343a40;
 }
