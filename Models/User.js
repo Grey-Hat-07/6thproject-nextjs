@@ -14,9 +14,12 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    date: {
-        type: Date,
-        default: Date.now
+    role: {
+        type: String
+    },
+    license: {
+        type: String,
+        unique: true
     }
 });
 export default mongoose.models.user || mongoose.model("user", UserSchema);

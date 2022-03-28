@@ -10,6 +10,13 @@ body {
   margin-right: auto;
   margin-left: auto;
 }
+.container {
+  width: 100%;
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+  margin-right: auto;
+  margin-left: auto;
+}
 .row {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -163,6 +170,9 @@ li a {
   font-family: "Rubik-SemiBold";
   font-size: 1.2rem;
 }
+.mt-6 {
+  margin-top: 10rem !important;
+}
 li a:hover {
   font-size: 1.3rem !important;
 }
@@ -187,9 +197,34 @@ li a:hover {
   font-size: 1.5rem !important ;
   font-family: "Rubik-SemiBold" !important;
 }
-.text-center {
+.text-6 {
+  font-size: 1.5rem !important ;
   font-family: "Rubik-SemiBold" !important;
-  font-size: 3rem !important;
+  color: #343a40;
+}
+.text-7 {
+  font-size: 3rem !important ;
+  color: #343a40;
+  font-family: "Rubik-SemiBold" !important;
+  text-align: center;
+}
+.text-8 {
+  color: #343a40;
+  text-align: center;
+}
+.text-8:hover {
+  color: #343a40 !important;
+  text-decoration: none;
+  display: block !important;
+}
+.text-9 {
+  color: #343a40 !important;
+  font-size: 1rem;
+  text-align: center;
+}
+.text-icons {
+  font-size: 1.5rem !important;
+  color: #343a40;
 }
 .btn-outline-lights {
   color: #f8f9fa;
@@ -224,5 +259,177 @@ li a:hover {
 }
 footer {
   background-color: pink;
-  color: #343a40;
+}
+
+/* Media Responsives */
+@media (max-width: 1200px) {
+  .text-1 {
+    font-size: 3rem !important;
+    font-family: "Rubik-Bold" !important;
+    text-shadow: 2px 2px 5px black;
+  }
+  .text-2 {
+    font-size: 1.5rem !important;
+    text-shadow: 1px 1px 2px black;
+  }
+  .carousel-caption {
+    position: absolute;
+    right: 15%;
+    bottom: 20px;
+    left: 15%;
+    z-index: 10;
+    /* padding-top: 20px; */
+    padding-bottom: 7rem !important;
+    /* color: #fff; */
+    text-align: center;
+  }
+  .mt-6 {
+    margin-top: 12rem !important;
+  }
+  .pr-xl-6 {
+    padding-right: 3rem !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .pal-6 {
+    padding-left: 20rem !important;
+  }
+  li a {
+    font-family: "Rubik-SemiBold";
+    font-size: 1.1rem !important;
+  }
+  li a:hover {
+    font-size: 1.2rem !important;
+  }
+  .carousel-caption {
+    position: absolute;
+    right: 15%;
+    bottom: 20px;
+    left: 15%;
+    z-index: 10;
+    /* padding-top: 20px; */
+    padding-bottom: 5rem !important;
+    /* color: #fff; */
+    text-align: center;
+  }
+  .text-1 {
+    font-size: 2.2rem !important;
+    font-family: "Rubik-Bold" !important;
+    text-shadow: 1px 1px 3px black;
+  }
+  .text-2 {
+    font-size: 1rem !important;
+    text-shadow: 1px 1px 2px black;
+  }
+  .text-3 {
+    font-size: 2.2rem !important;
+    font-family: "Rubik-Bold" !important;
+  }
+  .text-4 {
+    font-size: 0.8rem !important;
+    font-family: "Rubik-SemiBold" !important;
+  }
+  .text-5 {
+    font-size: 1.2rem !important ;
+    font-family: "Rubik-SemiBold" !important;
+  }
+  .text-7 {
+    font-size: 2.2rem !important ;
+    color: #343a40;
+    font-family: "Rubik-SemiBold" !important;
+    text-align: center;
+  }
+  .text-lg-6 {
+    font-size: 0.8rem !important;
+  }
+  .mt-lg-6 {
+    margin-top: 0 !important;
+  }
+  .mt-lg-7 {
+    margin-top: 3 !important;
+  }
+  .btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.3rem 0.5rem !important;
+    font-size: 0.8rem !important;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+      border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  .pos-lg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .fa-4x {
+    font-size: 3em !important;
+  }
+  .pr-xl-6 {
+    padding-right: 0rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .pal-6 {
+    padding-left: 5rem !important;
+  }
+  .carousel-caption {
+    position: absolute;
+    right: 15%;
+    bottom: 20px;
+    left: 15%;
+    z-index: 10;
+    /* padding-top: 20px; */
+    padding-bottom: 3rem !important;
+    /* color: #fff; */
+    text-align: center;
+  }
+  .text-md-1 {
+    font-size: 0.7rem !important;
+  }
+  .text-md-2 {
+    font-size: 0.8rem !important;
+  }
+  .text-3 {
+    font-size: 2rem !important;
+    font-family: "Rubik-Bold" !important;
+  }
+  .text-5 {
+    font-size: 1rem !important;
+    font-family: "Rubik-SemiBold" !important;
+  }
+  .text-6 {
+    font-size: 1rem !important;
+    font-family: "Rubik-SemiBold" !important;
+    color: #343a40;
+  }
+  .text-8 {
+    color: #343a40;
+    text-align: center;
+    font-size: 1rem !important;
+  }
+  .btn-outline-lights {
+    color: #f8f9fa;
+    background-color: transparent;
+    background-image: none;
+    border-color: #f8f9fa !important;
+    box-shadow: 1px 1px 1px black;
+  }
+  .w-md {
+    width: 70% !important;
+  }
+  .w-md-1 {
+    width: 100px !important;
+  }
 }
