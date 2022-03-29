@@ -1,10 +1,33 @@
 import React from 'react'
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+import baseUrl from '../helpers/baseUrl';
+import { useRouter } from 'next/router';
 export default function Signup() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
+    const [policy, setPolicy] = useState(false);
+    const [role, setRole] = useState('user');
+    const router = useRouter()
+  const handlesubmit = async(e) => {
+    e.preventDefault()
+    const res=await fetch(`${baseUrl}/api/Signup`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ name, email, password, role })
+    })
+    const res2 = await res.json();
+    if(res2.error){
+      alert(res2.error)
+    }
+    else{
+      console.log(res2)
+      router.push('/Login')            
+    }
+  }
   return (
     <div className="container-fluid">
             <div className="container">
@@ -22,6 +45,7 @@ export default function Signup() {
                                     id="exampleInputEmail1"
                                     aria-describedby="emailHelp"
                                     placeholder="Enter name"
+                                    value={name} onChange={(e) => setName(e.target.value)}
                                 />
                             </div>
                             <div className="form-group">
@@ -32,6 +56,7 @@ export default function Signup() {
                                     id="exampleInputEmail1"
                                     aria-describedby="emailHelp"
                                     placeholder="Enter email"
+                                    value={email} onChange={(e) => setEmail(e.target.value)}
                                 />
                             </div>
                             <div className="form-group">
@@ -41,6 +66,7 @@ export default function Signup() {
                                     className="form-control-2"
                                     id="exampleInputPassword1"
                                     placeholder="Password"
+                                    value={password} onChange={(e) => setPassword(e.target.value)}
                                 />
                             </div>
                             <div className="form-check">
@@ -48,13 +74,14 @@ export default function Signup() {
                                     type="checkbox"
                                     className="form-check-input"
                                     id="exampleCheck1"
+                                    value={policy} onChange={(e) => setPolicy(e.target.checked)}
                                 />
                                 <label className="form-check-label" htmlFor="exampleCheck1"
                                 >Accept our policy</label
                                 >
                             </div>
-                            <Link href='/Signup'><a className='text-center'>Already have Account?</a></Link><br/>
-                            <button type="submit" className="btn-2 btn-purple-2 mt-3">
+                            <Link href='/Login'><a className='text-center'>Already have Account?</a></Link><br/>
+                            <button type="submit" className="btn-2 btn-purple-2 mt-3" onClick={handlesubmit}>
                                 Signup
                             </button>
                         </form>

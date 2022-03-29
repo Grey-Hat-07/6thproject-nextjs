@@ -1,12 +1,11 @@
 import initDB from "../../helpers/initDB";
 import User from "../../Models/User";
-import Cart from "../../Models/Cart";
 import bcrypt from "bcryptjs";
 
 initDB();
 export default async (req, res) => {
-    const { name, email, password } = req.body;
-    if (!name || !email || !password) {
+    const { name, email, password, role } = req.body;
+    if (!name || !email || !password || !role) {
         return res.status(400).json({ error: "Please provide all the required fields" });
     }
     const user = await User.findOne({ email });
@@ -19,8 +18,9 @@ export default async (req, res) => {
         name,
         email,
         password: hashedPassword,
+        role
     }).save();
-    const cart = await new Cart({ userId: newUser._id }).save();
+
 
     res.status(200).json(newUser);
 

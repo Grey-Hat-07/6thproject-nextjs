@@ -1,9 +1,33 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
 import Link from 'next/link';
+import baseUrl from '../helpers/baseUrl';
+import { useRouter } from 'next/router';
+import jsCookie from 'js-cookie'
 export default function login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const router = useRouter()
+    const handlesubmit = async(e) => {
+      e.preventDefault()
+      const res = await fetch(`${baseUrl}/api/Login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, password })
+      })
+      const res2 = await res.json()
+      if(res2.error){
+        alert(res2.error)
+      }
+      else{
+        console.log(res2)
+        jsCookie.set('user', res2.user._id)
+        router.push('/')
+      }
+  
+    }
     return (
         <div className="container-fluid">
             <div className="container">
@@ -21,6 +45,7 @@ export default function login() {
                                     id="exampleInputEmail1"
                                     aria-describedby="emailHelp"
                                     placeholder="Enter email"
+                                    value={email} onChange={(e) => setEmail(e.target.value)}
                                 />
                             </div>
                             <div className="form-group">
@@ -30,10 +55,12 @@ export default function login() {
                                     className="form-control-2"
                                     id="exampleInputPassword1"
                                     placeholder="Password"
+                                    value={password} onChange={(e) => setPassword(e.target.value)}
                                 />
                             </div>
                             <Link href='/Signup'><a className='text-center'>Don't have Account?</a></Link><br/>
-                            <button type="submit" className="btn-2 btn-purple-2 mt-3">
+                            <button type="submit" className="btn-2 btn-purple-2 mt-3"
+                                onClick={handlesubmit}>
                                 Log In
                             </button>
                         </form>
