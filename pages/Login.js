@@ -1,6 +1,9 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
+import Link from 'next/link';
 export default function login() {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     return (
         <div className="container-fluid">
             <div className="container">
@@ -10,16 +13,6 @@ export default function login() {
                     </div>
                     <div className="col-xl-12 m-form-1">
                         <form>
-                            <div className="form-group">
-                                <label htmlFor="exampleInputEmail1">Name</label>
-                                <input
-                                    type="Name"
-                                    className="form-control-2"
-                                    id="exampleInputEmail1"
-                                    aria-describedby="emailHelp"
-                                    placeholder="Enter name"
-                                />
-                            </div>
                             <div className="form-group">
                                 <label htmlFor="exampleInputEmail1">Email address</label>
                                 <input
@@ -39,16 +32,7 @@ export default function login() {
                                     placeholder="Password"
                                 />
                             </div>
-                            <div className="form-check">
-                                <input
-                                    type="checkbox"
-                                    className="form-check-input"
-                                    id="exampleCheck1"
-                                />
-                                <label className="form-check-label" htmlFor="exampleCheck1"
-                                >Accept our policy</label
-                                >
-                            </div>
+                            <Link href='/Signup'><a className='text-center'>Don't have Account?</a></Link><br/>
                             <button type="submit" className="btn-2 btn-purple-2 mt-3">
                                 Log In
                             </button>

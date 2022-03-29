@@ -1,0 +1,66 @@
+import React from 'react'
+import Link from 'next/link'
+import { useState, useEffect } from 'react'
+export default function Signup() {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [name, setName] = useState('');
+  return (
+    <div className="container-fluid">
+            <div className="container">
+                <div className="row mbc-1 mtc-1">
+                    <div className="col-xl-12">
+                        <h1 className="texts-1 wow fadeInLeft">Signup</h1>
+                    </div>
+                    <div className="col-xl-12 m-form-1">
+                        <form>
+                        <div className="form-group">
+                                <label htmlFor="exampleInputEmail1">Name</label>
+                                <input
+                                    type="Name"
+                                    className="form-control-2"
+                                    id="exampleInputEmail1"
+                                    aria-describedby="emailHelp"
+                                    placeholder="Enter name"
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="exampleInputEmail1">Email address</label>
+                                <input
+                                    type="email"
+                                    className="form-control-2"
+                                    id="exampleInputEmail1"
+                                    aria-describedby="emailHelp"
+                                    placeholder="Enter email"
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="exampleInputPassword1">Password</label>
+                                <input
+                                    type="password"
+                                    className="form-control-2"
+                                    id="exampleInputPassword1"
+                                    placeholder="Password"
+                                />
+                            </div>
+                            <div className="form-check">
+                                <input
+                                    type="checkbox"
+                                    className="form-check-input"
+                                    id="exampleCheck1"
+                                />
+                                <label className="form-check-label" htmlFor="exampleCheck1"
+                                >Accept our policy</label
+                                >
+                            </div>
+                            <Link href='/Signup'><a className='text-center'>Already have Account?</a></Link><br/>
+                            <button type="submit" className="btn-2 btn-purple-2 mt-3">
+                                Signup
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+  )
+}
