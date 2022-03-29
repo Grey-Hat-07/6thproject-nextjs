@@ -13,8 +13,10 @@ export default function Navbar() {
       <div className="container-fluid bg-pink">
         <div className="container bg-pink">
           <nav className="navbar navbar-expand-lg navbar-light bg-pink">
-            <Link href="/" className="navbar-brand pal-1" >
-            <img src="images/logo.png" width="80" height="80" className="w-sm" alt="logo.png" />
+            <Link href="/" classNameName="navbar-brand pal-1" >
+              <img src="images/logo.png"
+                width="80" height="80"
+                className="w-sm" alt="logo.png" />
             </Link>
             <button
               className="navbar-toggler"
@@ -38,16 +40,28 @@ export default function Navbar() {
                 <li className="nav-item pl-3">
                   <a className="nav-link" href="#">About Us</a>
                 </li>
-                <li className="nav-item pl-3">
-                  <a className="nav-link fs-1" href="#">
+                <li className="nav-item dropdown pl-3">
+                  <a
+                    className="nav-link dropdown-toggle fs-1"
+                    href="#"
+                    id="navbarDropdown"
+                    role="button"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
                     <i className="fa fa-user-circle" aria-hidden="true"></i>
                   </a>
+                  <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a className="dropdown-item" href="login I.html">Customer &<br />Paitient Login</a>
+                    <a className="dropdown-item" href="login II.html">Vet Login</a></div>
                 </li>
               </ul>
             </div>
           </nav>
         </div>
       </div>
+
     </>
   )
 }

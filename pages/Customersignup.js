@@ -8,16 +8,18 @@ export default function Signup() {
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
     const [policy, setPolicy] = useState(false);
-    const [role, setRole] = useState('user');
     const router = useRouter()
   const handlesubmit = async(e) => {
     e.preventDefault()
+    if(policy==false){
+      return alert('Please accept the terms and conditions')
+    }
     const res=await fetch(`${baseUrl}/api/Signup`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ name, email, password, role })
+      body: JSON.stringify({ name, email, password})
     })
     const res2 = await res.json();
     if(res2.error){
@@ -32,8 +34,8 @@ export default function Signup() {
     <div className="container-fluid">
             <div className="container">
                 <div className="row mbc-1 mtc-1">
-                    <div className="col-xl-12">
-                        <h1 className="texts-1 wow fadeInLeft">Signup</h1>
+                <div className="col-xl-12">
+                        <h1 className="texts-1 wow fadeInLeft">Customer & Patient Log In</h1>
                     </div>
                     <div className="col-xl-12 m-form-1">
                         <form>
@@ -80,6 +82,7 @@ export default function Signup() {
                                 >Accept our policy</label
                                 >
                             </div>
+                            <Link href='/Vetsignup'><a className='text-center'>Signup as Vet</a></Link><br/>
                             <Link href='/Login'><a className='text-center'>Already have Account?</a></Link><br/>
                             <button type="submit" className="btn-2 btn-purple-2 mt-3" onClick={handlesubmit}>
                                 Signup

@@ -13,14 +13,6 @@ const UserSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
-    },
-    role: {
-        type: String,
-        required: true
-    },
-    // license: {
-    //     type: String,
-    //     unique: true
-    // }
+    }
 });
 export default mongoose.models.user || mongoose.model("user", UserSchema);
