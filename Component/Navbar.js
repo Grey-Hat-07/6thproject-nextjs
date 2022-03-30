@@ -1,14 +1,27 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import { useEffect,useState } from 'react'
+import { useRouter } from 'next/router'
 export default function Navbar() {
+  const router = useRouter()
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  useEffect(() => {
+    if (router.pathname === '/Login'||router.pathname === '/Customersignup' ||router.pathname === '/Vetsignup') {
+      setIsLoggedIn(false)
+    } else {
+      setIsLoggedIn(true)
+    }
+  }, [router.pathname])
   return (
     <>
       <Head>
         <title>Paw Life</title>
-
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {!isLoggedIn ?
+        <link rel='stylesheet' href='css/style2.css' />:null
+        }
       </Head>
       <div className="container-fluid bg-pink">
         <div className="container bg-pink">
@@ -29,6 +42,7 @@ export default function Navbar() {
             >
               <span className="navbar-toggler-icon"></span>
             </button>
+            { isLoggedIn?
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav pal-6">
                 <li className="nav-item pl-3">
@@ -57,7 +71,7 @@ export default function Navbar() {
                     <a className="dropdown-item" href="login II.html">Vet Login</a></div>
                 </li>
               </ul>
-            </div>
+            </div>:null}
           </nav>
         </div>
       </div>
