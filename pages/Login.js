@@ -7,8 +7,10 @@ import jsCookie from 'js-cookie'
 export default function login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [userType, setUserType] = useState('');
     const router = useRouter()
+    if(jsCookie.get('user')){
+        router.push('/')
+    }
     const handlesubmit = async (e) => {
         e.preventDefault()
         const res = await fetch(`${baseUrl}/api/Login`, {
@@ -23,7 +25,7 @@ export default function login() {
             alert(res2.error)
         }
         else {
-            console.log(res2)
+            // console.log(res2)
             jsCookie.set('user', res2.user._id)
             router.push('/')
         }
@@ -58,28 +60,6 @@ export default function login() {
                                     placeholder="Password"
                                     value={password} onChange={(e) => setPassword(e.target.value)}
                                 />
-                            </div>
-                            <div className="form-check">
-                                <input
-                                    type="radio"
-                                    className="form-check-input"
-                                    id="exampleCheck1"
-                                    value="customer" onChange={(e) => {setUserType(e.target.value); console.log(userType)}}
-                                />
-                                <label className="form-check-label" htmlFor="exampleCheck1"
-                                >customer</label
-                                >
-                            </div>
-                            <div className="form-check">
-                                <input
-                                    type="radio"
-                                    className="form-check-input"
-                                    id="exampleCheck1"
-                                    value="vet" onChange={(e) => {setUserType(e.target.value); console.log(userType)}}
-                                />
-                                <label className="form-check-label" htmlFor="exampleCheck1"
-                                >vet</label
-                                >
                             </div>
                             <Link href='/Customersignup'><a className='text-center'>Don't have Account?</a></Link><br />
                             <button type="submit" className="btn-2 btn-purple-2 mt-3"

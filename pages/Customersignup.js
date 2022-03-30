@@ -3,12 +3,16 @@ import Link from 'next/link'
 import { useState } from 'react'
 import baseUrl from '../helpers/baseUrl';
 import { useRouter } from 'next/router';
+import jsCookie from 'js-cookie';
 export default function Signup() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
     const [policy, setPolicy] = useState(false);
     const router = useRouter()
+    if(jsCookie.get('user')){
+        router.push('/')
+    }
   const handlesubmit = async(e) => {
     e.preventDefault()
     if(policy==false){
