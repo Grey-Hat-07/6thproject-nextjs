@@ -122,73 +122,83 @@ ul {
   margin-inline-end: 0px;
   padding-inline-start: 0px;
 }
-/* Custom CSS */
-.mtc-1 {
-  margin-top: 10rem;
+.bg-pink {
+  background-color: pink !important;
 }
-.mbc-1 {
-  margin-bottom: 10rem;
+.carousel-caption {
+  position: absolute;
+  right: 15%;
+  bottom: 20px;
+  left: 15%;
+  z-index: 10;
+  padding-top: 2rem !important;
+  padding-bottom: 5rem !important;
+  color: #fff;
+  text-align: left !important;
 }
-.form-control-2 {
-  display: block;
-  width: 100%;
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #000000;
+p {
+  margin-top: 0;
+  margin-bottom: 0rem !important;
+}
+.btn-outline-light:hover {
+  box-shadow: 1px 1px 3px black;
+}
+.card {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
   background-color: #fff;
-  background-clip: padding-box;
-  border: 3px solid pink;
-  border-radius: 5rem;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  background-clip: border-box;
+  border: 0px solid rgba(0, 0, 0, 0.125) !important;
+  border-radius: 0.25rem;
 }
-.btn-purple-2 {
-  background-color: pink;
+.page-link {
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  color: #343a40 !important;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
 }
-.btn-2 {
-  display: inline-block;
-  font-weight: 400;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  border: 1px solid transparent;
-  color: white;
-  padding: 0.375rem 2rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  border-radius: 5rem;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+/* Custom css */
+
+.text-s-1 {
+  font-family: "Rubik-Bold" !important;
+  font-size: 2rem;
 }
-.texts-1 {
+.text-s-2 {
+  font-family: "Rubik-Bold" !important;
   font-size: 4rem;
-  font-family: "Rubik-Bold";
 }
-.m-form-1 {
-  margin-left: auto;
-  margin-right: auto;
-  justify-content: center;
-  align-items: center;
+.text-s-3 {
+  font-family: "Rubik-Bold" !important;
+  font-size: 3rem;
+  text-align: center !important;
 }
-/* Media */
-@media (max-width: 992px) {
-  .texts-1 {
-    font-size: 3rem;
-    font-family: "Rubik-Bold";
-  }
+.text-s-4 {
+  font-family: "Rubik-Bold" !important;
+  font-size: 1.5rem !important;
 }
-@media (max-width: 576px) {
-  .texts-1 {
-    font-size: 2.5rem;
-    font-family: "Rubik-Bold";
-  }
+.button-text-1 {
+  color: #fff !important;
 }
-@media (max-width: 360px) {
-  .mts-xs-1 {
-    margin-top: 1rem !important;
-  }
+.button-text-1:hover {
+  color: #343a40 !important;
+  text-decoration: none !important;
+}
+.button-text-2 {
+  color: #343a40;
+}
+.button-text-2:hover {
+  color: white !important;
+  text-decoration: none !important;
 }

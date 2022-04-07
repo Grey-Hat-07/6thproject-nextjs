@@ -10,6 +10,8 @@ export default class MyDocument extends Document {
                     <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
                     <link rel="stylesheet" type="text/css" href="css/owl.carousel.css" />
                     <link rel="stylesheet" type="text/css" href="css/owl.theme.css" />
+                    <link rel="stylesheet" type="text/css" href="css/style3.css" />
+                    <link rel="stylesheet" type="text/css" href="css/style4.css" />
 
                 </Head>
                 <body>
@@ -20,7 +22,7 @@ export default class MyDocument extends Document {
                     <script src="js/popper.min.js" type="text/javascript"></script>
                     <script src="js/popper.min.js" type="text/javascript"></script>
                     <script src="js/wow.js"type="text/javascript"></script>
-                    <script src="js/wow.min.js" type="text/javascript"></script>
+                    {/* <script src="js/wow.min.js" type="text/javascript"></script> */}
                     <script>
                         new WOW().init();
                     </script>
