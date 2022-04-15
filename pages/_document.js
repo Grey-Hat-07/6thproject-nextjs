@@ -10,8 +10,7 @@ export default class MyDocument extends Document {
                     <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
                     <link rel="stylesheet" type="text/css" href="css/owl.carousel.css" />
                     <link rel="stylesheet" type="text/css" href="css/owl.theme.css" />
-                    <link rel="stylesheet" type="text/css" href="css/style3.css" />
-                    <link rel="stylesheet" type="text/css" href="css/style4.css" />
+                    
 
                 </Head>
                 <body>

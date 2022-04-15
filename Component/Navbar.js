@@ -45,8 +45,8 @@ export default function Navbar() {
             { isLoggedIn?
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav pal-6">
-                <li className="nav-item pl-3">
-                  <span className="nav-link"><a href="/Store">Store</a></span>
+              <li className="nav-item pl-3">
+                  <a className="nav-link" href="/Store">Store</a>
                 </li>
                 <li className="nav-item pl-3">
                   <a className="nav-link" href="#">Consult</a>
@@ -67,8 +67,8 @@ export default function Navbar() {
                     <i className="fa fa-user-circle" aria-hidden="true"></i>
                   </a>
                   <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a className="dropdown-item" href="login I.html">Customer &<br />Paitient Login</a>
-                    <a className="dropdown-item" href="login II.html">Vet Login</a></div>
+                    {/* <a className="dropdown-item" href="login I.html">Customer &<br />Paitient Login</a> */}
+                    <button className='btn btn-danger m-2'>logout</button></div>
                 </li>
               </ul>
             </div>:null}
