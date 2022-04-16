@@ -1,6 +1,27 @@
 import React from 'react'
+import { useState, useEffect } from 'react'
+import baseUrl from '../helpers/baseUrl';
 import Head from 'next/head'
-export default function Foodstore() {
+export default function Foodstore(props) {
+  //const [products, setProducts] = useState([]);
+  const listing = props.products.map((product, index) => {
+    return (<div key= {product._id}>
+      <div className="row mt-5">
+          <div className="col-xl-12"></div>
+      <div className="card" >
+        <img className="card-img-top" src={product.image} alt="Card image cap" />
+        <div className="card-body text-center">
+          <h5 className="card-title text-s-4">{product.name}</h5>
+          <p className="card-text">Price: $ {product.price}</p>
+        </div>
+      </div>
+      </div>
+    </div>
+    )
+  });
+
+
+
   return (
     <div>
       <Head>
@@ -39,124 +60,46 @@ export default function Foodstore() {
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="container">
         <div className="row mt-5">
           <div className="col-xl-12">
-            <div className="card-deck">
+            <div className="card-deck mt-5">
               <div className="card">
-                <img className="card-img-top" src="images/PngItem_826017.png" alt="Card image cap" />
+                <img className="card-img-top" src="images/PngItem_1397101.png" alt="Card image cap" />
                 <div className="card-body text-center">
-                  <h5 className="card-title text-s-4">Castor&Pollux Organic Chicken</h5>
+                  <h5 className="card-title text-s-4">Bella Grilled Chicken</h5>
                   <p className="card-text">Price: $ 10</p>
                 </div>
               </div>
               <div className="card">
-                <img className="card-img-top" src="images/PngItem_2469302.png" alt="Card image cap" />
+                <img className="card-img-top" src="images/PngItem_1563693.png" alt="Card image cap" />
                 <div className="card-body text-center">
-                  <h5 className="card-title text-s-4">Boreal Chicken formula</h5>
+                  <h5 className="card-title text-s-4">K95 Beef and Duck meat</h5>
                   <p className="card-text">Price: $ 10</p>
                 </div>
               </div>
               <div className="card">
-                <img className="card-img-top" src="images/PngItem_3327325.png" alt="Card image cap" />
+                <img className="card-img-top" src="images/PngItem_2331886.png" alt="Card image cap" />
                 <div className="card-body text-center">
-                  <h5 className="card-title text-s-4">FirstMate Turkey formula</h5>
+                  <h5 className="card-title text-s-4">Pedigree ground beef</h5>
                   <p className="card-text">Price: $ 10</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div className="container">
-        <div className="row mt-5">
-          <div className="col-xl-12">
-            <div className="card-deck">
-              <div className="card">
-                <img className="card-img-top" src="images/PngItem_826017.png" alt="Card image cap" />
-                <div className="card-body text-center">
-                  <h5 className="card-title text-s-4">Castor&Pollux Organic Chicken</h5>
-                  <p className="card-text">Price: $ 10</p>
-                </div>
-              </div>
-              <div className="card">
-                <img className="card-img-top" src="images/PngItem_2469302.png" alt="Card image cap" />
-                <div className="card-body text-center">
-                  <h5 className="card-title text-s-4">Boreal Chicken formula</h5>
-                  <p className="card-text">Price: $ 10</p>
-                </div>
-              </div>
-              <div className="card">
-                <img className="card-img-top" src="images/PngItem_3327325.png" alt="Card image cap" />
-                <div className="card-body text-center">
-                  <h5 className="card-title text-s-4">FirstMate Turkey formula</h5>
-                  <p className="card-text">Price: $ 10</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="container">
-        <div className="row mt-5">
-          <div className="col-xl-12">
-            <div className="card-deck">
-              <div className="card">
-                <img className="card-img-top" src="images/PngItem_826017.png" alt="Card image cap" />
-                <div className="card-body text-center">
-                  <h5 className="card-title text-s-4">Castor&Pollux Organic Chicken</h5>
-                  <p className="card-text">Price: $ 10</p>
-                </div>
-              </div>
-              <div className="card">
-                <img className="card-img-top" src="images/PngItem_2469302.png" alt="Card image cap" />
-                <div className="card-body text-center">
-                  <h5 className="card-title text-s-4">Boreal Chicken formula</h5>
-                  <p className="card-text">Price: $ 10</p>
-                </div>
-              </div>
-              <div className="card">
-                <img className="card-img-top" src="images/PngItem_3327325.png" alt="Card image cap" />
-                <div className="card-body text-center">
-                  <h5 className="card-title text-s-4">FirstMate Turkey formula</h5>
-                  <p className="card-text">Price: $ 10</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="container">
-        <div className="row mt-5">
-          <div className="col-xl-12">
-            <div className="card-deck">
-              <div className="card">
-                <img className="card-img-top" src="images/PngItem_826017.png" alt="Card image cap" />
-                <div className="card-body text-center">
-                  <h5 className="card-title text-s-4">Castor&Pollux Organic Chicken</h5>
-                  <p className="card-text">Price: $ 10</p>
-                </div>
-              </div>
-              <div className="card">
-                <img className="card-img-top" src="images/PngItem_2469302.png" alt="Card image cap" />
-                <div className="card-body text-center">
-                  <h5 className="card-title text-s-4">Boreal Chicken formula</h5>
-                  <p className="card-text">Price: $ 10</p>
-                </div>
-              </div>
-              <div className="card">
-                <img className="card-img-top" src="images/PngItem_3327325.png" alt="Card image cap" />
-                <div className="card-body text-center">
-                  <h5 className="card-title text-s-4">FirstMate Turkey formula</h5>
-                  <p className="card-text">Price: $ 10</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        {listing}
       </div>
     </div>
   )
+}
+export async function getStaticProps(context) {
+  const res = await fetch(`${baseUrl}/api/Product`, {
+    method: 'GET'
+  })
+  const data = await res.json()
+  return {
+    props: {
+      products: data
+    }
+  }
 }

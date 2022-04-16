@@ -2,8 +2,11 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { useEffect,useState } from 'react'
 import { useRouter } from 'next/router'
+import jsCookie from 'js-cookie';
+import { parseCookies } from 'nookies';
 export default function Navbar() {
-  const router = useRouter()
+  const router = useRouter();
+  const { vet } = parseCookies();
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   useEffect(() => {
     if (router.pathname === '/Login'||router.pathname === '/Customersignup' ||router.pathname === '/Vetsignup') {
@@ -68,7 +71,10 @@ export default function Navbar() {
                   </a>
                   <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                     {/* <a className="dropdown-item" href="login I.html">Customer &<br />Paitient Login</a> */}
-                    <button className='btn btn-danger m-2'>logout</button></div>
+                    <button className='btn btn-danger m-2'onClick={
+                      () => { jsCookie.remove('user'); if(vet){jsCookie.remove('vet')}
+                         router.push('/Login'); }
+                    }>logout</button></div>
                 </li>
               </ul>
             </div>:null}

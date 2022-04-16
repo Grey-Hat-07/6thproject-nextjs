@@ -1,5 +1,6 @@
 import Product from "../../Models/Product";
-
+import initDB from '../../helpers/initDB';
+initDB();
 export default async(req, res)=> {
     switch(req.method){
     case 'GET': await getproduct(req,res);
@@ -21,9 +22,14 @@ const getproduct= async (req,res) => {
 }
 const postproduct= async (req,res) => {
     const {name,price,category,image}=req.body;
-    if(!name || !price || !description || !image){
+    if(!name || !price || !category){
         res.status(400).json({error:"Please provide all the required fields"});
     }
     const product =await new Product({name,price,category,image}).save();
+    if(product){
     res.status(200).json(product);
+    }
+    else{
+        res.status(500).json({error:"Something went wrong"});
+    }
 }

@@ -14,7 +14,7 @@ export default function Store() {
             <div className="carousel-caption d-none d-md-block">
               <p className="text-s-1 wow fadeInLeftBig">Feed your dog</p>
               <h1 className="text-s-2 wow fadeInRightBig">A bowl of goodness</h1>
-              <button type="button" className="btn btn-outline-light"><a href="#" className="button-text-1">Explore Range</a></button>
+              <button type="button" className="btn btn-outline-light"><a href="/Foodstore" className="button-text-1">Explore Range</a></button>
             </div>
           </div>
         </div>
