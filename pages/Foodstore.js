@@ -52,7 +52,7 @@ export default function Foodstore(props) {
           searchResult.length > 0 ?
             searchResult.map((product, index) => {
               if (product.category === "Foods") {
-                return < Card product={product} ey={product._id} />
+                return < Card product={product} key={product._id} />
               }
             }) :
             <h1>No Result Found</h1>
