@@ -85,7 +85,7 @@ export default function Productform() {
                     <img src={
                         imageurl ? URL.createObjectURL(imageurl) : ''
                     } className="rounded float-end" alt='Image preview' style={{width:'100px',height:'100px'}} />
-                    <button className='btn' onClick={imageUpload}>Verify image</button>
+                    {!image?<button className='btn' onClick={imageUpload}>Verify image</button>:<button className='btn' disabled>Verify image</button>}
                     </>}
             </form>
 
