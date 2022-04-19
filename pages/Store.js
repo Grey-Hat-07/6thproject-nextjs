@@ -143,7 +143,7 @@ export default function Store() {
             </div>
             <div className="text-center">
               <button type="button" className="btn btn-outline-dark btn-lg">
-                <a href="/Foodstore" className="button-text-2">
+                <a href="/Accessories" className="button-text-2">
                   Explore More
                 </a>
               </button>

@@ -5,7 +5,7 @@ import Head from 'next/head'
 export default function Foodstore(props) {
   //const [products, setProducts] = useState([]);
   const listing = props.products.map((product, index) => {
-    if (product.category === 'Foods') {
+    if (product.category === 'Accessories') {
     return (<div key= {product._id}>
       <div className="row mt-5">
           <div className="col-xl-12"></div>
