@@ -4,10 +4,13 @@ import { parseCookies } from "nookies"
 
 export default function Home() {
   const router = useRouter()
-  const { user } = parseCookies();
+  const { user, role } = parseCookies();
   useEffect(() => {
     if (!user) {
       router.push("/Login")
+    }
+    if(role){
+        router.push('/Dashboard')
     }
 
   }, [])

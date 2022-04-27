@@ -1,6 +1,12 @@
 import React from 'react'
-
+import { useRouter } from 'next/router'
+import { parseCookies } from 'nookies'
 export default function Footer() {
+    const {role} = parseCookies();
+    if(role){
+      return (
+        <></>);
+    }
     return (
       <footer>
       <div className="container-fluid">

@@ -9,7 +9,7 @@ export default function Navbar() {
   const { vet } = parseCookies();
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   useEffect(() => {
-    if (router.pathname === '/Login'||router.pathname === '/Customersignup' ||router.pathname === '/Vetsignup') {
+    if (router.pathname === '/Login'||router.pathname === '/Customersignup' ||router.pathname === '/Vetsignup'||router.pathname === '/adminsign') {
       setIsLoggedIn(false)
     } else {
       setIsLoggedIn(true)
@@ -29,7 +29,7 @@ export default function Navbar() {
       <div className="container-fluid bg-pink">
         <div className="container bg-pink">
           <nav className="navbar navbar-expand-lg navbar-light bg-pink">
-            <a href="/" classNameName="navbar-brand pal-1" >
+            <a href="/" className="navbar-brand pal-1" >
               <img src="images/logo.png"
                 width="80" height="80"
                 className="w-sm" alt="logo.png" />

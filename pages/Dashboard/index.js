@@ -52,7 +52,7 @@ export default function index() {
                 <header>
                     <h2>
                         <div id="clicking">
-                            <label for="nav-toggle">
+                            <label htmlFor="nav-toggle">
                                 <span className="las la-bars"></span>
                             </label>
                         </div>
@@ -154,8 +154,8 @@ export default function index() {
                                             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
                                                 <defs>
                                                     <linearGradient>
-                                                        <stop offset="0%" stop-color="#e91e63" />
-                                                        <stop offset="100%" stop-color="#673ab7" />
+                                                        <stop offset="0%" stopColor="#e91e63" />
+                                                        <stop offset="100%" stopColor="#673ab7" />
                                                     </linearGradient>
                                                 </defs>
                                                 <circle cx="80" cy="80" r="70" stroke-linecap="round" />
