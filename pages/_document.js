@@ -21,6 +21,7 @@ export default class MyDocument extends Document {
                     <script src="js/popper.min.js" type="text/javascript"></script>
                     <script src="js/popper.min.js" type="text/javascript"></script>
                     <script src="js/wow.js"type="text/javascript"></script>
+
                     {/* <script src="js/wow.min.js" type="text/javascript"></script> */}
                     <script>
                         new WOW().init();
