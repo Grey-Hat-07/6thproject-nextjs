@@ -158,7 +158,7 @@ export default function index() {
                                                         <stop offset="100%" stopColor="#673ab7" />
                                                     </linearGradient>
                                                 </defs>
-                                                <circle cx="80" cy="80" r="70" stroke-linecap="round" />
+                                                <circle cx="80" cy="80" r="70" strokeLinecap="round" />
                                             </svg>
                                         </div>
                                     </div>

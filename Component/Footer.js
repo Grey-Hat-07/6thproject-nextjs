@@ -1,14 +1,26 @@
 import React from 'react'
 import { useRouter } from 'next/router'
+import {useState, useEffect} from 'react'
 import { parseCookies } from 'nookies'
 export default function Footer() {
+    const [isdashboard, setIsdashboard] = useState(false);
+    const router = useRouter();
     const {role} = parseCookies();
     if(role){
       return (
         <></>);
     }
+    useEffect(() => {
+      if(router.pathname === '/Dashboard'){
+        setIsdashboard(true)
+      }
+      else{
+        setIsdashboard(false)
+      }
+    }, [router.pathname])
     return (
       <footer>
+        {!isdashboard&&
       <div className="container-fluid">
         <div className="row mt-5 ml-5 mr-5">
           <div
@@ -80,7 +92,7 @@ export default function Footer() {
             >
           </div>
         </div>
-      </div>
+      </div>}
       <div className="container-fluid bg-violet">
         <div className="row">
           <div className="col-xl-12">

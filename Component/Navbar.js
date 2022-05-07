@@ -7,6 +7,7 @@ import { parseCookies } from 'nookies';
 export default function Navbar() {
   const router = useRouter();
   const { vet } = parseCookies();
+  const [isdashboard, setIsdashboard] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   useEffect(() => {
     if (router.pathname === '/Login'||router.pathname === '/Customersignup' ||router.pathname === '/Vetsignup'||router.pathname === '/adminsign') {
@@ -14,7 +15,14 @@ export default function Navbar() {
     } else {
       setIsLoggedIn(true)
     }
+    if(router.pathname === '/Dashboard'){
+      setIsdashboard(true)
+    }
+    else{
+      setIsdashboard(false)
+    }
   }, [router.pathname])
+
   return (
     <>
       <Head>
@@ -26,6 +34,7 @@ export default function Navbar() {
         <link rel='stylesheet' href='css/style2.css' />:null
         }
       </Head>
+      {!isdashboard&&
       <div className="container-fluid bg-pink">
         <div className="container bg-pink">
           <nav className="navbar navbar-expand-lg navbar-light bg-pink">
@@ -80,7 +89,7 @@ export default function Navbar() {
             </div>:null}
           </nav>
         </div>
-      </div>
+      </div>}
 
     </>
   )
