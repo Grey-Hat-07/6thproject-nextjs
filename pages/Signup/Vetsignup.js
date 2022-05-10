@@ -1,12 +1,14 @@
 import React from 'react'
+import Link from 'next/link'
 import { useState } from 'react'
-import baseUrl from '../helpers/baseUrl';
+import baseUrl from '../../helpers/baseUrl';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 export default function Signup() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
-    const [role, setrole] = useState('');
+    const [Vet_id, setVet_id] = useState('');
     const [policy, setPolicy] = useState(false);
     const router = useRouter()
   const handlesubmit = async(e) => {
@@ -14,12 +16,12 @@ export default function Signup() {
     if(policy==false){
       return alert('Please accept the terms and conditions')
     }
-    const res=await fetch(`${baseUrl}/api/Adminsign`, {
+    const res=await fetch(`${baseUrl}/api/Vetsign`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ name, email, password, role})
+      body: JSON.stringify({ name, email, password, Vet_id})
     })
     const res2 = await res.json();
     if(res2.error){
@@ -32,10 +34,28 @@ export default function Signup() {
   }
   return (
     <div className="container-fluid">
+      <Head>
+                <link href="css/style.css" rel="stylesheet" type="text/css" />
+                <link href="css/style2.css" rel="stylesheet" type="text/css" />
+                <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+                <link href="css/animate.css" rel="stylesheet" type="text/css" />
+                <link href="css/font-awesome.css" rel="stylesheet" type="text/css" />
+                <link href="css/owl.carousel.css" rel="stylesheet" type="text/css" />
+                <link href="css/owl.theme.css" rel="stylesheet" type="text/css" />
+                <script src="js/jQuery.js" type="text/javascript"></script>
+                <script src="js/custom.js" type="text/javascript"></script>
+                <script src="js/popper.min.js" type="text/javascript"></script>
+                <script src="js/bootstrap.js" type="text/javascript"></script>
+                <script src="js/wow.js" type="text/javascript"></script>
+                <script>
+                    new WOW().init();
+                </script>
+                <script src="js/owl.carousel.js" type="text/javascript"></script>
+            </Head>
       <div className="container">
         <div className="row mbc-1 mtc-1">
           <div className="col-xl-12">
-            <h1 className="texts-1 wow fadeInLeft">Admin Signup</h1>
+            <h1 className="texts-1 wow fadeInLeft">Vet Log In</h1>
           </div>
           <div className="col-xl-12 m-form-1">
             <form>
@@ -62,14 +82,14 @@ export default function Signup() {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="exampleInputEmail1">Role</label>
+                <label htmlFor="exampleInputEmail1">Vet Id No.</label>
                 <input
-                  type="text"
+                  type="number"
                   className="form-control-2"
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
-                  placeholder="Enter Role"
-                    value={role} onChange={(e) => setrole(e.target.value)}
+                  placeholder="Enter Vet Id No."
+                    value={Vet_id} onChange={(e) => setVet_id(e.target.value)}
                 />
               </div>
               <div className="form-group">
@@ -93,6 +113,7 @@ export default function Signup() {
                   >Accept our policy</label
                 >
               </div>
+              <Link href='/Signup/Customersignup'><a className='text-center'>Signup as customer</a></Link><br/>
               <button type="submit" className="btn-2 btn-purple-2 mt-3" onClick={handlesubmit}>
                 Sign up
               </button>

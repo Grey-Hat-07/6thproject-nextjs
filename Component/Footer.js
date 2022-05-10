@@ -93,13 +93,14 @@ export default function Footer() {
           </div>
         </div>
       </div>}
+      {!isdashboard&&
       <div className="container-fluid bg-violet">
         <div className="row">
           <div className="col-xl-12">
             <p className="text-9">@PawLife , Some rights reserved</p>
           </div>
         </div>
-      </div>
+      </div>}
     </footer>
     )
 }

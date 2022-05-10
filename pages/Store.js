@@ -4,12 +4,27 @@ import { Card } from '../Component/Card'
 import baseUrl from '../helpers/baseUrl'
 export default function Store(props) {
   const list = 6;
-  var totalfood = 0,totalaccess=0;
+  var totalfood = 0, totalaccess = 0;
   return (
     <div>
       <Head>
-        <link rel="stylesheet" type="text/css" href="css/style3.css" />
-        <link rel="stylesheet" type="text/css" href="css/style4.css" />
+        <link href="css/style3.css" type="text/css" rel="stylesheet" />
+        <link href="css/style.css" type="text/css" rel="stylesheet" />
+        <link href="css/bootstrap.css" type="text/css" rel="stylesheet" />
+        <link href="css/animate.css" type="text/css" rel="stylesheet" />
+        <link href="css/font-awesome.css" type="text/css" rel="stylesheet" />
+        <link href="css/owl.carousel.css" type="text/css" rel="stylesheet" />
+        <link href="css/owl.theme.css" type="text/css" rel="stylesheet" />
+        <script src="js/jQuery.js" type="text/javascript"></script>
+        <script src="js/script.js" type="text/javascript"></script>
+        <script src="js/bootstrap.js" type="text/javascript"></script>
+        <script src="js/owl.carousel.js" type="text/javascript"></script>
+        <script src="js/popper.min.js" type="text/javascript"></script>
+        <script src="js/popper.min.js" type="text/javascript"></script>
+        <script src="js/wow.js"></script>
+        <script>
+          new WOW().init();
+        </script>
       </Head>
       <div className="container-fluid">
         <div className="row">

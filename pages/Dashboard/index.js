@@ -3,7 +3,10 @@ import Head from 'next/head'
 export default function index() {
     return (
         <div>
+            <script src="js/jQuery.js" type="text/javascript"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.js" type="text/javascript"></script>
             <script src="js/admin.js" type="text/javascript"></script>
+
             <Head>
                 <link rel="stylesheet" href="css/dashboard-cus.css" type="text/css" />
                 <link rel="stylesheet" href="css/line-awesome.css" type="text/css" />
@@ -11,43 +14,34 @@ export default function index() {
             <input type="checkbox" id="nav-toggle" />
             <div className="sidebar">
                 <div className="sidebar-brand">
-                    <a href="index.html">
-                        <img src="images/logowhite.png" className="logo" alt="logo.png" />
+                    <a href="/Dashboard">
+                        <img src="images/logowhite.png" className="logo logo-xl" alt="logo.png" />
                     </a>
                 </div>
 
                 <div className="sidebar-menu">
                     <ul>
                         <li>
-                            <a href="#" className="pt-1"
-                            ><span className="las la-igloo"></span> <span>Dashboard</span></a
+                            <a href="dashboard-cus.html" className="pt-1"
+                            ><span className="las la-igloo"></span> <span className="disp-md-none">Dashboard</span></a
                             >
+                        </li>
+                        <li>
+                            <a href="productup.html"
+                            ><span className="las la-clipboard-list"></span> <span className="disp-md-none">Items</span></a>
                         </li>
                         <li>
                             <a href="#"
-                            ><span className="las la-clipboard-list"></span> <span>Items</span></a>
-                        </li>
-                        <li>
-                            <a href="#"
-                            ><span className="las la-shopping-bag"></span>
-                                <span>Inventory</span></a
-                            >
-                        </li>
-
-                        <li>
-                            <a href="#"
-                            ><span className="las la-user-circle"></span> <span>Accounts</span></a
+                            ><span className="las la-user-circle"></span> <span className="disp-md-none">Accounts</span></a
                             >
                         </li>
                         <li>
-                            <a href="#" className="pt-2"
-                            ><span className="las la-sign-out-alt"></span> <span>Logout</span></a
-                            >
+                            <a href="#" className="pt-2 pt-md-2"
+                            ><span className="las la-sign-out-alt"></span> <span className="disp-md-none">Logout</span></a>
                         </li>
                     </ul>
                 </div>
             </div>
-
             <div className="main-content">
                 <header>
                     <h2>
@@ -56,7 +50,6 @@ export default function index() {
                                 <span className="las la-bars"></span>
                             </label>
                         </div>
-                        Dashboard
                     </h2>
                     <div className="search-wrapper">
                         <span className="las la-search"></span>
@@ -126,7 +119,7 @@ export default function index() {
                                 <div className="card-header">
                                     <h3>Add items</h3>
                                     <button>
-                                        <a href="#" className="text-1">
+                                        <a href="productup.html" className="text-1">
                                             Click here <span className="las la-arrow-right"></span>
                                         </a>
                                     </button>
@@ -135,32 +128,73 @@ export default function index() {
                             <div className="pt-1">
                                 <div className="card">
                                     <div className="card-header">
-                                        <h3>Affiliate progress</h3>
+                                        <h3>Business progress</h3>
                                         <button><a href="#" className="text-1">
                                             Know more <span className="las la-arrow-right"></span>
                                         </a>
                                         </button>
                                     </div>
                                     <div className="card-body">
-                                        <div className="progress">
-                                            <div className="outer">
-                                                <div className="inner">
-                                                    <div id="number">
-
+                                        <div className="disp-flex disp-xl-grid disp-md-flex disp-xs-grid">
+                                            <div className="pl-2 pl-xl-1 pl-sm-1 pl-xs-1">
+                                                <div className="progress">
+                                                    <div className="outer">
+                                                        <div className="inner">
+                                                            <div id="number-1">
+                                                            65%
+                                                            </div>
+                                                        </div>
                                                     </div>
+
+                                                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+                                                        <defs>
+                                                            <linearGradient>
+                                                                <stop offset="0%" stopColor="#e91e63" />
+                                                                <stop offset="100%" stopColor="#673ab7" />
+                                                            </linearGradient>
+                                                        </defs>
+                                                        <circle cx="80" cy="80" r="70" strokeLinecap="round" />
+                                                    </svg>
                                                 </div>
                                             </div>
 
-                                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
-                                                <defs>
-                                                    <linearGradient>
-                                                        <stop offset="0%" stopColor="#e91e63" />
-                                                        <stop offset="100%" stopColor="#673ab7" />
-                                                    </linearGradient>
-                                                </defs>
-                                                <circle cx="80" cy="80" r="70" strokeLinecap="round" />
-                                            </svg>
+                                            <div className="pl-1 pl-xl-1 pt-xl-1 pt-md-1 pl-xs-1 pt-xs-1">
+                                                <div className="progress">
+                                                    <div className="outer">
+                                                        <div className="inner">
+                                                            <div id="number-2">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                                                        <defs>
+                                                            <linearGradient>
+                                                                <stop offset="0%" stopColor="#e91e63" />
+                                                                <stop offset="100%" stopColor="#673ab7" />
+                                                            </linearGradient>
+                                                        </defs>
+                                                        <circle className="color-1" cx="80" cy="80" r="70" strokeLinecap="round" />
+                                                    </svg>
+                                                </div>
+                                            </div>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="pt-1">
+                                <div className="card">
+                                    <div className="card-header">
+                                        <h3>Monthly Sales</h3>
+                                        <button>
+                                            <a href="#" className="text-1">
+                                                Show more <span className="las la-arrow-right"></span>
+                                            </a>
+                                        </button>
+                                    </div>
+                                    <div className="card-body">
+                                        <canvas id="myChart" width="400" height="200"></canvas>
                                     </div>
                                 </div>
                             </div>
@@ -262,147 +296,10 @@ export default function index() {
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        {/* <!-- <div className="customers">
-            <div className="card">
-              <div className="card-header">
-                <h3>New customer</h3>
-                <button>
-                  See all <span className="las la-arrow-right"></span>
-                </button>
-              </div>
-              <div className="card-body">
-                <div className="customer">
-                  <div className="info">
-                    <img
-                      src="images/FallenCap.jpg"
-                      width="40px"
-                      height="40px"
-                      alt="img.jpg"
-                    />
-                    <div>
-                      <h4>FallenCap</h4>
-                      <small>CEO Excerpt</small>
-                    </div>
-                  </div>
-                  <div className="contact">
-                    <span className="las la-user-circle"></span>
-                    <span className="las la-comment"></span>
-                    <span className="las la-phone"></span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="card-body">
-                <div className="customer">
-                  <div className="info">
-                    <img
-                      src="images/FallenCap.jpg"
-                      width="40px"
-                      height="40px"
-                      alt="img.jpg"
-                    />
-                    <div>
-                      <h4>FallenCap</h4>
-                      <small>CEO Excerpt</small>
-                    </div>
-                  </div>
-                  <div className="contact">
-                    <span className="las la-user-circle"></span>
-                    <span className="las la-comment"></span>
-                    <span className="las la-phone"></span>
-                  </div>
-                </div>
-              </div>
-              <div className="card-body">
-                <div className="customer">
-                  <div className="info">
-                    <img
-                      src="images/FallenCap.jpg"
-                      width="40px"
-                      height="40px"
-                      alt="img.jpg"
-                    />
-                    <div>
-                      <h4>FallenCap</h4>
-                      <small>CEO Excerpt</small>
-                    </div>
-                  </div>
-                  <div className="contact">
-                    <span className="las la-user-circle"></span>
-                    <span className="las la-comment"></span>
-                    <span className="las la-phone"></span>
-                  </div>
-                </div>
-              </div>
-              <div className="card-body">
-                <div className="customer">
-                  <div className="info">
-                    <img
-                      src="images/FallenCap.jpg"
-                      width="40px"
-                      height="40px"
-                      alt="img.jpg"
-                    />
-                    <div>
-                      <h4>FallenCap</h4>
-                      <small>CEO Excerpt</small>
-                    </div>
-                  </div>
-                  <div className="contact">
-                    <span className="las la-user-circle"></span>
-                    <span className="las la-comment"></span>
-                    <span className="las la-phone"></span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="card-body">
-                <div className="customer">
-                  <div className="info">
-                    <img
-                      src="images/FallenCap.jpg"
-                      width="40px"
-                      height="40px"
-                      alt="img.jpg"
-                    />
-                    <div>
-                      <h4>FallenCap</h4>
-                      <small>CEO Excerpt</small>
-                    </div>
-                  </div>
-                  <div className="contact">
-                    <span className="las la-user-circle"></span>
-                    <span className="las la-comment"></span>
-                    <span className="las la-phone"></span>
-                  </div>
-                </div>
-              </div>
-              <div className="card-body">
-                <div className="customer">
-                  <div className="info">
-                    <img
-                      src="images/FallenCap.jpg"
-                      width="40px"
-                      height="40px"
-                      alt="img.jpg"
-                    />
-                    <div>
-                      <h4>FallenCap</h4>
-                      <small>CEO Excerpt</small>
-                    </div>
-                  </div>
-                  <div className="contact">
-                    <span className="las la-user-circle"></span>
-                    <span className="las la-comment"></span>
-                    <span className="las la-phone"></span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> -->*/}
-                    </div>
+                        </div></div>
                 </main>
+
+
             </div>
         </div>
     )

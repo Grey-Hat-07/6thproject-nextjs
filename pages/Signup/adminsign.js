@@ -1,13 +1,12 @@
 import React from 'react'
-import Link from 'next/link'
 import { useState } from 'react'
-import baseUrl from '../helpers/baseUrl';
+import baseUrl from '../../helpers/baseUrl';
 import { useRouter } from 'next/router';
 export default function Signup() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
-    const [Vet_id, setVet_id] = useState('');
+    const [role, setrole] = useState('');
     const [policy, setPolicy] = useState(false);
     const router = useRouter()
   const handlesubmit = async(e) => {
@@ -15,12 +14,12 @@ export default function Signup() {
     if(policy==false){
       return alert('Please accept the terms and conditions')
     }
-    const res=await fetch(`${baseUrl}/api/Vetsign`, {
+    const res=await fetch(`${baseUrl}/api/Adminsign`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ name, email, password, Vet_id})
+      body: JSON.stringify({ name, email, password, role})
     })
     const res2 = await res.json();
     if(res2.error){
@@ -36,7 +35,7 @@ export default function Signup() {
       <div className="container">
         <div className="row mbc-1 mtc-1">
           <div className="col-xl-12">
-            <h1 className="texts-1 wow fadeInLeft">Vet Log In</h1>
+            <h1 className="texts-1 wow fadeInLeft">Admin Signup</h1>
           </div>
           <div className="col-xl-12 m-form-1">
             <form>
@@ -63,14 +62,14 @@ export default function Signup() {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="exampleInputEmail1">Vet Id No.</label>
+                <label htmlFor="exampleInputEmail1">Role</label>
                 <input
-                  type="number"
+                  type="text"
                   className="form-control-2"
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
-                  placeholder="Enter Vet Id No."
-                    value={Vet_id} onChange={(e) => setVet_id(e.target.value)}
+                  placeholder="Enter Role"
+                    value={role} onChange={(e) => setrole(e.target.value)}
                 />
               </div>
               <div className="form-group">
@@ -94,7 +93,6 @@ export default function Signup() {
                   >Accept our policy</label
                 >
               </div>
-              <Link href='/Customersignup'><a className='text-center'>Signup as customer</a></Link><br/>
               <button type="submit" className="btn-2 btn-purple-2 mt-3" onClick={handlesubmit}>
                 Sign up
               </button>

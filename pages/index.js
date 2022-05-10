@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { useRouter } from "next/router"
 import { parseCookies } from "nookies"
-
+import Head from 'next/head'
 export default function Home() {
   const router = useRouter()
   const { user, role } = parseCookies();
@@ -9,8 +9,8 @@ export default function Home() {
     if (!user) {
       router.push("/Login")
     }
-    if(role){
-        router.push('/Dashboard')
+    if (role) {
+      router.push('/Dashboard')
     }
 
   }, [])
@@ -18,6 +18,21 @@ export default function Home() {
 
   return (
     <div>
+      <Head>
+        <script src="js/jQuery.js" type="text/javascript"></script>
+        <script src="js/script.js" type="text/javascript"></script>
+        <script src="js/bootstrap.js" type="text/javascript"></script>
+        <script src="js/owl.carousel.js" type="text/javascript"></script>
+        <script src="js/popper.min.js" type="text/javascript"></script>
+        <script src="js/popper.min.js" type="text/javascript"></script>
+        <script src="js/wow.js"></script>
+        <link href="css/style.css" type="text/css" rel="stylesheet" />
+        <link href="css/bootstrap.css" type="text/css" rel="stylesheet" />
+        <link href="css/animate.css" type="text/css" rel="stylesheet" />
+        <link href="css/font-awesome.css" type="text/css" rel="stylesheet" />
+        <link href="css/owl.carousel.css" type="text/css" rel="stylesheet" />
+        <link href="css/owl.theme.css" type="text/css" rel="stylesheet" />
+      </Head>
       <div className="container-fluid">
         <div className="row">
           <div className="col-xl-12">

@@ -13,68 +13,9 @@
   text-decoration: none;
   font-family: "Poppins", sans-serif;
 }
-/* Progress wheel */
-.progress {
-  width: 160px !important;
-  height: 160px !important;
-  position: relative;
+.mt-1 {
+  margin-top: 1rem;
 }
-.outer {
-  height: 160px !important;
-  width: 160px !important;
-  border-radius: 50%;
-  padding: 20px;
-  box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
-    -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
-}
-.inner {
-  height: 120px !important;
-  width: 120px !important;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: inset 4px 4px 6px -1px rgba(0, 0, 0, 0.2),
-    inset -4px -4px 6px -1px rgba(255, 255, 255, 0.7),
-    -0.5px -0.5px 0px rgba(255, 255, 255, 1),
-    0.5px 0.5px 0px rgba(0, 0, 0, 0.15), 0px 12px 10px -10px rgba(0, 0, 0, 0.05);
-}
-#number-1 {
-  color: #1d2231;
-}
-#number-2 {
-  color: pink;
-}
-circle {
-  fill: none;
-  stroke: var(--color-dark);
-  stroke-width: 20px;
-  stroke-dasharray: 472;
-  stroke-dashoffset: 472;
-  animation: anim 2s linear forwards;
-}
-.color-1 {
-  stroke: var(--main-color);
-  stroke-width: 20px;
-}
-svg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 160px !important;
-  height: 160px !important;
-}
-.disp-flex {
-  display: flex !important;
-}
-
-@keyframes anim {
-  100% {
-    /* 472-472*.65=165.2 */
-    stroke-dashoffset: 165;
-  }
-}
-/* main css */
 .pt-1 {
   padding-top: 2rem;
 }
@@ -144,16 +85,16 @@ svg {
   font-size: 1.5rem;
 }
 /* .sidebar-menu a.active {
-  background: #fff;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  color: var(--main-color);
-  border-radius: 30px 0px 0px 30px;
-}
-.sidebar-menu a span:first-child {
-  font-size: 1.5rem;
-  padding-right: 1rem;
-} */
+    background: #fff;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    color: var(--main-color);
+    border-radius: 30px 0px 0px 30px;
+  }
+  .sidebar-menu a span:first-child {
+    font-size: 1.5rem;
+    padding-right: 1rem;
+  } */
 #nav-toggle:checked + .sidebar {
   width: 70px;
 }
@@ -237,40 +178,6 @@ main {
   background: #f1f5f9;
   min-height: calc(100vh - 90px);
 }
-.cards {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 2rem;
-  margin-top: 1rem;
-}
-.card-single {
-  display: flex;
-  justify-content: space-between;
-  background: #fff;
-  padding: 2rem;
-  border-radius: 2px;
-}
-.card-single div:last-child span {
-  font-size: 3rem;
-  color: var(--main-color);
-}
-.card-single div:first-child span {
-  color: var(--text-grey);
-}
-.card-single:last-child {
-  background: var(--main-color);
-}
-.card-single:last-child h1,
-.card-single:last-child div:last-child span,
-.card-single:last-child div:first-child span {
-  color: #fff;
-}
-.recent-grid {
-  margin-top: 3.5rem;
-  display: grid;
-  grid-gap: 2rem;
-  grid-template-columns: 40% auto;
-}
 .card {
   background: #fff;
   border-radius: 5px;
@@ -308,52 +215,91 @@ td {
   padding: 0.5rem 1rem;
   font-size: 0.9rem;
   color: #222;
+  text-align: center;
 }
-td .status {
-  display: inline-block;
-  height: 10px;
-  width: 10px;
-  border-radius: 50%;
-  margin-right: 1rem;
+td i {
+  font-size: 1.5rem;
+}
+td span {
+  padding-left: 1rem;
 }
 tr td:last-child {
-  display: flex;
   align-items: center;
 }
 .table-responsive {
   width: 100%;
   overflow-x: auto;
 }
-.customer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem 0.7rem;
+.mtc-1 {
+  margin-top: 10rem;
 }
-.info {
-  display: flex;
-  align-items: center;
+.mbc-1 {
+  margin-bottom: 10rem;
 }
-.info img {
-  border-radius: 50%;
-  margin-right: 1rem;
+.form-control-2 {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #000000;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 3px solid pink;
+  border-radius: 5rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
-.info h4 {
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: #222;
+.btn-purple-2 {
+  background-color: pink;
 }
-.info small {
-  font-weight: 600;
-  color: var(--text-grey);
-}
-.contact span {
-  font-size: 1.2rem;
+.btn-2 {
   display: inline-block;
-  margin-left: 0.5rem;
-  color: var(--main-color);
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  color: white;
+  padding: 0.375rem 2rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 5rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
-
+.texts-1 {
+  font-size: 4rem;
+  font-family: "Rubik-Bold";
+}
+.m-form-1 {
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  align-items: center;
+}
+.form-group {
+  margin-bottom: 1rem;
+}
+.form-control-file-2 {
+  display: block;
+  font-size: 1rem;
+  background: transparent;
+  border-radius: 5rem;
+  width: 350px;
+  outline: 3px solid pink;
+}
+::-webkit-file-upload-button {
+  color: white;
+  background: pink;
+  padding: 0.4rem 2rem;
+  border: none;
+  border-radius: 5rem;
+  outline: none;
+}
 @media only screen and (max-width: 1200px) {
   .logo-xl {
     width: 3rem !important;
@@ -403,6 +349,10 @@ tr td:last-child {
   .recent-grid {
     grid-template-columns: 60% 40%;
   }
+  .texts-1 {
+    font-size: 3rem;
+    font-family: "Rubik-Bold";
+  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -450,12 +400,6 @@ tr td:last-child {
     width: 100% !important;
     left: 0 !important;
   }
-  .sidebar-menu a {
-    padding-left: 1rem;
-    display: block;
-    color: #fff;
-    font-size: 1.7rem;
-  }
   #nav-toggle:checked + .sidebar {
     left: 0 !important;
     z-index: 100;
@@ -491,9 +435,6 @@ tr td:last-child {
   .disp-md-none {
     display: none;
   }
-  .pt-md-2 {
-    padding-top: 15rem;
-  }
 }
 @media only screen and (max-width: 576px) {
   cards {
@@ -502,6 +443,13 @@ tr td:last-child {
   .pl-sm-1 {
     padding-left: 2rem;
   }
+  .texts-1 {
+    font-size: 2.5rem;
+    font-family: "Rubik-Bold";
+  }
+}
+.pt-md-2 {
+  padding-top: 15rem;
 }
 @media screen and (max-width: 360px) {
   .cards {
@@ -530,5 +478,16 @@ tr td:last-child {
   }
   .pt-xs-1 {
     padding-top: 2rem;
+  }
+  .mts-xs-1 {
+    margin-top: 1rem !important;
+  }
+  .form-control-file-2 {
+    display: block;
+    font-size: 1rem;
+    background: transparent;
+    border-radius: 5rem;
+    width: 250px;
+    outline: 3px solid pink;
   }
 }

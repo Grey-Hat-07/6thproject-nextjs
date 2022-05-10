@@ -4,11 +4,12 @@ import Link from 'next/link';
 import baseUrl from '../helpers/baseUrl';
 import { useRouter } from 'next/router';
 import jsCookie from 'js-cookie'
+import Head from 'next/head';
 export default function login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const router = useRouter()
-    if(jsCookie.get('user')){
+    if (jsCookie.get('user')) {
         router.push('/')
     }
     const handlesubmit = async (e) => {
@@ -26,10 +27,10 @@ export default function login() {
         }
         else {
             // console.log(res2)
-            if(res2.user.Vet_id){
+            if (res2.user.Vet_id) {
                 jsCookie.set('vet', res2.user.Vet_id);
             }
-            if(res2.user.role){
+            if (res2.user.role) {
                 jsCookie.set('role', res2.user.role);
             }
             jsCookie.set('user', res2.user._id)
@@ -39,6 +40,24 @@ export default function login() {
     }
     return (
         <div className="container-fluid">
+            <Head>
+                <link href="css/style.css" rel="stylesheet" type="text/css" />
+                <link href="css/style2.css" rel="stylesheet" type="text/css" />
+                <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+                <link href="css/animate.css" rel="stylesheet" type="text/css" />
+                <link href="css/font-awesome.css" rel="stylesheet" type="text/css" />
+                <link href="css/owl.carousel.css" rel="stylesheet" type="text/css" />
+                <link href="css/owl.theme.css" rel="stylesheet" type="text/css" />
+                <script src="js/jQuery.js" type="text/javascript"></script>
+                <script src="js/custom.js" type="text/javascript"></script>
+                <script src="js/popper.min.js" type="text/javascript"></script>
+                <script src="js/bootstrap.js" type="text/javascript"></script>
+                <script src="js/wow.js" type="text/javascript"></script>
+                <script>
+                    new WOW().init();
+                </script>
+                <script src="js/owl.carousel.js" type="text/javascript"></script>
+            </Head>
             <div className="container">
                 <div className="row mbc-1 mtc-1">
                     <div className="col-xl-12">
@@ -67,7 +86,7 @@ export default function login() {
                                     value={password} onChange={(e) => setPassword(e.target.value)}
                                 />
                             </div>
-                            <Link href='/Customersignup'><a className='text-center'>Don't have Account?</a></Link><br />
+                            <Link href='/Signup/Customersignup'><a className='text-center'>Don't have Account?</a></Link><br />
                             <button type="submit" className="btn-2 btn-purple-2 mt-3"
                                 onClick={handlesubmit}>
                                 Log In
