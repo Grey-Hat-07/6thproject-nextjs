@@ -15,7 +15,7 @@ export default function Navbar() {
     } else {
       setIsLoggedIn(true)
     }
-    if (router.pathname === '/Dashboard') {
+    if (router.pathname === '/Dashboard' || router.pathname === '/productup') {
       setIsdashboard(true)
     }
     else {
@@ -62,6 +62,9 @@ export default function Navbar() {
                     </li>
                     <li className="nav-item pl-3">
                       <a className="nav-link" href="#">About Us</a>
+                    </li>
+                    <li class="nav-item pl-3">
+                      <a class="nav-link" href="cart.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
                     </li>
                     <li className="nav-item dropdown pl-3">
                       <a

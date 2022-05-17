@@ -1,16 +1,15 @@
 import React from 'react'
 import Head from 'next/head'
-export default function index() {
+export default function Dashboard() {
     return (
         <div>
-            <script src="js/jQuery.js" type="text/javascript"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.js" type="text/javascript"></script>
-            <script src="js/admin.js" type="text/javascript"></script>
-
             <Head>
                 <link rel="stylesheet" href="css/dashboard-cus.css" type="text/css" />
                 <link rel="stylesheet" href="css/line-awesome.css" type="text/css" />
             </Head>
+            {/* <script src="js/jQuery.js" type="text/javascript"></script> */}
+            {/* <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.js" type="text/javascript"></script>
+            <script src="js/admin.js" type="text/javascript"></script> */}
             <input type="checkbox" id="nav-toggle" />
             <div className="sidebar">
                 <div className="sidebar-brand">
@@ -22,12 +21,12 @@ export default function index() {
                 <div className="sidebar-menu">
                     <ul>
                         <li>
-                            <a href="dashboard-cus.html" className="pt-1"
+                            <a href="/Dashboard" className="pt-1"
                             ><span className="las la-igloo"></span> <span className="disp-md-none">Dashboard</span></a
                             >
                         </li>
                         <li>
-                            <a href="productup.html"
+                            <a href="/productup"
                             ><span className="las la-clipboard-list"></span> <span className="disp-md-none">Items</span></a>
                         </li>
                         <li>
@@ -64,7 +63,7 @@ export default function index() {
                             alt="img.jpg"
                         />
                         <div>
-                            <h4>Subham Saha</h4>
+                            <h4>Subham Sahaxdg</h4>
                             <small>Seller</small>
                         </div>
                     </div>
@@ -119,7 +118,7 @@ export default function index() {
                                 <div className="card-header">
                                     <h3>Add items</h3>
                                     <button>
-                                        <a href="productup.html" className="text-1">
+                                        <a href="/productup" className="text-1">
                                             Click here <span className="las la-arrow-right"></span>
                                         </a>
                                     </button>
@@ -141,7 +140,7 @@ export default function index() {
                                                     <div className="outer">
                                                         <div className="inner">
                                                             <div id="number-1">
-                                                            65%
+                                                                65%
                                                             </div>
                                                         </div>
                                                     </div>
