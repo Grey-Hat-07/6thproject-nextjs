@@ -30,6 +30,11 @@ const product = () => {
   return (
 
     <>
+      <script src="/js/jQuery.js" type="text/javascript"></script>
+      <script src="/js/product.js" type="text/javascript"></script>
+      <script src="/js/bootstrap.js" type="text/javascript"></script>
+      <script src="/js/owl.carousel.js" type="text/javascript"></script>
+      <script src="/js/wow.js"></script>
       <Head>
         <link rel="stylesheet" href="/css/style.css" type="text/css" />
         <link rel="stylesheet" href="/css/product.css" type="text/css" />
@@ -38,11 +43,7 @@ const product = () => {
         <link rel="stylesheet" href="/css/font-awesome.css" type="text/css" />
         <link href="/css/owl.carousel.css" type="text/css" rel="stylesheet" />
         <link href="/css/owl.theme.css" type="text/css" rel="stylesheet" />
-        <script src="/js/jQuery.js" type="text/javascript"></script>
-        <script src="/js/product.js" type="text/javascript"></script>
-        <script src="/js/bootstrap.js" type="text/javascript"></script>
-        <script src="/js/owl.carousel.js" type="text/javascript"></script>
-        <script src="/js/wow.js"></script>
+
       </Head>
       <div className="container">
         <div className="row">
