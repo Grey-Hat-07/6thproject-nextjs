@@ -8,7 +8,8 @@ export default function Navbar() {
   const router = useRouter();
   const { vet } = parseCookies();
   const [isdashboard, setIsdashboard] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [product, setProduct] = useState(true);
   useEffect(() => {
     if (router.pathname === '/Login' || router.pathname === '/Customersignup' || router.pathname === '/Vetsignup' || router.pathname === '/adminsign') {
       setIsLoggedIn(false)
@@ -21,6 +22,12 @@ export default function Navbar() {
     else {
       setIsdashboard(false)
     }
+    // if (router.pathname === '/product/id') {
+    //   setProduct(true)
+    // }
+    // else {
+    //   setProduct(false)
+    // }
   }, [router.pathname])
 
   return (
@@ -36,7 +43,7 @@ export default function Navbar() {
           <div className="container bg-pink">
             <nav className="navbar navbar-expand-lg navbar-light bg-pink">
               <a href="/" className="navbar-brand pal-1" >
-                <img src="images/logo.png"
+                <img src="/images/logo.png"
                   width="80" height="80"
                   className="w-sm" alt="logo.png" />
               </a>
@@ -63,8 +70,8 @@ export default function Navbar() {
                     <li className="nav-item pl-3">
                       <a className="nav-link" href="#">About Us</a>
                     </li>
-                    <li class="nav-item pl-3">
-                      <a class="nav-link" href="cart.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                    <li className="nav-item pl-3">
+                      <a className="nav-link" href="/cart"><i className="fa fa-shopping-cart" aria-hidden="true"></i></a>
                     </li>
                     <li className="nav-item dropdown pl-3">
                       <a

@@ -28,7 +28,7 @@ export default function Footer() {
           >
             <a href="#">
               <img
-                src="images/logo.png"
+                src="/images/logo.png"
                 width="150"
                 className="w-md-1"
                 alt="logo.png"

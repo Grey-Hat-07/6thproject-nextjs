@@ -4,12 +4,13 @@ export default function Dashboard() {
     return (
         <div>
             <Head>
-                <link rel="stylesheet" href="css/dashboard-cus.css" type="text/css" />
-                <link rel="stylesheet" href="css/line-awesome.css" type="text/css" />
+                <link rel="stylesheet" href="/css/dashboard-cus.css" type="text/css" />
+                <link rel="stylesheet" href="/css/line-awesome.css" type="text/css" />
+                {/* <script src="/js/jQuery.js" type="text/javascript"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.js" type="text/javascript"></script>
+            <script src="/js/admin.js" type="text/javascript"></script> */}
             </Head>
-            {/* <script src="js/jQuery.js" type="text/javascript"></script> */}
-            {/* <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.js" type="text/javascript"></script>
-            <script src="js/admin.js" type="text/javascript"></script> */}
+            
             <input type="checkbox" id="nav-toggle" />
             <div className="sidebar">
                 <div className="sidebar-brand">

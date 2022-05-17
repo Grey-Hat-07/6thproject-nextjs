@@ -8039,7 +8039,7 @@ button.bg-dark:focus {
 
 .pt-5,
 .py-5 {
-  padding-top: 3rem !important;
+  padding-top: 3rem;
 }
 
 .pr-5,
@@ -8054,7 +8054,7 @@ button.bg-dark:focus {
 
 .pl-5,
 .px-5 {
-  padding-left: 3rem !important;
+  padding-left: 3rem;
 }
 
 .m-auto {
@@ -8239,7 +8239,7 @@ button.bg-dark:focus {
   }
   .pt-sm-2,
   .py-sm-2 {
-    padding-top: 0.5rem !important;
+    padding-top: 0.5rem;
   }
   .pr-sm-2,
   .px-sm-2 {
@@ -8508,7 +8508,7 @@ button.bg-dark:focus {
   }
   .pt-md-3,
   .py-md-3 {
-    padding-top: 1rem !important;
+    padding-top: 1rem;
   }
   .pr-md-3,
   .px-md-3 {
@@ -8777,7 +8777,7 @@ button.bg-dark:focus {
   }
   .pt-lg-4,
   .py-lg-4 {
-    padding-top: 1.5rem !important;
+    padding-top: 1.5rem;
   }
   .pr-lg-4,
   .px-lg-4 {
