@@ -10,7 +10,7 @@ export default function Dashboard() {
             <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.js" type="text/javascript"></script>
             <script src="/js/admin.js" type="text/javascript"></script> */}
             </Head>
-            
+
             <input type="checkbox" id="nav-toggle" />
             <div className="sidebar">
                 <div className="sidebar-brand">
@@ -22,22 +22,28 @@ export default function Dashboard() {
                 <div className="sidebar-menu">
                     <ul>
                         <li>
-                            <a href="/Dashboard" className="pt-1"
-                            ><span className="las la-igloo"></span> <span className="disp-md-none">Dashboard</span></a
-                            >
+                            <a href="/Dashboard" className="pt-1">
+                                <span className="las la-igloo"></span>
+                                <span className="disp-md-none">Dashboard</span>
+                            </a>
                         </li>
                         <li>
-                            <a href="/productup"
-                            ><span className="las la-clipboard-list"></span> <span className="disp-md-none">Items</span></a>
+                            <a href="/productup">
+                                <span className="las la-clipboard-list"></span>
+                                <span className="disp-md-none">Items</span>
+                            </a>
                         </li>
                         <li>
-                            <a href="#"
-                            ><span className="las la-user-circle"></span> <span className="disp-md-none">Accounts</span></a
-                            >
+                            <a href="#">
+                                <span className="las la-user-circle"></span>
+                                <span className="disp-md-none">Accounts</span>
+                            </a>
                         </li>
                         <li>
-                            <a href="#" className="pt-2 pt-md-2"
-                            ><span className="las la-sign-out-alt"></span> <span className="disp-md-none">Logout</span></a>
+                            <a href="#" className="">
+                                <span className="las la-sign-out-alt"></span>
+                                <span className="disp-md-none">Logout</span>
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -136,12 +142,12 @@ export default function Dashboard() {
                                     </div>
                                     <div className="card-body">
                                         <div className="disp-flex disp-xl-grid disp-md-flex disp-xs-grid">
-                                            <div className="pl-2 pl-xl-1 pl-sm-1 pl-xs-1">
+                                            <div className="pl-3 pl-xl-1 pl-sm-1 pl-xs-1">
                                                 <div className="progress">
                                                     <div className="outer">
                                                         <div className="inner">
                                                             <div id="number-1">
-                                                                65%
+                                                                
                                                             </div>
                                                         </div>
                                                     </div>
@@ -158,7 +164,7 @@ export default function Dashboard() {
                                                 </div>
                                             </div>
 
-                                            <div className="pl-1 pl-xl-1 pt-xl-1 pt-md-1 pl-xs-1 pt-xs-1">
+                                            <div className="pl-2 pl-xl-1 pt-xl-1 pt-md-1 pl-xs-1 pt-xs-1">
                                                 <div className="progress">
                                                     <div className="outer">
                                                         <div className="inner">

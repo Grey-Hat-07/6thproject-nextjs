@@ -2,8 +2,8 @@ import baseUrl from "../../helpers/baseUrl";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import Head from "next/head";
-const product = () => {
-  // const { product } = props;
+const product = (props) => {
+  const { product } = props;
   // const[quantity, setQuantity] = useState(1);
   // const router = useRouter();
   // if (router.isFallback) {
@@ -48,15 +48,15 @@ const product = () => {
       <div className="container">
         <div className="row">
           <div className="col-xl-5 col-lg-5 col-md-5">
-            <img src="/images/PngItem_1397101.png" className="product-img" alt="product.jpeg" />
+            <img src={product.image} className="product-img" alt={product.name} />
           </div>
           <div className="col-xl-7 col-lg-7 col-md-7">
             <div className="pt-product-1 pl-5 pl-sm-1">
               <span className="badge badge-pill badge-pink">For puppies</span>
-              <h1 className="text-left text-product-1">Lorem Ipsum</h1>
-              <p className="text-product-2">Price:<span className="text-product-3 pl-2">$10.00</span></p>
+              <h1 className="text-left text-product-1">{product.name}</h1>
+              <p className="text-product-2">Price:<span className="text-product-3 pl-2">${product.price}</span></p>
               <p className="text-product-4 pt-5 pt-lg-4 pt-md-3 pt-sm-2">
-                lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tellus est, fringilla vitae lobortis vitae, consectetur in metus. Morbi nisi turpis, feugiat porta massa at, mollis congue erat. Donec in accumsan velit. Mauris efficitur fermentum est, ac euismod erat laoreet ut. Curabitur condimentum eleifend magna, a iaculis lorem eleifend et. Proin pellentesque ipsum convallis, varius nisl non, aliquam dolor.
+                {product.description}
               </p>
 
               <div className="btn-grp pt-3">
@@ -161,7 +161,7 @@ const product = () => {
 }
 
 
-{/* export async function getServerSideProps({ params: { id } }) {
+export async function getServerSideProps({ params: { id } }) {
     const res = await fetch(`${baseUrl}/api/product/${id}`,{
         method: "GET"
     })
@@ -172,5 +172,5 @@ const product = () => {
         }
     }
 
-} */}
+}
 export default product;

@@ -3,80 +3,87 @@ import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import baseUrl from '../helpers/baseUrl';
 import { getDownloadURL, ref, uploadBytesResumable } from '@firebase/storage';
-import {storage} from '../firebase/main.firebase'
-export default function productup() {
+import { storage } from '../firebase/main.firebase'
+export default function productup(props) {
+  var {products} = props;
   const [productname, setProductname] = useState('');
-  const [price, setprice] = useState('');
-  //const [description, setdescription] = useState('');
+  const [price, setprice] = useState();
   const [image, setimage] = useState(null);
   const [imageurl, setimageurl] = useState(null);
   const [category, setcategory] = useState('');
   const [description, setdescription] = useState('');
   const [quantity, setquantity] = useState('');
-  const submitHandler =async (e) => {
-      e.preventDefault();
-      if(!image || !productname || !price || !category || !description || !quantity){
-          return alert("Please fill all the fields");
-      }
-      console.log(image)
-      console.log(productname,price,category);
-      const res= await fetch(`${baseUrl}/api/Product`, {
-          method: 'POST',
-          headers: {
-               'Content-Type': 'application/json',
-               },
-          body: JSON.stringify({ 
-              name: productname, 
-              price,
-              category, 
-              image,
-              description,
-              quantity
-           })
+  //const [items, setItems] = useState([]);
+  // useEffect(async () => {
+  //   const res = await fetch(`${baseUrl}/api/Product`);
+  //   const data = await res.json();
+  //   setItems(data);
+  // })
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    if (!image || !productname || !price || !category || !description || !quantity) {
+      return alert("Please fill all the fields");
+    }
+    console.log(image)
+    console.log(productname, price, category);
+    const res = await fetch(`${baseUrl}/api/Product`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: productname,
+        price,
+        category,
+        image,
+        description,
+        quantity
       })
-      const res2 = await res.json();
-      if(res2.error){
-          //console.log(res2.error);
-          alert(res2.error);
-      }
-      else{
-          alert("Product added successfully");
-          setProductname('');
-          setprice('');
-          setimage(null);
-          setimageurl(null);
-          setcategory('');
-          window.location.reload();
-      }
-   }
-  const imageUpload = async (e) => {
-      e.preventDefault();
-      const storageRef = ref(storage, `project/${imageurl.name}`);
-      const uploadTask = uploadBytesResumable(storageRef, imageurl);
-      uploadTask.on(
-        "state_changed", 
-        snapshot =>{},
-        err=>console.log(err),
-        ()=>{
-          getDownloadURL(uploadTask.snapshot.ref)
-          .then(url => {
-          console.log(url);
-          setimage(url);
-          alert("Image verified successfully");
-          })
-        }
-        )
-       
-      //console.log(file.url);
+    })
+    const res2 = await res.json();
+    if (res2.error) {
+      //console.log(res2.error);
+      alert(res2.error);
+    }
+    else {
+      alert("Product added successfully");
+      setProductname('');
+      setprice('');
+      setimage(null);
+      setimageurl(null);
+      setcategory('');
+      window.location.reload();
+    }
   }
+  const imageUpload = async (e) => {
+    e.preventDefault();
+    const storageRef = ref(storage, `project/${imageurl.name}`);
+    const uploadTask = uploadBytesResumable(storageRef, imageurl);
+    uploadTask.on(
+      "state_changed",
+      snapshot => { },
+      err => console.log(err),
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref)
+          .then(url => {
+            console.log(url);
+            setimage(url);
+            alert("Image verified successfully");
+          })
+      }
+    )
+
+    //console.log(file.url);
+  }
+  
   return (
     <div>
       <script src="js/admin.js" type="text/javascript"></script>
       <Head>
-        <link rel="stylesheet" href="css/productup.css" type="text/css" />
-        <link rel="stylesheet" href="css/line-awesome.css" type="text/css" />
-        <link rel="stylesheet" href="css/dashboard-cus.css" type="text/css" />
-        
+        <link rel="stylesheet" href="/css/productup.css" type="text/css" />
+        <link rel="stylesheet" href="/css/line-awesome.css" type="text/css" />
+        <link rel="stylesheet" href="/css/dashboard-cus.css" type="text/css" />
       </Head>
       <input type="checkbox" id="nav-toggle" />
       <div className="sidebar">
@@ -89,24 +96,28 @@ export default function productup() {
         <div className="sidebar-menu">
           <ul>
             <li>
-              <a href="/Dashboard" className="pt-1"
-              ><span className="las la-igloo"></span> <span className="disp-md-none">Dashboard</span></a
-              >
+              <a href="/Dashboard" className="pt-1">
+                <span className="las la-igloo"></span>
+                <span className="disp-md-none">Dashboard</span>
+              </a>
             </li>
             <li>
-              <a href="productup"
-              ><span className="las la-clipboard-list"></span> <span className="disp-md-none">Items</span></a
-              >
+              <a href="/productup">
+                <span className="las la-clipboard-list"></span>
+                <span className="disp-md-none">Items</span>
+              </a>
             </li>
             <li>
-              <a href="#"
-              ><span className="las la-user-circle"></span> <span className="disp-md-none">Accounts</span></a
-              >
+              <a href="#">
+                <span className="las la-user-circle"></span>
+                <span className="disp-md-none">Accounts</span>
+              </a>
             </li>
             <li>
-              <a href="#" className="pt-2 pt-md-2"
-              ><span className="las la-sign-out-alt"></span> <span className="disp-md-none">Logout</span></a
-              >
+              <a href="#" className="">
+                <span className="las la-sign-out-alt"></span>
+                <span className="disp-md-none">Logout</span>
+              </a>
             </li>
           </ul>
         </div>
@@ -148,9 +159,9 @@ export default function productup() {
               <form onSubmit={submitHandler}>
                 <div className="form-group">
                   <label htmlFor="exampleFormControlSelect1">Select Item</label>
-                  <select className="form-control-2" id="exampleFormControlSelect1" value={category} 
-                  onChange={(e)=>setcategory(e.target.value)}>
-                  <option value={null}>Select Category</option>
+                  <select className="form-control-2" id="exampleFormControlSelect1" value={category}
+                    onChange={(e) => setcategory(e.target.value)}>
+                    <option value={null}>Select Category</option>
                     <option value="Foods">Foods</option>
                     <option value="Accessories">Accessories</option>
                     <option value="Medicine">Medicine</option>
@@ -163,7 +174,7 @@ export default function productup() {
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
                     placeholder="Enter product name"
-                    value={productname} onChange={(e)=>setProductname(e.target.value)}
+                    value={productname} onChange={(e) => setProductname(e.target.value)}
                   />
                 </div>
                 <div className="form-group">
@@ -174,7 +185,7 @@ export default function productup() {
                     id="exampleInputEmail"
                     aria-describedby="emailHelp"
                     placeholder="Enter price"
-                    value={price} onChange={(e)=>setprice(e.target.value)}
+                    value={price} onChange={(e) => setprice(e.target.value)}
                   />
                 </div>
                 <div className="form-group">
@@ -184,7 +195,7 @@ export default function productup() {
                     className="form-control-2"
                     id="exampleInputPassword1"
                     placeholder="Enter quantity"
-                    value={quantity} onChange={(e)=>setquantity(e.target.value)}
+                    value={quantity} onChange={(e) => setquantity(e.target.value)}
                   />
                 </div>
                 <div className="form-group">
@@ -193,28 +204,28 @@ export default function productup() {
                     type="file"
                     className="form-control-file-2"
                     id="exampleFormControlFile1"
-                    accept='image/*' onChange={(e) => {setimageurl(e.target.files[0]); }}
+                    accept='image/*' onChange={(e) => { setimageurl(e.target.files[0]); }}
                   />
                 </div>
-                { imageurl &&<>
-                    <img src={
-                        imageurl ? URL.createObjectURL(imageurl) : ''
-                    } className="rounded float-end" alt='Image preview' style={{width:'100px',height:'100px'}} />
-                    {!image?<button className='btn' onClick={imageUpload}>Verify image</button>:<button className='btn' disabled>Verify image</button>}
-                    </>}
+                {imageurl && <>
+                  <img src={
+                    imageurl ? URL.createObjectURL(imageurl) : ''
+                  } className="rounded float-end" alt='Image preview' style={{ width: '100px', height: '100px' }} />
+                  {!image ? <button className='btn' onClick={imageUpload}>Verify image</button> : <button className='btn' disabled>Verify image</button>}
+                </>}
                 <div className="form-group">
                   <label htmlFor="exampleInputPassword1">Description</label>
                   <textarea
                     className="form-control-2"
                     id="exampleFormControlTextarea1"
                     rows="3"
-                    value={description} onChange={(e)=>setdescription(e.target.value)}
+                    value={description} onChange={(e) => setdescription(e.target.value)}
                   >
 
                   </textarea>
                 </div>
-                {image?<button className='btn-2 btn-purple-2' type="submit">Upload Item</button>
-                :<button className='btn-2 btn-purple-2 disabled' disabled>Upload Item</button>}
+                {image ? <button className='btn-2 btn-purple-2' type="submit">Upload Item</button>
+                  : <button className='btn-2 btn-purple-2 disabled' disabled>Upload Item</button>}
               </form>
             </div>
           </div>
@@ -229,6 +240,7 @@ export default function productup() {
                   </a>
                 </button>
               </div>
+
               <div className="card-body">
                 <div className="table-responsive">
                   <table width="100%">
@@ -240,78 +252,18 @@ export default function productup() {
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>lorem ipsum</td>
-                        <td>10</td>
-                        <td>
-                          <i className="las la-pen"></i
-                          ><span><i className="las la-trash"></i></span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>lorem ipsum</td>
-                        <td>10</td>
-                        <td>
-                          <i className="las la-pen"></i
-                          ><span><i className="las la-trash"></i></span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>lorem ipsum</td>
-                        <td>10</td>
-                        <td>
-                          <i className="las la-pen"></i
-                          ><span><i className="las la-trash"></i></span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>lorem ipsum</td>
-                        <td>10</td>
-                        <td>
-                          <i className="las la-pen"></i
-                          ><span><i className="las la-trash"></i></span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>lorem ipsum</td>
-                        <td>10</td>
-                        <td>
-                          <i className="las la-pen"></i
-                          ><span><i className="las la-trash"></i></span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>lorem ipsum</td>
-                        <td>10</td>
-                        <td>
-                          <i className="las la-pen"></i
-                          ><span><i className="las la-trash"></i></span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>lorem ipsum</td>
-                        <td>10</td>
-                        <td>
-                          <i className="las la-pen"></i
-                          ><span><i className="las la-trash"></i></span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>lorem ipsum</td>
-                        <td>10</td>
-                        <td>
-                          <i className="las la-pen"></i
-                          ><span><i className="las la-trash"></i></span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>lorem ipsum</td>
-                        <td>10</td>
-                        <td>
-                          <i className="las la-pen"></i
-                          ><span><i className="las la-trash"></i></span>
-                        </td>
-                      </tr>
+                      {products.map((product)=>{
+                        return(
+                          <tr >
+                          <td>{product.name}</td>
+                          <td>{product.price}</td>
+                          <td>
+                            <i className="las la-pen"></i
+                            ><span><i className="las la-trash"></i></span>
+                          </td>
+                        </tr>
+                        )
+                      })}
                     </tbody>
                   </table>
                 </div>
@@ -324,3 +276,16 @@ export default function productup() {
     </div>
   )
 }
+export async function getStaticProps(context) {
+  const res = await fetch(`${baseUrl}/api/Product`, {
+    method: 'GET'
+  })
+  const data = await res.json()
+  return {
+    props: {
+      products: data
+    }
+  }
+}
+
+
