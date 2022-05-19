@@ -1,5 +1,6 @@
 import initDB from "../../helpers/initDB";
 import User from "../../Models/User";
+import Cart from "../../Models/Cart";
 import bcrypt from "bcryptjs";
 
 initDB();
@@ -19,6 +20,7 @@ export default async (req, res) => {
         email,
         password: hashedPassword
     }).save();
+    await new Cart({ userId: newUser._id }).save();
 
 
     res.status(200).json(newUser);

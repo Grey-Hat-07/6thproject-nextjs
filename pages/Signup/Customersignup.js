@@ -37,23 +37,20 @@ export default function Signup() {
   }
   return (
     <div className="container-fluid">
+      <script src="/js/jQuery.js" type="text/javascript"></script>
+      <script src="/js/custom.js" type="text/javascript"></script>
+      <script src="/js/popper.min.js" type="text/javascript"></script>
+      <script src="/js/bootstrap.js" type="text/javascript"></script>
+      <script src="/js/wow.js" type="text/javascript"></script>
       <Head>
-        <link href="css/style.css" rel="stylesheet" type="text/css" />
-        <link href="css/style2.css" rel="stylesheet" type="text/css" />
-        <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
-        <link href="css/animate.css" rel="stylesheet" type="text/css" />
-        <link href="css/font-awesome.css" rel="stylesheet" type="text/css" />
-        <link href="css/owl.carousel.css" rel="stylesheet" type="text/css" />
-        <link href="css/owl.theme.css" rel="stylesheet" type="text/css" />
-        <script src="js/jQuery.js" type="text/javascript"></script>
-        <script src="js/custom.js" type="text/javascript"></script>
-        <script src="js/popper.min.js" type="text/javascript"></script>
-        <script src="js/bootstrap.js" type="text/javascript"></script>
-        <script src="js/wow.js" type="text/javascript"></script>
-        <script>
-          new WOW().init();
-        </script>
-        <script src="js/owl.carousel.js" type="text/javascript"></script>
+        <link href="/css/style.css" rel="stylesheet" type="text/css" />
+        <link href="/css/style2.css" rel="stylesheet" type="text/css" />
+        <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" />
+        <link href="/css/animate.css" rel="stylesheet" type="text/css" />
+        <link href="/css/font-awesome.css" rel="stylesheet" type="text/css" />
+        <link href="/css/owl.carousel.css" rel="stylesheet" type="text/css" />
+        <link href="/css/owl.theme.css" rel="stylesheet" type="text/css" />
+
       </Head>
       <div className="container">
         <div className="row mbc-1 mtc-1">

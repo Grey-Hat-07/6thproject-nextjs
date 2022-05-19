@@ -4,29 +4,31 @@ import { useState } from "react";
 import Head from "next/head";
 const product = (props) => {
   const { product } = props;
-  // const[quantity, setQuantity] = useState(1);
-  // const router = useRouter();
-  // if (router.isFallback) {
-  //     return <h1 className="text-primary">Loading...</h1>
-  // }
-  // const addToCart = async () => {
+  
+    const router = useRouter();
+    if (router.isFallback) {
+        return <h1 className="text-primary">Loading...</h1>
+    }
+    const addToCart = async () => {
+    
+        const data = {
+            productId: product._id,
+            quantity: 1,
+            price: product.price
+        }
+        const res = await fetch(`${baseUrl}/api/cart`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+        const json = await res.json()
+        router.push("/cart")
 
-  //     const data = {
-  //         productId: product._id,
-  //         quantity: quantity
-  //     }
-  //     const res = await fetch(`${baseUrl}/api/cart`, {
-  //         method: "POST",
-  //         headers: {
-  //             "Content-Type": "application/json"
-  //         },
-  //         body: JSON.stringify(data)
-  //     })
-  //     const json = await res.json()
-  //     router.push("/Cart")
 
-
-  // }
+    }
+  
   return (
 
     <>
@@ -60,11 +62,11 @@ const product = (props) => {
               </p>
 
               <div className="btn-grp pt-3">
-                <button type="button" className="btn-2 btn-pink">
-                  <a href="#">Add To Cart</a>
+                <button type="button" className="btn-2 btn-pink" onClick={addToCart}>
+                  Add To Cart
                 </button>
                 <span className="pl-4">
-                  <button type="button" className="btn-2 btn-dark">
+                  <button type="button" className="btn-2 btn-dark" >
                     <a href="#">Buy Now</a>
                   </button>
                 </span>
