@@ -5,9 +5,7 @@ export default async (req, res) => {
     const { user } = req.cookies;
     switch (req.method) {
         case "GET":
-            const data = await Cart.findOne({ userId: user });
-            console.log(data);
-            res.status(200).json(data);
+            await fetchusercart(req, res);
             break;
         case "POST":
             const { productId, quantity,price } = req.body;
@@ -46,4 +44,20 @@ export default async (req, res) => {
             }
 
     }
+}
+const fetchusercart = async (req, res) => {
+    const { user } = req.cookies;
+    try{
+        const cart = await Cart.findOne({ userId: user });
+        if (cart) {
+            res.status(200).json({cart});
+        }
+        else {
+            console.log("Cart not found");
+            res.status(404).json({ message: "Cart not found" });
+        }
+    }catch{
+        res.status(500).json({ message: "Something went wrong" });
+    }
+
 }

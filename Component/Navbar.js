@@ -42,11 +42,11 @@ export default function Navbar() {
         <div className="container-fluid bg-pink">
           <div className="container bg-pink">
             <nav className="navbar navbar-expand-lg navbar-light bg-pink">
-              <Link href="/" className="navbar-brand pal-1" >
+              <a href="/" className="navbar-brand pal-1" >
                 <img src="/images/logo.png"
                   width="80" height="80"
                   className="w-sm" alt="logo.png" />
-              </Link>
+              </a>
               <button
                 className="navbar-toggler"
                 type="button"
@@ -71,7 +71,7 @@ export default function Navbar() {
                       <a className="nav-link" href="#">About Us</a>
                     </li>
                     <li className="nav-item pl-3">
-                      <a className="nav-link" href="/cart"><i className="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                      <a href="/cart" className='nav-link'><i className="fa fa-shopping-cart" aria-hidden="true"></i></a>
                     </li>
                     <li className="nav-item dropdown pl-3">
                       <a
