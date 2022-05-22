@@ -100,7 +100,7 @@ const product = (props) => {
       console.log(data);
       var options = {
         key: process.env.RAZORPAY_KEY, // Enter the Key ID generated from the Dashboard
-        name: "Mystore",
+        name: "Paw Life",
         currency: data.currency,
         amount: product.price,
         order_id: data.id,
