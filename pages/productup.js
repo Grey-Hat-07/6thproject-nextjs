@@ -256,7 +256,7 @@ export default function productup(props) {
                         return(
                           <tr >
                           <td>{product.name}</td>
-                          <td>{product.price}</td>
+                          <td>{product.quantity}</td>
                           <td>
                             <i className="las la-pen"></i
                             ><span><i className="las la-trash"></i></span>

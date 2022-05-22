@@ -4,25 +4,27 @@ import Cartproduct from '../Component/Cartproduct'
 import baseUrl from '../helpers/baseUrl'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
-export default function Cart() {
-    const [cart, setCart] = useState([]);
-    const [userData, setUserData] = useState({});
-    const router = useRouter();
-    let total = 0;
+export default function Cart(props) {
+    const {data} = props;
+    console.log(data);
+    // const [cart, setCart] = useState([]);
+    // const [userData, setUserData] = useState({});
+    // const router = useRouter();
+    // let total = 0;
     //useEffect section
-    useEffect(async () => {
-        const res = await fetch(`${baseUrl}/api/cart`);
-        const cartdata = await res.json();
-        setCart(cartdata);
-        console.log(cart);
+    // useEffect(async () => {
+    //     const res = await fetch(`${baseUrl}/api/cart`);
+    //     const cartdata = await res.json();
+    //     setCart(cartdata);
+    //     //console.log(cart);
        
-    })
-    useEffect(async () => {
-        const res = await fetch(`${baseUrl}/api/account`);
-        const usedata = await res.json();
-        setUserData(usedata);
-        console.log(usedata);
-    }, []);
+    // })
+    // useEffect(async () => {
+    //     const res = await fetch(`${baseUrl}/api/account`);
+    //     const usedata = await res.json();
+    //     setUserData(usedata);
+    //     console.log(usedata);
+    // }, []);
 
     return (
         <div>
@@ -60,25 +62,25 @@ export default function Cart() {
                     </tr>
 
                     {
-                        cart.products ?cart.products.map((product) => {
-                            total = total + product.quantity;
-                            return (<tr key={product._id}>
-                                <td>
-                                    <div className="cart-info">
-                                        <img src="images/Multi-Start-Pet-Syrup_-Chicken-Flavour_-200-ml1.png" />
-                                        <div className="mt-5 mt-md-4 mt-xs-5 ml-xs-5">
-                                            <p className="text-cart-2">lorem ipsum</p>
-                                            <small className="text-cart-3">Price: ${product.price}.00</small>
-                                            <br />
-                                            <a href="#">Remove</a>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td><input type="number" min="1" defaultValue={1} /></td>
-                                <td>$10.00</td>
-                            </tr>
-                            )
-                        }) : <h2>Cart is empty</h2>
+                        // cart.products ?cart.products.map((product) => {
+                        //     total = total + product.quantity;
+                        //     return (<tr key={product._id}>
+                        //         {/* <td>
+                        //             <div className="cart-info">
+                        //                 <img src="images/Multi-Start-Pet-Syrup_-Chicken-Flavour_-200-ml1.png" />
+                        //                 <div className="mt-5 mt-md-4 mt-xs-5 ml-xs-5">
+                        //                     <p className="text-cart-2">lorem ipsum</p>
+                        //                     <small className="text-cart-3">Price: ${product.price}.00</small>
+                        //                     <br />
+                        //                     <a href="#">Remove</a>
+                        //                 </div>
+                        //             </div>
+                        //         </td> */}
+                        //         <td><input type="number" min="1" defaultValue={1} /></td>
+                        //         <td>$10.00</td>
+                        //     </tr>
+                        //     )
+                        // }) : <h2>Cart is empty</h2>
                     }
 
                     <tr>
@@ -142,14 +144,17 @@ export default function Cart() {
         </div>
     )
 }
-// export async function getServerSideProps(context) {
-//     var res = await fetch(`${baseUrl}/api/cart`,{
-//         method: "GET"
-//     });
-//     var data = await res.json();
-//     return {
-//       props: {
-//         data
-//       }
-//     }
-//   }
+export async function getServerSideProps(context) {
+    var res = await fetch(`${baseUrl}/api/cart`,{
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    });
+    var data = await res.json();
+    return {
+      props: {
+        data
+      }
+    }
+  }

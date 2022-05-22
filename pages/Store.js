@@ -22,7 +22,6 @@ export default function Store(props) {
         <link href="css/font-awesome.css" type="text/css" rel="stylesheet" />
         <link href="css/owl.carousel.css" type="text/css" rel="stylesheet" />
         <link href="css/owl.theme.css" type="text/css" rel="stylesheet" />
-
       </Head>
       <div className="container-fluid">
         <div className="row">

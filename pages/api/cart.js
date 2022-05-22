@@ -6,9 +6,9 @@ export default async (req, res) => {
     switch (req.method) {
         case "GET":
             await fetchusercart(req, res);
-            break;
+            break;s
         case "POST":
-            const { productId, quantity,price } = req.body;
+            const { productId, quantity,price,productname } = req.body;
             const cart = await Cart.findOne({ userId: user });
             if (cart) {
                 const product = cart.products.find(
@@ -18,7 +18,7 @@ export default async (req, res) => {
                     product.quantity += quantity;
                     await cart.save();
                 } else {
-                    cart.products.push({ product: productId, quantity,price });
+                    cart.products.push({ product: productId, quantity,price,productname });
                     await cart.save();
                 }
                 res.status(200).json(cart);
