@@ -50,7 +50,7 @@ const fetchusercart = async (req, res) => {
     try{
         const cart = await Cart.findOne({ userId: user });
         if (cart) {
-            res.status(200).json({cart});
+            res.status(200).json(cart);
         }
         else {
             console.log("Cart not found");
