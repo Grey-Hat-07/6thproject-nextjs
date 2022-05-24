@@ -11,7 +11,8 @@ const product = (props) => {
   var products = [];
   const router = useRouter();
   if (router.isFallback) {
-    return <h1 className="text-primary">Loading...</h1>
+    window.location.reload();
+    // return <h1 className="text-primary">Loading...</h1>
   }
   const [userData, setUserData] = useState({});
   useEffect(async () => {
@@ -182,18 +183,19 @@ const product = (props) => {
               <p className="mb-5 text-7 wow fadeInLeft">Similar Products</p>
               <div className="span12">
                 <div id="owl-demo">
-                  { recommended.map((recomproduct) => {
+                  {recommended.map((recomproduct) => {
                     if (recomproduct.category === product.category && list <= total && recomproduct._id !== product._id) {
                       list++;
                       return (<div className="w-md" key={recomproduct._id}>
-                        <div className="item"> <Link
+                        <Link
                           href={'/product/[id]'}
                           as={`/product/${recomproduct._id}`}
                         >
-                          {/* <a href="#"> */}
-                          <img src={recomproduct.image} className="product-img-2" alt="item1.png" />
-                          {/* </a> */}</Link>
-                        </div>
+                          <div className="item">
+                            {/* <a href="#"> */}
+                            <img src={recomproduct.image} className="product-img-2" alt="item1.png" />
+                            {/* </a> */}
+                          </div></Link>
                       </div>)
                     }
                   }

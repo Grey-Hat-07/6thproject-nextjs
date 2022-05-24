@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useRef } from 'react'
-import baseUrl from '../helpers/baseUrl';
-import { Card } from '../Component/Card';
+import baseUrl from '../../helpers/baseUrl';
+import { Card } from '../../Component/Card';
 import Head from 'next/head'
 export default function Foodstore(props) {
   const [search, setSearch] = useState('');
@@ -29,14 +29,14 @@ export default function Foodstore(props) {
   return (
     <div>
       <Head>
-        <link href="css/style3.css" type="text/css" rel="stylesheet" />
-        <link href="css/style.css" type="text/css" rel="stylesheet" />
-        <link href="css/style4.css" type="text/css" rel="stylesheet" />
-        <link href="css/bootstrap.css" type="text/css" rel="stylesheet" />
-        <link href="css/animate.css" type="text/css" rel="stylesheet" />
-        <link href="css/font-awesome.css" type="text/css" rel="stylesheet" />
-        <link href="css/owl.carousel.css" type="text/css" rel="stylesheet" />
-        <link href="css/owl.theme.css" type="text/css" rel="stylesheet" />
+        <link href="/css/style3.css" type="text/css" rel="stylesheet" />
+        <link href="/css/style.css" type="text/css" rel="stylesheet" />
+        <link href="/css/style4.css" type="text/css" rel="stylesheet" />
+        <link href="/css/bootstrap.css" type="text/css" rel="stylesheet" />
+        <link href="/css/animate.css" type="text/css" rel="stylesheet" />
+        <link href="/css/font-awesome.css" type="text/css" rel="stylesheet" />
+        <link href="/css/owl.carousel.css" type="text/css" rel="stylesheet" />
+        <link href="/css/owl.theme.css" type="text/css" rel="stylesheet" />
       </Head>
       <div className="container">
         <div className="row mt-5">
@@ -51,13 +51,13 @@ export default function Foodstore(props) {
         <div className='row'>
           {search.length < 1 ?
             props.products.map((product, index) => {
-              if (product.category === "Foods") {
+              if (product.category === "Accessories") {
                 return < Card product={product} key={product._id} />
               }
             }) :
             searchResult.length > 0 ?
               searchResult.map((product, index) => {
-                if (product.category === "Foods") {
+                if (product.category === "Accessories") {
                   return < Card product={product} key={product._id} />
                 }
               }) :
