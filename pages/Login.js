@@ -34,7 +34,8 @@ export default function login() {
                 jsCookie.set('role', res2.user.role);
             }
             jsCookie.set('user', res2.user._id)
-            router.push('/')
+            // router.push('/')
+            window.location.href = '/'
             
         }
 

@@ -3,17 +3,18 @@ import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import jsCookie from "js-cookie";
 import Head from "next/head";
-import Link from "next/link";
+import Similarcard from "../../Component/Similarcard";
 const product = (props) => {
+  
   const { product } = props;
   const { recommended } = props;
   let list = 0, total = 4;
   var products = [];
   const router = useRouter();
-  if (router.isFallback) {
-    window.location.reload();
-    // return <h1 className="text-primary">Loading...</h1>
-  }
+  // if (router.asPath) {
+  //   //window.location.reload();
+  //   return <h1 className="text-primary">Loading...</h1>
+  // }
   const [userData, setUserData] = useState({});
   useEffect(async () => {
     const res = await fetch(`${baseUrl}/api/Account`);
@@ -186,17 +187,9 @@ const product = (props) => {
                   {recommended.map((recomproduct) => {
                     if (recomproduct.category === product.category && list <= total && recomproduct._id !== product._id) {
                       list++;
-                      return (<div className="w-md" key={recomproduct._id}>
-                        <Link
-                          href={'/product/[id]'}
-                          as={`/product/${recomproduct._id}`}
-                        >
-                          <div className="item">
-                            {/* <a href="#"> */}
-                            <img src={recomproduct.image} className="product-img-2" alt="item1.png" />
-                            {/* </a> */}
-                          </div></Link>
-                      </div>)
+                      return (
+                        <Similarcard key={recomproduct._id} recomproduct={recomproduct} />
+                      )
                     }
                   }
                   )}
