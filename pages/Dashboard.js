@@ -1,6 +1,17 @@
 import React from 'react'
 import Head from 'next/head'
-export default function Dashboard() {
+import { useEffect,useState } from 'react';
+import baseUrl from '../helpers/baseUrl';
+export default function Dashboard(props) {
+    const { Orders } = props;
+    const [counts,setCount] = useState({});
+    useEffect(async() => {
+        const res =await fetch(`${baseUrl}/api/Count`);
+        const count = await res.json();
+        setCount(count);
+
+    }, [])
+
     return (
         <div>
             <Head>
@@ -80,7 +91,7 @@ export default function Dashboard() {
                     <div className="cards">
                         <div className="card-single">
                             <div>
-                                <h1>54</h1>
+                                <h1>{counts.user}</h1>
                                 <span>Customers</span>
                             </div>
                             <div>
@@ -100,7 +111,7 @@ export default function Dashboard() {
 
                         <div className="card-single">
                             <div>
-                                <h1>124</h1>
+                                <h1>{counts.order}</h1>
                                 <span>Orders</span>
                             </div>
                             <div>
@@ -147,7 +158,7 @@ export default function Dashboard() {
                                                     <div className="outer">
                                                         <div className="inner">
                                                             <div id="number-1">
-                                                                
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -219,84 +230,24 @@ export default function Dashboard() {
                                         <table width="100%">
                                             <thead>
                                                 <tr>
-                                                    <td>Item</td>
+                                                    <td>Email</td>
                                                     <td>Price</td>
                                                     <td>Delivery Status</td>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>lorem ipsum</td>
-                                                    <td>100</td>
-                                                    <td>
-                                                        <span className="status purple"></span>
-                                                        delivered
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>lorem ipsum</td>
-                                                    <td>100</td>
-                                                    <td>
-                                                        <span className="status pink"></span>
-                                                        on way
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>lorem ipsum</td>
-                                                    <td>100</td>
-                                                    <td>
-                                                        <span className="status orange"></span>
-                                                        Shipped
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>lorem ipsum</td>
-                                                    <td>100</td>
-                                                    <td>
-                                                        <span className="status purple"></span>
-                                                        delivered
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>lorem ipsum</td>
-                                                    <td>100</td>
-                                                    <td>
-                                                        <span className="status pink"></span>
-                                                        on way
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>lorem ipsum</td>
-                                                    <td>100</td>
-                                                    <td>
-                                                        <span className="status orange"></span>
-                                                        Shipped
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>lorem ipsum</td>
-                                                    <td>100</td>
-                                                    <td>
-                                                        <span className="status purple"></span>
-                                                        delivered
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>lorem ipsum</td>
-                                                    <td>100</td>
-                                                    <td>
-                                                        <span className="status pink"></span>
-                                                        on way
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>lorem ipsum</td>
-                                                    <td>100</td>
-                                                    <td>
-                                                        <span className="status orange"></span>
-                                                        Shipped
-                                                    </td>
-                                                </tr>
+                                                {Orders.map((order, index) => {
+                                                    return (<tr key={index}>
+                                                            <td>{order.email}</td>
+                                                            <td>{order.total}</td>
+                                                            <td>
+                                                                <span className="status purple"></span>
+                                                                {order.status}
+                                                            </td>
+                                                        </tr>
+                                                    )
+                                                })
+                                                }
                                             </tbody>
                                         </table>
                                     </div>
@@ -309,4 +260,15 @@ export default function Dashboard() {
             </div>
         </div>
     )
+}
+export async function getStaticProps(context) {
+    const res = await fetch(`${baseUrl}/api/Order`, {
+        method: 'GET'
+    })
+    const data = await res.json()
+    return {
+        props: {
+            Orders: data
+        }
+    }
 }

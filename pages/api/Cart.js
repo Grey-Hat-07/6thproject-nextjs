@@ -4,9 +4,9 @@ initDB();
 export default async (req, res) => {
     const { user } = req.cookies;
     switch (req.method) {
-        case "GET":
+        case "GETS":
             await fetchusercart(req, res);
-            break;s
+            break;
         case "POST":
             const { productId, quantity,price,productname } = req.body;
             const cart = await Cart.findOne({ userId: user });
@@ -47,6 +47,7 @@ export default async (req, res) => {
 }
 const fetchusercart = async (req, res) => {
     const { user } = req.cookies;
+    console.log(user);
     try{
         const cart = await Cart.findOne({ userId: user });
         if (cart) {

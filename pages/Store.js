@@ -4,7 +4,7 @@ import { Card } from '../Component/Card'
 import baseUrl from '../helpers/baseUrl'
 export default function Store(props) {
   const list = 3;
-  var totalfood = 0, totalaccess = 0;
+  var totalfood = 0, totalaccess = 0,totalmed=0;
   return (
     <div>
       <script src="/js/jQuery.js" type="text/javascript"></script>
@@ -107,8 +107,8 @@ export default function Store(props) {
       <div className='container'>
         <div className='row'>
           {props.products.map((product, index) => {
-            if (product.category === "Medicine" && totalaccess < list) {
-              totalaccess++;
+            if (product.category === "Medicine" && totalmed < list) {
+              totalmed++;
               return < Card product={product} key={product._id} />
             }
           })}
