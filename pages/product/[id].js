@@ -1,128 +1,133 @@
 import baseUrl from "../../helpers/baseUrl";
 import { useRouter } from "next/router";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import jsCookie from "js-cookie";
 import Head from "next/head";
+import Link from "next/link";
 const product = (props) => {
   const { product } = props;
+  const { recommended } = props;
+  let list = 0, total = 4;
   var products = [];
-    const router = useRouter();
-    if (router.isFallback) {
-        return <h1 className="text-primary">Loading...</h1>
+  const router = useRouter();
+  if (router.isFallback) {
+    return <h1 className="text-primary">Loading...</h1>
+  }
+  const [userData, setUserData] = useState({});
+  useEffect(async () => {
+    const res = await fetch(`${baseUrl}/api/Account`);
+    const data = await res.json();
+    setUserData(data);
+
+
+
+  })
+  const addToCart = async () => {
+
+    const data = {
+      productId: product._id,
+      quantity: 1,
+      price: product.price,
+      productname: product.name
     }
-    const [userData, setUserData] = useState({});
-    useEffect(async() => {
-     const res = await fetch(`${baseUrl}/api/Account`);
-      const data = await res.json();
-      setUserData(data);
-
-
-
+    const res = await fetch(`${baseUrl}/api/cart`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
     })
-    const addToCart = async () => {
-    
-        const data = {
-            productId: product._id,
-            quantity: 1,
-            price: product.price,
-            productname: product.name
-        }
-        const res = await fetch(`${baseUrl}/api/cart`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data)
-        })
-        const json = await res.json()
-        router.push("/cart")
+    const json = await res.json()
+    router.push("/cart")
 
 
+  }
+  const createOrder = async ({ paymentId, razorpayOrderId }) => {
+    const res = await fetch(`${baseUrl}/api/Order`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        products: products,
+        email: userData.email,
+        total: product.price,
+        paymentId,
+        razorpayOrderId
+      })
+    });
+    jsCookie.remove('productid');
+    const res2 = await res.json();
+    if (res2) {
+      router.push('/');
     }
-    const createOrder = async({paymentId, razorpayOrderId}) => {
-      const res = await fetch(`${baseUrl}/api/Order`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          products : products,
-          email : userData.email,
-          total : product.price,
-          paymentId ,
-          razorpayOrderId
-        })
-      });
-      jsCookie.remove('productid');
-      const res2 = await res.json();
-      if(res2) {
-        router.push('/');
-      }
-    }
-    // razorpay section
-    const initializeRazorpay = () => {
-      return new Promise((resolve) => {
-        const script = document.createElement("script");
-        script.src = "https://checkout.razorpay.com/v1/checkout.js";
-  
-        script.onload = () => {
-          resolve(true);
-        };
-        script.onerror = () => {
-          resolve(false);
-        };
-  
-        document.body.appendChild(script);
-      });
-    };
-    const makePayment = async () => {
-      const res = await initializeRazorpay();
-      products.push({product: product._id,
-        productname: product.name, price: product.price, quantity: 1})
-      if (!res) {
-        alert("Razorpay SDK Failed to load");
-        return;
-      }
-      jsCookie.set("productid", product._id);
-  
-      // Make API call to the serverless API
-      const data = await fetch(`${baseUrl}/api/Razorpay`, { 
-          method: "POST",
-          // headers: {
-          //   "Content-Type": "application/json"
-          // },
-          // body: JSON.stringify({
-          //   price: product.price
-          // })
-      }).then((t) =>
-        t.json()
-      );
-      console.log(data);
-      var options = {
-        key: process.env.RAZORPAY_KEY, // Enter the Key ID generated from the Dashboard
-        name: "Paw Life",
-        currency: data.currency,
-        amount: product.price,
-        order_id: data.id,
-        description: "Thankyou for your test donation",
-        image: "/images/logo.png",
-        handler: function (response) {
-          // Validate payment at server - using webhooks is a better idea.
-          createOrder({ paymentId: response.razorpay_payment_id, razorpayOrderId: response.razorpay_order_id });
-          // alert(response.razorpay_payment_id);
-          // alert(response.razorpay_order_id);
-          // alert(response.razorpay_signature);
-        },
-        prefill: {
-          name: userData.name,
-          email: userData.email
-        },
+  }
+  // razorpay section
+  const initializeRazorpay = () => {
+    return new Promise((resolve) => {
+      const script = document.createElement("script");
+      script.src = "https://checkout.razorpay.com/v1/checkout.js";
+
+      script.onload = () => {
+        resolve(true);
       };
-  
-      const paymentObject = new window.Razorpay(options);
-      paymentObject.open();
+      script.onerror = () => {
+        resolve(false);
+      };
+
+      document.body.appendChild(script);
+    });
+  };
+  const makePayment = async () => {
+    const res = await initializeRazorpay();
+    products.push({
+      product: product._id,
+      productname: product.name, price: product.price, quantity: 1
+    })
+    if (!res) {
+      alert("Razorpay SDK Failed to load");
+      return;
+    }
+    jsCookie.set("productid", product._id);
+
+    // Make API call to the serverless API
+    const data = await fetch(`${baseUrl}/api/Razorpay`, {
+      method: "POST",
+      // headers: {
+      //   "Content-Type": "application/json"
+      // },
+      // body: JSON.stringify({
+      //   price: product.price
+      // })
+    }).then((t) =>
+      t.json()
+    );
+    console.log(data);
+    var options = {
+      key: process.env.RAZORPAY_KEY, // Enter the Key ID generated from the Dashboard
+      name: "Paw Life",
+      currency: data.currency,
+      amount: product.price,
+      order_id: data.id,
+      description: "Thankyou for your test donation",
+      image: "/images/logo.png",
+      handler: function (response) {
+        // Validate payment at server - using webhooks is a better idea.
+        createOrder({ paymentId: response.razorpay_payment_id, razorpayOrderId: response.razorpay_order_id });
+        // alert(response.razorpay_payment_id);
+        // alert(response.razorpay_order_id);
+        // alert(response.razorpay_signature);
+      },
+      prefill: {
+        name: userData.name,
+        email: userData.email
+      },
     };
-  
+
+    const paymentObject = new window.Razorpay(options);
+    paymentObject.open();
+  };
+
   return (
 
     <>
@@ -131,14 +136,14 @@ const product = (props) => {
       <script src="/js/bootstrap.js" type="text/javascript"></script>
       <script src="/js/owl.carousel.js" type="text/javascript"></script>
       <script src="/js/wow.js"></script>
-     
-        <link rel="stylesheet" href="/css/style.css" type="text/css" />
-        <link rel="stylesheet" href="/css/product.css" type="text/css" />
-        <link rel="stylesheet" href="/css/bootstrap.css" type="text/css" />
-        <link rel="stylesheet" href="/css/animate.css" type="text/css" />
-        <link rel="stylesheet" href="/css/font-awesome.css" type="text/css" />
-        <link href="/css/owl.carousel.css" type="text/css" rel="stylesheet" />
-        <link href="/css/owl.theme.css" type="text/css" rel="stylesheet" />
+
+      <link rel="stylesheet" href="/css/style.css" type="text/css" />
+      <link rel="stylesheet" href="/css/product.css" type="text/css" />
+      <link rel="stylesheet" href="/css/bootstrap.css" type="text/css" />
+      <link rel="stylesheet" href="/css/animate.css" type="text/css" />
+      <link rel="stylesheet" href="/css/font-awesome.css" type="text/css" />
+      <link href="/css/owl.carousel.css" type="text/css" rel="stylesheet" />
+      <link href="/css/owl.theme.css" type="text/css" rel="stylesheet" />
 
       <div className="container">
         <div className="row">
@@ -177,74 +182,22 @@ const product = (props) => {
               <p className="mb-5 text-7 wow fadeInLeft">Similar Products</p>
               <div className="span12">
                 <div id="owl-demo">
-                  <div className="w-md">
-                    <div className="item">
-                      <a href="#">
-                        <img src="/images/PngItem_1563693.png" className="product-img-2" alt="item1.png" />
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="w-md">
-                    <div className="item">
-                      <a href="#">
-                        <img src="/images/PngItem_1564000.png" className="product-img-2" alt="item1.png" />
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="w-md">
-                    <div className="item">
-                      <a href="#">
-                        <img src="/images/PngItem_1564128.png" className="product-img-2" alt="item1.png" />
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="w-md">
-                    <div className="item">
-                      <a href="#">
-                        <img src="/images/PngItem_2331886.png" className="product-img-2" alt="item1.png" />
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="w-md">
-                    <div className="item">
-                      <a href="#">
-                        <img src="/images/PngItem_2469302.png" className="product-img-2" alt="item1.png" />
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="w-md">
-                    <div className="item">
-                      <a href="#">
-                        <img src="/images/PngItem_2994192.png" className="product-img-2" alt="item1.png" />
-                      </a>
-                    </div>
-                  </div>
-                  <div className="w-md">
-                    <div className="item">
-                      <a href="#">
-                        <img src="/images/PngItem_3327040.png" className="product-img-2" alt="item1.png" />
-                      </a>
-                    </div>
-                  </div>
-                  <div className="w-md">
-                    <div className="item">
-                      <a href="#">
-                        <img src="/images/PngItem_3327325.png" className="product-img-2" alt="item1.png" />
-                      </a>
-                    </div>
-                  </div>
-                  <div className="w-md">
-                    <div className="item">
-                      <a href="#">
-                        <img src="/images/PngItem_3327391.png" className="product-img-2" alt="item1.png" />
-                      </a>
-                    </div>
-                  </div>
+                  { recommended.map((recomproduct) => {
+                    if (recomproduct.category === product.category && list <= total && recomproduct._id !== product._id) {
+                      list++;
+                      return (<div className="w-md" key={recomproduct._id}>
+                        <div className="item"> <Link
+                          href={'/product/[id]'}
+                          as={`/product/${recomproduct._id}`}
+                        >
+                          {/* <a href="#"> */}
+                          <img src={recomproduct.image} className="product-img-2" alt="item1.png" />
+                          {/* </a> */}</Link>
+                        </div>
+                      </div>)
+                    }
+                  }
+                  )}
                 </div>
               </div>
             </div>
@@ -258,15 +211,21 @@ const product = (props) => {
 
 
 export async function getServerSideProps({ params: { id } }) {
-    const res = await fetch(`${baseUrl}/api/product/${id}`,{
-        method: "GET"
-    })
-    const data = await res.json()
-    return {
-        props: {
-            product: data
-        }
+  const res = await fetch(`${baseUrl}/api/product/${id}`, {
+    method: "GET"
+  })
+  const res2 = await fetch(`${baseUrl}/api/Product`, {
+    method: 'GET'
+  })
+  const data = await res.json()
+  const data2 = await res2.json()
+  return {
+    props: {
+      product: data,
+      recommended: data2
     }
+  }
 
 }
+
 export default product;
