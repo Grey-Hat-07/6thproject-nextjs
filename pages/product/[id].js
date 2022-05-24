@@ -20,10 +20,7 @@ const product = (props) => {
     const res = await fetch(`${baseUrl}/api/Account`);
     const data = await res.json();
     setUserData(data);
-
-
-
-  })
+  },)
   const addToCart = async () => {
 
     const data = {
@@ -32,7 +29,7 @@ const product = (props) => {
       price: product.price,
       productname: product.name
     }
-    const res = await fetch(`${baseUrl}/api/cart`, {
+    const res = await fetch(`${baseUrl}/api/Cart`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -111,7 +108,7 @@ const product = (props) => {
       currency: data.currency,
       amount: product.price,
       order_id: data.id,
-      description: "Thankyou for your test donation",
+      description: "Join our revolution",
       image: "/images/logo.png",
       handler: function (response) {
         // Validate payment at server - using webhooks is a better idea.
@@ -162,8 +159,8 @@ const product = (props) => {
               </p>
 
               <div className="btn-grp pt-3">
-                <button type="button" className="btn-2 btn-pink">
-                  {/* onClick={addToCart}> */}
+                <button type="button" className="btn-2 btn-pink"
+                  onClick={addToCart}> 
                   Add To Cart
                 </button>
                 <span className="pl-4">

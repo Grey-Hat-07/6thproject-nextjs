@@ -1,24 +1,27 @@
 import React from 'react'
 import Head from 'next/head'
-import Cartproduct from '../Component/Cartproduct'
+import {Cartproduct} from '../Component/Cartproduct'
 import baseUrl from '../helpers/baseUrl'
 import { useRouter } from 'next/router'
+import { Card } from '../Component/Card'
 import { useEffect, useState } from 'react'
 export default function Cart(props) {
-    const {data} = props;
-    console.log(data);
-    // const [cart, setCart] = useState([]);
+    // const {data} = props;
+    // console.log(data);
+    var cartdata;
+    const [cart, setCart] = useState();
     // const [userData, setUserData] = useState({});
     // const router = useRouter();
     // let total = 0;
     //useEffect section
-    // useEffect(async () => {
-    //     const res = await fetch(`${baseUrl}/api/cart`);
-    //     const cartdata = await res.json();
-    //     setCart(cartdata);
-    //     //console.log(cart);
+    useEffect(async () => {
+        const res = await fetch(`${baseUrl}/api/Cart`);
+        cartdata = await res.json();
+        setCart(cartdata);
+        // console.log(cart);
+        
        
-    // })
+    });
     // useEffect(async () => {
     //     const res = await fetch(`${baseUrl}/api/account`);
     //     const usedata = await res.json();
@@ -28,13 +31,13 @@ export default function Cart(props) {
 
     return (
         <div>
-            <Head>
-                <link href="css/cart.css" type="text/css" rel="stylesheet" />
-                <link href="css/style.css" type="text/css" rel="stylesheet" />
-                <link href="css/bootstrap.css" type="text/css" rel="stylesheet" />
-                <link href="css/animate.css" type="text/css" rel="stylesheet" />
-                <link href="css/font-awesome.css" type="text/css" rel="stylesheet" />
-            </Head>
+
+                <link href="/css/cart.css" type="text/css" rel="stylesheet" />
+                <link href="/css/style.css" type="text/css" rel="stylesheet" />
+                <link href="/css/bootstrap.css" type="text/css" rel="stylesheet" />
+                <link href="/css/animate.css" type="text/css" rel="stylesheet" />
+                <link href="/css/font-awesome.css" type="text/css" rel="stylesheet" />
+
             <script src="js/jQuery.js" type="text/javascript"></script>
             <script src="js/bootstrap.js" type="text/javascript"></script>
             <script src="js/wow.js"></script>
@@ -60,27 +63,14 @@ export default function Cart(props) {
                         <td><input type="number" min="1" defaultValue={1} /></td>
                         <td>$10.00</td>
                     </tr>
+                    <Cartproduct />
 
                     {
-                        // cart.products ?cart.products.map((product) => {
-                        //     total = total + product.quantity;
-                        //     return (<tr key={product._id}>
-                        //         {/* <td>
-                        //             <div className="cart-info">
-                        //                 <img src="images/Multi-Start-Pet-Syrup_-Chicken-Flavour_-200-ml1.png" />
-                        //                 <div className="mt-5 mt-md-4 mt-xs-5 ml-xs-5">
-                        //                     <p className="text-cart-2">lorem ipsum</p>
-                        //                     <small className="text-cart-3">Price: ${product.price}.00</small>
-                        //                     <br />
-                        //                     <a href="#">Remove</a>
-                        //                 </div>
-                        //             </div>
-                        //         </td> */}
-                        //         <td><input type="number" min="1" defaultValue={1} /></td>
-                        //         <td>$10.00</td>
-                        //     </tr>
+                        // cart && cart.products.map((item, index) => {
+                        //     return(
+                        //         <Cartproduct key={index} product={item}/>
                         //     )
-                        // }) : <h2>Cart is empty</h2>
+                        // })
                     }
 
                     <tr>
@@ -144,17 +134,17 @@ export default function Cart(props) {
         </div>
     )
 }
-export async function getServerSideProps(context) {
-    var res = await fetch(`${baseUrl}/api/cart`,{
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-        }
-    });
-    var data = await res.json();
-    return {
-      props: {
-        data
-      }
-    }
-  }
+// export async function getServerSideProps(context) {
+//     var res = await fetch(`${baseUrl}/api/cart`,{
+//         method: "GET",
+//         headers: {
+//             "Content-Type": "application/json",
+//         }
+//     });
+//     var data = await res.json();
+//     return {
+//       props: {
+//         data
+//       }
+//     }
+//   }
