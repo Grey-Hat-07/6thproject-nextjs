@@ -11,7 +11,7 @@ export default async (req, res) => {
     }
 }
 const getorder = async (req, res) => {
-    //const { user } = req.cookies;
+    const { user } = req.cookies;
     const orders = await Order.find();
     if (orders) {
         return res.status(200).json(orders);
@@ -21,10 +21,8 @@ const getorder = async (req, res) => {
 }
 const postorder = async (req, res) => {
     const { user } = req.cookies;
-    const { products, total, email, paymentId,razorpayOrderId } = req.body;
-    // await Cart.findOne({ userId: user },{
-    //     $setField: {products: []}
-    // });
+    const { products, total, email, paymentId,razorpayOrderId,cart } = req.body;
+   
     var status = 'created'; 
     const order = await Order.create({
         userId: user,
@@ -41,6 +39,9 @@ const postorder = async (req, res) => {
         productData.quantity = productData.quantity - product.quantity;
         await productData.save();
     })
+    if(cart){
+        await Cart.findOneAndUpdate({userId:user},{$set:{products:[]}});
+    }
 
     if(order) {
 

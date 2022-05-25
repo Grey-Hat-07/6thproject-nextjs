@@ -34,7 +34,7 @@ const product = (props) => {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify({product:data})
     })
     const json = await res.json()
     router.push("/cart")
@@ -113,9 +113,7 @@ const product = (props) => {
       handler: function (response) {
         // Validate payment at server - using webhooks is a better idea.
         createOrder({ paymentId: response.razorpay_payment_id, razorpayOrderId: response.razorpay_order_id });
-        // alert(response.razorpay_payment_id);
-        // alert(response.razorpay_order_id);
-        // alert(response.razorpay_signature);
+       
       },
       prefill: {
         name: userData.name,
