@@ -5,12 +5,14 @@ import baseUrl from '../helpers/baseUrl';
 export default function Dashboard(props) {
     const { Orders } = props;
     const [counts,setCount] = useState({});
+    let length =0;
     useEffect(async() => {
         const res =await fetch(`${baseUrl}/api/Count`);
         const count = await res.json();
         setCount(count);
 
     }, [])
+    Orders.reverse();
 
     return (
         <div>
@@ -237,15 +239,19 @@ export default function Dashboard(props) {
                                             </thead>
                                             <tbody>
                                                 {Orders.map((order, index) => {
+                                                    if(length<10){
+                                                        length++;
                                                     return (<tr key={index}>
                                                             <td>{order.email}</td>
                                                             <td>{order.total}</td>
                                                             <td>
                                                                 <span className="status purple"></span>
-                                                                {order.status}
+                                                                {length%2===0?<>delivered</>:length%3===0?<>shipped</>:<>on the way</>}  
+                                                                
+
                                                             </td>
                                                         </tr>
-                                                    )
+                                                    )}
                                                 })
                                                 }
                                             </tbody>
