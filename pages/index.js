@@ -1,23 +1,20 @@
-import { useState, useEffect } from "react"
-import { useRouter } from "next/router"
-import { parseCookies } from "nookies"
-import Head from 'next/head'
+import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import { parseCookies } from "nookies";
+import Head from "next/head";
 
 export default function Home() {
-  const router = useRouter()
+  const router = useRouter();
   const { user, role } = parseCookies();
-    
-  
+
   useEffect(() => {
     if (!user) {
-      router.push("/Login")
+      router.push("/Login");
     }
     if (role) {
-      router.push('/Dashboard')
+      router.push("/Dashboard");
     }
-
-  }, [])
-
+  }, []);
 
   return (
     <div>
@@ -27,8 +24,9 @@ export default function Home() {
       <script src="js/owl.carousel.js" type="text/javascript"></script>
       <script src="js/popper.min.js" type="text/javascript"></script>
       <script src="js/popper.min.js" type="text/javascript"></script>
+      <script src="js/wow.js"></script>
+      <script>new WOW().init();</script>
       <Head>
-
         <link href="/css/style.css" type="text/css" rel="stylesheet" />
         <link href="/css/bootstrap.css" type="text/css" rel="stylesheet" />
         <link href="/css/animate.css" type="text/css" rel="stylesheet" />
@@ -67,13 +65,18 @@ export default function Home() {
                     alt="First slide"
                   />
                   <div className="carousel-caption d-md-block d-xs-none">
-                    <h1 className="text-1 wow fadeInLeftBig">Join our revolution</h1>
-                    <p className="text-2 wow fadeInRightBig">Donate for stray dogs</p>
+                    <h1 className="text-1 wow fadeInLeftBig">
+                      Join our revolution
+                    </h1>
+                    <p className="text-2 wow fadeInRightBig">
+                      Donate for stray dogs
+                    </p>
                     <button
                       type="button"
                       className="btn btn-outline-lights text-md-1"
                     >
-                      Donate<i
+                      Donate
+                      <i
                         className="fa fa-long-arrow-right ml-1"
                         aria-hidden="true"
                       ></i>
@@ -98,7 +101,8 @@ export default function Home() {
                       type="button"
                       className="btn btn-outline-lights text-md-1"
                     >
-                      Talk Now<i
+                      Talk Now
+                      <i
                         className="fa fa-long-arrow-right ml-1"
                         aria-hidden="true"
                       ></i>
@@ -120,7 +124,8 @@ export default function Home() {
                       type="button"
                       className="btn btn-outline-lights text-md-1"
                     >
-                      Buy Now<i
+                      Buy Now
+                      <i
                         className="fa fa-long-arrow-right ml-1"
                         aria-hidden="true"
                       ></i>
@@ -157,7 +162,6 @@ export default function Home() {
         </div>
       </div>
 
-
       <div className="container mt-5">
         <div className="row">
           <div className="col-xl-5 overflow-h">
@@ -167,12 +171,12 @@ export default function Home() {
             <div className="body-text">
               <h1 className="text-3 wow fadeInLeft">Dog is our best friend</h1>
               <p className="mt-4 ml-4 wow fadeInRight">
-                Dogs provide us with unconditional love and companionship. They’re
-                at our sides when we’re sick, and they always seem to know when we
-                need a little extra affection. They love us without judgment, even
-                when we are ignoring them or not feeding them a second dinner.
-                Dogs seem to understand us on another level that transcends
-                language.
+                Dogs provide us with unconditional love and companionship.
+                They’re at our sides when we’re sick, and they always seem to
+                know when we need a little extra affection. They love us without
+                judgment, even when we are ignoring them or not feeding them a
+                second dinner. Dogs seem to understand us on another level that
+                transcends language.
               </p>
               <button type="button" className="btn btn-outline-trans">
                 Know More
@@ -199,12 +203,15 @@ export default function Home() {
               </div>
             </div>
             <div className="card">
-              <i className="fa fa-paw fa-4x mt-3 ml-5 color-1" aria-hidden="true"></i>
+              <i
+                className="fa fa-paw fa-4x mt-3 ml-5 color-1"
+                aria-hidden="true"
+              ></i>
               <div className="card-body">
                 <h5 className="card-title text-3 ml-3">Pet Care</h5>
                 <p className="card-text text-4 ml-3">
-                  We always care about your pets so we give you the best products
-                  for your pets.
+                  We always care about your pets so we give you the best
+                  products for your pets.
                 </p>
               </div>
             </div>
@@ -248,8 +255,8 @@ export default function Home() {
                         </h5>
                         <p className="card-text text-lg-1 text-md-3">
                           Unlike cats, which are obligate carnivores, dogs are
-                          omnivores which means they can eat a mix of meats along
-                          with vegetables and fruits....
+                          omnivores which means they can eat a mix of meats
+                          along with vegetables and fruits....
                         </p>
                       </div>
                     </div>
@@ -320,8 +327,8 @@ export default function Home() {
                         </h5>
                         <p className="card-text text-lg-1 text-md-3">
                           We love all things dog. In our endeavour to bring
-                          awareness and education to pet parents, we collaborated
-                          with Shharat Sharma, Ex- Civil Servant...
+                          awareness and education to pet parents, we
+                          collaborated with Shharat Sharma, Ex- Civil Servant...
                         </p>
                       </div>
                     </div>
@@ -368,8 +375,8 @@ export default function Home() {
                         </h5>
                         <p className="card-text text-lg-1 text-md-3">
                           We love all things dogs. In our endeavor to bring
-                          education to pet parents, we collaborated with Dr. Anish
-                          Pillai, Veterinary Manager at Farmina...
+                          education to pet parents, we collaborated with Dr.
+                          Anish Pillai, Veterinary Manager at Farmina...
                         </p>
                       </div>
                     </div>
@@ -380,7 +387,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-
     </div>
-  )
+  );
 }
