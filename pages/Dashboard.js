@@ -47,7 +47,7 @@ export default function Dashboard(props) {
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="/accountdashboard">
                                 <span className="las la-user-circle"></span>
                                 <span className="disp-md-none">Accounts</span>
                             </a>

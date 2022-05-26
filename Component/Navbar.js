@@ -16,7 +16,7 @@ export default function Navbar() {
     } else {
       setIsLoggedIn(true)
     }
-    if (router.pathname === '/Dashboard' || router.pathname === '/productup') {
+    if (router.pathname === '/Dashboard' || router.pathname === '/productup'|| router.pathname === '/accountdashboard') {
       setIsdashboard(true)
     }
     else {
