@@ -20,7 +20,7 @@ const product = (props) => {
     const res = await fetch(`${baseUrl}/api/Account`);
     const data = await res.json();
     setUserData(data);
-  },)
+  },[])
   const addToCart = async () => {
 
     const data = {
