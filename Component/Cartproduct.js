@@ -22,26 +22,6 @@ export const Cartproduct = (props) => {
           
 
     }
-    // const removeproduct = async () => {
-    //     const res = await fetch(`${baseUrl}/api/Cart`,{
-    //         method: 'DELETE',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify({
-    //             product: product
-    //         })
-    //     });
-    //     const data = await res.json();
-    //     if(data.error){
-    //         alert(data.error);
-    //     }
-    //     else{
-    //         alert(data.message);
-    //     }
-
-    // }
-
   return (
     <tr>
                         <td>
@@ -56,10 +36,10 @@ export const Cartproduct = (props) => {
                                 </div>
                             </div>
                         </td>
-                        <td>
-                            <input type="number" min="1" value={product.quantity} 
+                        <td>{data&&
+                            <input type="number" min="1" value={product.quantity} max={data.quantity}
                             onChange={(e)=>{updatecartproquatity(product._id,e.target.value)}}
-                        /></td>
+                        />}</td>
                         <td>${product.quantity*product.price}.00</td>
                     </tr>
   )
