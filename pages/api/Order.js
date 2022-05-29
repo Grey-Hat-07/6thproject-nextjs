@@ -1,6 +1,8 @@
 import Order from '../../Models/Order';
 import Cart from '../../Models/Cart';
 import Product from '../../Models/Product'
+import initDB from '../../helpers/initDB';
+initDB();
 export default async (req, res) => {
     switch (req.method) {
         case 'POST': await postorder(req, res);

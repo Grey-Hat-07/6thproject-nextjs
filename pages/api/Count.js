@@ -1,5 +1,7 @@
 import User from '../../Models/User'
 import Order from '../../Models/Order'
+import initDB from '../../helpers/initDB';
+initDB();
 export default async (req, res) => {
 
     

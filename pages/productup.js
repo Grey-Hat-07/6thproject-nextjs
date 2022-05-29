@@ -4,8 +4,9 @@ import Head from 'next/head'
 import baseUrl from '../helpers/baseUrl';
 import { getDownloadURL, ref, uploadBytesResumable } from '@firebase/storage';
 import { storage } from '../firebase/main.firebase'
+import { Productcard } from '../Component/Productcard';
 export default function productup(props) {
-  var {products} = props;
+  var { products } = props;
   const [productname, setProductname] = useState('');
   const [price, setprice] = useState();
   const [image, setimage] = useState(null);
@@ -76,7 +77,8 @@ export default function productup(props) {
 
     //console.log(file.url);
   }
-  
+
+
   return (
     <div>
       <script src="js/admin.js" type="text/javascript"></script>
@@ -252,16 +254,9 @@ export default function productup(props) {
                       </tr>
                     </thead>
                     <tbody>
-                      {products.map((product)=>{
-                        return(
-                          <tr >
-                          <td>{product.name}</td>
-                          <td>{product.quantity}</td>
-                          <td>
-                            <i className="las la-pen"></i
-                            ><span><i className="las la-trash"></i></span>
-                          </td>
-                        </tr>
+                      {products.map((product) => {
+                        return (
+                          <Productcard key={product._id} product={product} />
                         )
                       })}
                     </tbody>
