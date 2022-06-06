@@ -39,8 +39,10 @@ export const Cartproduct = (props) => {
         <tr>
             <td>
                 <div className="cart-info">
-                    {data &&
-                        <img src={data.image} />}
+                    {data && <a
+                        href={`/product/${data._id}`}
+                    >
+                        <img src={data.image} /></a>}
                     <div className="mt-5 mt-md-4 mt-xs-5 ml-xs-5">
                         <p className="text-cart-2">{product.productname}</p>
                         <small className="text-cart-3">Price: ${product.price}.00</small>
