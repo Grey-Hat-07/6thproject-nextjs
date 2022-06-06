@@ -14,44 +14,6 @@ export default function chat() {
         const usedata = await res.json();
         setUserData(usedata);
     }, []);
-    useEffect(async () => {
-        const res = await fetch(`${baseUrl}/api/globalchat`);
-        const data = await res.json();
-        setGlobalChat(data);
-
-    });
-    const postmessage = async () => {
-        if(message.length > 0){
-        console.log(message);
-        console.log(userData.name);
-        const res = await fetch(`${baseUrl}/api/globalchat`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                name: userData.name,
-                message: message
-            })
-        })
-        const data = await res.json()
-        if (data) {
-            setMessage('')
-        }}
-
-    }
-    const usertype = (userId) => {
-        var type = [];
-        if (userId == user) {
-            type.chat = 'outgoing-chats';
-            type.message = 'outgoing-chats-msg';
-        }
-        else {
-            type.chat = 'received-chats';
-            type.message = 'received-msg-inbox';
-        }
-        return type;
-    }
     return (
         <div>
             <script src="/js/jQuery.js" type="text/javascript"></script>
@@ -84,7 +46,7 @@ export default function chat() {
                     <div className="msg-inbox">
                         <div className="chats">
                             <div className="msg-page">
-                                {/* <div className="outgoing-chats">
+                                <div className="outgoing-chats">
                                     <div className="outgoing-chats-msg">
                                         <p> Hi !! This message is from me</p>
                                         <span className="time">11.01 | January 1</span>
@@ -92,8 +54,8 @@ export default function chat() {
                                     <div className="outgoing-chats-img">
                                         <img src="images/profile-1.jpg" alt="user-2.jpeg" />
                                     </div>
-                                </div> */}
-                                {/* <div className="received-chats">
+                                </div>
+                                <div className="received-chats">
                                     <div className="received-chats-img">
                                         <img src="images/FallenCap.jpg" alt="user-2.jpeg" />
                                     </div>
@@ -103,27 +65,8 @@ export default function chat() {
                                             <span className="time">11.01 | January 1</span>
                                         </div>
                                     </div>
-                                </div> */}
-                                {globalChat && globalChat.map((text, index) => {
-                                    const isMe = usertype(text.userId)
-                                    return (<div key={index} className={isMe.chat}>
-                                        {isMe.chat === 'received-chats' &&
-                                            <div className="received-chats-img">
-                                                <img src="images/FallenCap.jpg" alt="user-2.jpeg" />
-                                            </div>}
-                                            {/* <p><small>{text.name}</small></p> */}
-                                        <div className={isMe.message}>
-                                            <p> {text.message}</p>
-                                            <span className="time">
-                                                {text.date}
-                                            </span>
-                                        </div>{isMe.chat == 'outgoing-chats' &&
-                                            <div className="outgoing-chats-img">
-                                                <img src="images/profile-1.jpg" alt="user-2.jpeg" />
-                                            </div>}
-                                    </div>)
-                                })
-                                }
+                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -138,7 +81,7 @@ export default function chat() {
                             <input type="text" className="form-control" placeholder="write message..."
                                 value={message} onChange={(e) => setMessage(e.target.value)} />
                             <div className="input-group-append">
-                                <button onClick={postmessage} className="input-group-text"><i className="fa fa-paper-plane" aria-hidden="true"></i></button>
+                                <button className="input-group-text"><i className="fa fa-paper-plane" aria-hidden="true"></i></button>
                             </div>
                         </div>
                     </div>
