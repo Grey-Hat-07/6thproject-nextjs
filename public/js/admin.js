@@ -54,7 +54,7 @@ const myChart = new Chart(ctx, {
 });
 
 //Hover sidebar
-const hover = documnet.querySelector(".hover");
+const hover = document.querySelector(".hover");
 hover.addEventListener("click", function () {
   hover.classList.toggle("active");
 });

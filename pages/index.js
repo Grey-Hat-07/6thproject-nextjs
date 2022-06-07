@@ -5,7 +5,7 @@ import Head from "next/head";
 
 export default function Home() {
   const router = useRouter();
-  const { user, role } = parseCookies();
+  const { user, role, vet } = parseCookies();
 
   useEffect(() => {
     if (!user) {
@@ -13,6 +13,9 @@ export default function Home() {
     }
     if (role) {
       router.push("/Dashboard");
+    }
+    if(vet){
+      router.push("/vet-dashboard");
     }
   }, []);
 

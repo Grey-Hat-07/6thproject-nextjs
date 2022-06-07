@@ -6,6 +6,10 @@ const chatSchema = new mongoose.Schema({
         type: ObjectId,
         ref: "User",
     },
+    vetId:{
+        type: ObjectId,
+        ref: "Vet",
+    },
     username: {
         type: String,
         required: true,

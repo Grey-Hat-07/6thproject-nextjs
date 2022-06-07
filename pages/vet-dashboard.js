@@ -1,6 +1,13 @@
 import React from 'react'
-
+import jsCookie from 'js-cookie'
+import { useRouter } from 'next/router';
 export default function vetdasboard() {
+    const router = useRouter();
+    const logout = () => {
+        jsCookie.remove('user');
+        jsCookie.remove('vet');
+        router.push('/Login');
+    }
     return (
         <div>
             <link rel="stylesheet" href="/css/vet-dashboard.css" type="text/css" />
@@ -19,7 +26,7 @@ export default function vetdasboard() {
                 <div className="sidebar-menu">
                     <ul>
                         <li>
-                            <a href="dashboard-cus.html" className="pt-1"><i className="las la-comments"></i> <span
+                            <a href="/vet-dashboard" className="pt-1"><i className="las la-comments"></i> <span
                                 className="disp-md-none">Consult</span></a>
                         </li>
                         <li>
@@ -27,7 +34,7 @@ export default function vetdasboard() {
                                 className="disp-md-none">Accounts</span></a>
                         </li>
                         <li>
-                            <a href="#" className="pt-2 pt-md-2"><span className="las la-sign-out-alt"></span> <span
+                            <a href="#" onClick={logout}><span className="las la-sign-out-alt"></span> <span
                                 className="disp-md-none">Logout</span></a>
                         </li>
                     </ul>
