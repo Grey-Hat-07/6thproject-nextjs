@@ -1,5 +1,6 @@
 import initDB from "../../helpers/initDB";
 import Vet from "../../Models/Vet";
+import User from "../../Models/User";
 import bcrypt from "bcryptjs";
 
 initDB();
@@ -8,9 +9,13 @@ export default async (req, res) => {
     if (!name || !email || !password || !Vet_id) {
         return res.status(400).json({ error: "Please provide all the required fields" });
     }
-    const user = await Vet.findOne({ email });
-    if (user) {
+    const vet = await Vet.findOne({ email });
+    if (vet) {
         return res.status(400).json({ error: "Vet already exists" });
+    }
+    const user = await User.findOne({ email });
+    if(user){
+        return res.status(400).json({ error: "User already exists" });
     }
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);

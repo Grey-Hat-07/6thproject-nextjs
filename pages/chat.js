@@ -14,6 +14,9 @@ export default function chat() {
         const usedata = await res.json();
         setUserData(usedata);
     }, []);
+    const start= async () => {
+        console.log("start");
+    }
     return (
         <div>
             <script src="/js/jQuery.js" type="text/javascript"></script>
@@ -84,6 +87,7 @@ export default function chat() {
                                 <button className="input-group-text"><i className="fa fa-paper-plane" aria-hidden="true"></i></button>
                             </div>
                         </div>
+                        <button onClick={start} className="btn btn-primary">Start new chat</button>
                     </div>
                 </div>
             </div>

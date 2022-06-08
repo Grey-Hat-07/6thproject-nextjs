@@ -1,5 +1,6 @@
 import initDB from "../../helpers/initDB";
 import User from "../../Models/User";
+import Vet from "../../Models/Vet";
 import Cart from "../../Models/Cart";
 import bcrypt from "bcryptjs";
 
@@ -11,6 +12,10 @@ export default async (req, res) => {
     }
     const user = await User.findOne({ email });
     if (user) {
+        return res.status(400).json({ error: "User already exists" });
+    }
+    const vet = await Vet.findOne({ email });
+    if (vet) {
         return res.status(400).json({ error: "User already exists" });
     }
     const salt = await bcrypt.genSalt(10);
