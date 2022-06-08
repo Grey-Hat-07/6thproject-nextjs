@@ -1,5 +1,6 @@
 import Chat from "../../Models/Chat";
-
+import initDB from '../../helpers/initDB';
+initDB();
 export default async (req, res) => {
     switch (req.method) {
         case "GET":
@@ -16,8 +17,7 @@ export default async (req, res) => {
 
 }
 const getchat = async (req, res) => {
-    const { user } = req.body;
-    const chat = await Chat.find({ userId: user });
+    const chat = await Chat.find({});
     res.status(200).json(chat);
 }
 const postchat = async (req, res) => {
@@ -36,6 +36,7 @@ const postchat = async (req, res) => {
 }
 const updatestatus = async (req, res) => {
     const {user, status} = req.body;
+    console.log(user, status);
     const chat = await Chat.findOne({userId: user});
     if(chat){
         chat.status = status;

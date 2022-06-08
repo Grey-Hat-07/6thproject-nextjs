@@ -1,13 +1,28 @@
 import React from 'react'
 import jsCookie from 'js-cookie'
+import baseUrl from '../helpers/baseUrl';
 import { useRouter } from 'next/router';
+import {useEffect, useState} from 'react';
 export default function vetdasboard() {
     const router = useRouter();
+    const [livechat, setLivechat] = useState([]);
     const logout = () => {
         jsCookie.remove('user');
         jsCookie.remove('vet');
         router.push('/Login');
     }
+    useEffect(async() => {
+        const res = await fetch(`${baseUrl}/api/consult`,{
+            method: "GET",
+        });
+        const data = await res.json();
+        if(data){
+            setLivechat(data);
+            console.log(data);
+        }
+        
+    }, [])
+
     return (
         <div>
             <link rel="stylesheet" href="/css/vet-dashboard.css" type="text/css" />
@@ -72,51 +87,6 @@ export default function vetdasboard() {
                                 See all <span className="las la-arrow-right"></span>
                             </button>
                         </div>
-                        <div className="card-body">
-                            <div className="customer">
-                                <div className="info">
-                                    <img src="images/FallenCap.jpg" className="chat-profile-dp" alt="img.jpg" />
-                                    <span className="status"></span>
-                                    <div>
-                                        <h4>FallenCap</h4>
-                                    </div>
-                                </div>
-                                <div className="react">
-                                    <span className="las la-sms"></span>
-                                    <span className="las la-phone"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="card-body">
-                            <div className="customer">
-                                <div className="info">
-                                    <img src="images/FallenCap.jpg" className="chat-profile-dp" alt="img.jpg" />
-                                    <span className="status"></span>
-                                    <div>
-                                        <h4>FallenCap</h4>
-                                    </div>
-                                </div>
-                                <div className="react">
-                                    <span className="las la-sms"></span>
-                                    <span className="las la-phone"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="card-body">
-                            <div className="customer">
-                                <div className="info">
-                                    <img src="images/FallenCap.jpg" className="chat-profile-dp" alt="img.jpg" />
-                                    <span className="status"></span>
-                                    <div>
-                                        <h4>FallenCap</h4>
-                                    </div>
-                                </div>
-                                <div className="react">
-                                    <span className="las la-sms"></span>
-                                    <span className="las la-phone"></span>
-                                </div>
-                            </div>
-                        </div>
 
                         <div className="card-body">
                             <div className="customer">
@@ -133,13 +103,19 @@ export default function vetdasboard() {
                                 </div>
                             </div>
                         </div>
-                        <div className="card-body">
+                        
+
+                        
+                        
+                        {livechat&&livechat.map((chat, index) => {
+                                return(
+                                    <div className="card-body" key={index}>
                             <div className="customer">
                                 <div className="info">
                                     <img src="images/FallenCap.jpg" className="chat-profile-dp" alt="img.jpg" />
                                     <span className="status"></span>
                                     <div>
-                                        <h4>FallenCap</h4>
+                                        <h4>{chat.username}</h4>
                                     </div>
                                 </div>
                                 <div className="react">
@@ -148,6 +124,9 @@ export default function vetdasboard() {
                                 </div>
                             </div>
                         </div>
+                                )
+                        })}
+
                     </div></main>
             </div>
         </div>

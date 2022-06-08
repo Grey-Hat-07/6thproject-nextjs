@@ -15,12 +15,23 @@ export default function chat() {
         setUserData(usedata);
     }, []);
     const start= async () => {
-        console.log("start");
+        const res = await fetch(`${baseUrl}/api/consult`, {
+            method: 'UPDATE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                userId: user,
+                status: 'online'
+            })
+        });
+        const data = await res.json();
+        console.log(data);
     }
     return (
         <div>
             <script src="/js/jQuery.js" type="text/javascript"></script>
-            <script src="/js/cart.js" type="text/javascript"></script>
+            {/* <script src="/js/cart.js" type="text/javascript"></script> */}
             <script src="/js/bootstrap.js" type="text/javascript"></script>
 
             <link href="css/style.css" rel="stylesheet" type="text/css" />
@@ -87,7 +98,7 @@ export default function chat() {
                                 <button className="input-group-text"><i className="fa fa-paper-plane" aria-hidden="true"></i></button>
                             </div>
                         </div>
-                        <button onClick={start} className="btn btn-primary">Start new chat</button>
+                        <button className="btn btn-primary">Start new chat</button>
                     </div>
                 </div>
             </div>
