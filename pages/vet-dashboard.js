@@ -1,10 +1,17 @@
 import React from 'react'
 import jsCookie from 'js-cookie'
+import { parseCookies } from 'nookies';
 import baseUrl from '../helpers/baseUrl';
 import { useRouter } from 'next/router';
 import {useEffect, useState} from 'react';
 export default function vetdasboard() {
     const router = useRouter();
+    const {vet} = parseCookies();
+    useEffect(() => {
+        if(!vet){
+            router.push('/');
+        }
+    }, [])
     const [livechat, setLivechat] = useState([]);
     const logout = () => {
         jsCookie.remove('user');
@@ -12,16 +19,16 @@ export default function vetdasboard() {
         router.push('/Login');
     }
     useEffect(async() => {
-        const res = await fetch(`${baseUrl}/api/consult`,{
+        const res = await fetch(`${baseUrl}/api/Consult/chat`,{
             method: "GET",
         });
         const data = await res.json();
         if(data){
             setLivechat(data);
-            console.log(data);
+            // console.log(data);
         }
         
-    }, [])
+    })
 
     return (
         <div>
@@ -45,7 +52,7 @@ export default function vetdasboard() {
                                 className="disp-md-none">Consult</span></a>
                         </li>
                         <li>
-                            <a href="accountdashboard.html"><span className="las la-user-circle"></span> <span
+                            <a href="/vetaccount"><span className="las la-user-circle"></span> <span
                                 className="disp-md-none">Accounts</span></a>
                         </li>
                         <li>

@@ -1,4 +1,4 @@
-import Chat from "../../Models/Chat";
+import Chat from "../../../Models/Chat";
 
 export default async(req, res) => {
     switch (req.method) {
@@ -13,7 +13,7 @@ export default async(req, res) => {
 }
 const getMessage = async (req, res) => {
     const {user} = req.body;
-    const chat = await Chat.find({userId:user,status:'active'});
+    const chat = await Chat.findOne({userId:user,status:'active'});
     res.status(200).json(chat);
 
 }

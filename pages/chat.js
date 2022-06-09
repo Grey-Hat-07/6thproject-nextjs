@@ -2,12 +2,14 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import baseUrl from '../helpers/baseUrl';
 import jsCookie from 'js-cookie';
+import { useRouter } from 'next/router';
 export default function chat() {
     const user = jsCookie.get('user');
     // const {data} = props;
+    const router = useRouter();
     const [message, setMessage] = useState('')
     const [userData, setUserData] = useState();
-    const [globalChat, setGlobalChat] = useState([]);
+    const [chatData, setChatData] = useState();
 
     useEffect(async () => {
         const res = await fetch(`${baseUrl}/api/Account`);
@@ -15,18 +17,34 @@ export default function chat() {
         setUserData(usedata);
     }, []);
     const start= async () => {
-        const res = await fetch(`${baseUrl}/api/consult`, {
-            method: 'UPDATE',
+        const res = await fetch(`${baseUrl}/api/Consult/createchat`, {
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                userId: user,
-                status: 'online'
+                username: userData.name
             })
         });
         const data = await res.json();
-        console.log(data);
+        setChatData(data);
+
+    }
+    const endchat = async () => {
+        const res = await fetch(`${baseUrl}/api/Consult/chat`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                status: 'end'
+            })
+        })
+        const data = await res.json();
+        if(data){
+            setChatData();
+            router.push('/');
+        }
     }
     return (
         <div>
@@ -98,7 +116,8 @@ export default function chat() {
                                 <button className="input-group-text"><i className="fa fa-paper-plane" aria-hidden="true"></i></button>
                             </div>
                         </div>
-                        <button className="btn btn-primary">Start new chat</button>
+                       {!chatData?<button className="btn btn-primary" onClick={start}>Start new chat</button>:
+                       <button className="btn btn-danger" onClick={endchat}>End chat</button>} 
                     </div>
                 </div>
             </div>

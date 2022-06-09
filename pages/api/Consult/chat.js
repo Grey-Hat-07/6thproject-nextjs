@@ -1,5 +1,5 @@
-import Chat from "../../Models/Chat";
-import initDB from '../../helpers/initDB';
+import Chat from "../../../Models/Chat";
+import initDB from '../../../helpers/initDB';
 initDB();
 export default async (req, res) => {
     switch (req.method) {
@@ -19,8 +19,11 @@ const getchat = async (req, res) => {
 }
 
 const poststatus = async (req, res) => {
-    // const {user,status} = req.body;
-    // const chat = await Chat.find({userId:user});
+    const {user,status} = req.body;
+    const chat = await Chat.findOne({userId:user,status:'active'});
+    chat.status = status;
+    await chat.save();
+    res.status(200).json({message:'success'});
     
 
 }
