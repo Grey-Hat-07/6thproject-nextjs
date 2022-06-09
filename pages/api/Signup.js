@@ -27,7 +27,6 @@ export default async (req, res) => {
         password: hashedPassword
     }).save();
     await new Cart({ userId: newUser._id }).save();
-    await new Chat({ userId: newUser._id,vetId: newUser._id,username: name,status:'idle' }).save();
 
 
     res.status(200).json(newUser);
