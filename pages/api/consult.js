@@ -7,41 +7,20 @@ export default async (req, res) => {
             await getchat(req, res);
             break;
         case "POST":
-            await postchat(req, res);
-            break;
-        case "UPDATE":
-            await updatestatus(req, res);
-            break;
+           await poststatus(req, res);
+           break;
     }
 
 
 }
 const getchat = async (req, res) => {
-    const chat = await Chat.find({});
+    const chat = await Chat.find({status:'active'});
     res.status(200).json(chat);
 }
-const postchat = async (req, res) => {
-    const { user, messages } = req.body;
-    const chat = await Chat.findOne({ userId: user });
-    if (chat) {
-        chat.messages.push({
-            message: messages.message,
-            sender: messages.sender,
-            createdAt: Date.now()
-        });
-        await chat.save();
-        res.status(200).json(chat);
-    }
 
-}
-const updatestatus = async (req, res) => {
-    const {user, status} = req.body;
-    console.log(user, status);
-    const chat = await Chat.findOne({userId: user});
-    if(chat){
-        chat.status = status;
-        await chat.save();
-        res.status(200).json(chat);
-    }
+const poststatus = async (req, res) => {
+    // const {user,status} = req.body;
+    // const chat = await Chat.find({userId:user});
+    
 
 }
