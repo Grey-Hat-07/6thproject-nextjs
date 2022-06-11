@@ -1,8 +1,10 @@
 import React from 'react'
-import jscookie from 'js-cookie';
+import jsCookie from 'js-cookie';
 import { parseCookies } from 'nookies';
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 export default function Vetchat() {
+    const router = useRouter();
     const logout = () => {
         jsCookie.remove('user');
         jsCookie.remove('vet');

@@ -5,11 +5,11 @@ import jsCookie from 'js-cookie';
 import { useRouter } from 'next/router';
 export default function chat() {
     const user = jsCookie.get('user');
+    const chat= jsCookie.get('chat');
     // const {data} = props;
     const router = useRouter();
     const [message, setMessage] = useState('')
     const [userData, setUserData] = useState();
-    const [chatData, setChatData] = useState();
 
     useEffect(async () => {
         const res = await fetch(`${baseUrl}/api/Account`);
@@ -27,24 +27,8 @@ export default function chat() {
             })
         });
         const data = await res.json();
-        setChatData(data);
+        jsCookie.set('chat', data._id);
 
-    }
-    const endchat = async () => {
-        const res = await fetch(`${baseUrl}/api/Consult/chat`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                status: 'end'
-            })
-        })
-        const data = await res.json();
-        if(data){
-            setChatData();
-            router.push('/');
-        }
     }
     return (
         <div>
@@ -57,14 +41,14 @@ export default function chat() {
             <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
             <link href="css/font-awesome.css" rel="stylesheet" type="text/css" />
             <link href="css/animate.css" rel="stylesheet" type="text/css" />
-
+        
             <div className="container mt-chat-1">
                 <div className="msg-header">
                     <div className="msg-header-img">
                         <img src="images/FallenCap.jpg" alt="header-img.jpeg" />
                     </div>
                     <div className="active">
-                        <h4>FallenCap</h4>
+                        <h4>{userData&&userData.name}</h4>
                         <h6>3 hours ago...</h6>
                     </div>
                     <div className="header-icons">
@@ -73,7 +57,7 @@ export default function chat() {
                         <i className="fa fa-info-circle" aria-hidden="true"></i>
                     </div>
                 </div>
-
+                {chat?
                 <div className="chat-page">
                     <div className="msg-inbox">
                         <div className="chats">
@@ -116,11 +100,10 @@ export default function chat() {
                                 <button className="input-group-text"><i className="fa fa-paper-plane" aria-hidden="true"></i></button>
                             </div>
                         </div>
-                       {!chatData?<button className="btn btn-primary" onClick={start}>Start new chat</button>:
-                       <button className="btn btn-danger" onClick={endchat}>End chat</button>} 
                     </div>
-                </div>
+                </div>:<h1>test</h1>}
             </div>
+
         </div>
     )
 }

@@ -19,7 +19,7 @@ export default function vetdasboard() {
         router.push('/Login');
     }
     useEffect(async() => {
-        const res = await fetch(`${baseUrl}/api/Consult/chat`,{
+        const res = await fetch(`${baseUrl}/api/Consult/allchats`,{
             method: "GET",
         });
         const data = await res.json();
