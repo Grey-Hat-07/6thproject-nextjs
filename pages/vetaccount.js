@@ -1,11 +1,21 @@
 import React from 'react'
-
+import { useState,useEffect } from 'react';
+import baseUrl from '../helpers/baseUrl';
+import jsCookie from 'js-cookie'
+import { useRouter } from 'next/router';
 export default function vetaccount() {
+    const [data, setData] = useState([]);
     const logout = () => {
         jsCookie.remove('user');
         jsCookie.remove('vet');
         router.push('/Login');
     }
+    useEffect(async()=>{
+        const res = await fetch(`${baseUrl}/api/Account`);
+        const data = await res.json();
+        setData(data);
+    },[])
+
   return (
     <div>
             <link rel="stylesheet" href="/css/vet-dashboard.css" type="text/css" />
@@ -62,6 +72,23 @@ export default function vetaccount() {
                     </div>
                 </header>
 
+                <main>
+                    <div className="profile-pic-conatiner">
+                        <img src="images/FallenCap.jpg" className="profile-pic" alt="profilepic.jpeg" />
+                        <span><i className="las la-pencil-alt"></i></span>
+                    </div>
+                    <div className="card-account mt-1">
+                        <p className="account-font mt-2">Name: {data&&data.name}</p>
+                        <p className="account-font mt-2">Email: {data&&data.email}</p>
+                        <p className="account-font mt-2">Phone: 1234567890</p>
+                        <p className="account-font mt-2">Adress: </p>
+                        <div className="mt-2">
+                            <button type="submit" className="btn-2 btn-purple-2">
+                                Edit Details
+                            </button>
+                        </div>
+                    </div>
+                </main>
             
                       
             </div>

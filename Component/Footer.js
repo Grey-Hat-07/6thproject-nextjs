@@ -11,7 +11,7 @@ export default function Footer() {
         <></>);
     }
     useEffect(() => {
-      if(router.pathname === '/Dashboard'||router.pathname === '/vetaccount'||router.pathname === '/vet-dashboard'||router.pathname === '/productup'||router.pathname === '/accountdashboard'){
+      if(router.pathname === '/Dashboard'||router.pathname === '/Vetchat'||router.pathname === '/vetaccount'||router.pathname === '/vet-dashboard'||router.pathname === '/productup'||router.pathname === '/accountdashboard'){
         setIsdashboard(true)
       }
       else{
