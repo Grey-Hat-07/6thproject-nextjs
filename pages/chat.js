@@ -120,10 +120,12 @@ export default function chat() {
             const data = await res.json();
             setChatData(data);
 
-            if (chatData && chatData.status === "end") {
-                alert("Chat ended");
+            if (data && data[0].status === "end") {
                 jsCookie.remove('chat');
                 window.location.href = "/";
+                alert("Chat ended");
+                
+                return;
             }
 
         });
@@ -139,8 +141,9 @@ export default function chat() {
             });
             const data = await res.json();
             jsCookie.remove('chat');
-            alert("Chat ended");
             window.location.href = "/";
+            alert("Chat ended");
+            
 
         }
         const postmessage = async () => {
@@ -211,8 +214,8 @@ export default function chat() {
                                     </div>
                                 </div>
 
-                                {/* {chatData && 
-                                chatData.messages.map((item, index) => {
+                                {chatData && 
+                                chatData[0].messages.map((item, index) => {
                                     if (item.sender === userData.name) {
                                         return (<div className="outgoing-chats" key={index}>
                                             <div className="outgoing-chats-msg">
@@ -241,7 +244,7 @@ export default function chat() {
                                         )
                                     }
                                 }
-                                )} */}
+                                )}
 
                             </div>
                         </div>

@@ -25,7 +25,7 @@ export default function vetdasboard() {
         const data = await res.json();
         if(data){
             setLivechat(data);
-            // console.log(data);
+
         }
         
     })
