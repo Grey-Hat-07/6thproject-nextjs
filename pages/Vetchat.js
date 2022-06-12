@@ -3,6 +3,7 @@ import jsCookie from 'js-cookie';
 import { parseCookies } from 'nookies';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import baseUrl from '../helpers/baseUrl';
 export default function Vetchat() {
     const router = useRouter();
     const logout = () => {
@@ -10,7 +11,46 @@ export default function Vetchat() {
         jsCookie.remove('vet');
         router.push('/Login');
     }
-    const [message, setMessage] = useState([]);
+    const [message, setMessage] = useState('');
+    const [userData, setUserData] = useState();
+    const [chatData, setChatData] = useState();
+    useEffect(async () => {
+        const res = await fetch(`${baseUrl}/api/Account`);
+        const usedata = await res.json();
+        setUserData(usedata);
+        console.log(usedata);
+    }, []);
+    useEffect(async () => {
+        const res = await fetch(`${baseUrl}/api/Consult/message`, {
+            method: 'GET'
+        });
+        const data = await res.json();
+        setChatData(data);
+
+        if (data && data[0].status === "end") {
+            jsCookie.remove('chat');
+            window.location.href = "/vet-dashboard";
+            alert("Chat ended");
+            
+            return;
+        }
+    });
+    const postmessage = async () => {
+        const res = await fetch(`${baseUrl}/api/Consult/message`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                message,
+                sender: userData.name,
+                timestamp: Date.now()
+            })
+        });
+        const data = await res.json();
+
+
+    }
     return (
         <div>
             <link rel="stylesheet" href="/css/vet-dashboard.css" type="text/css" />
@@ -66,7 +106,7 @@ export default function Vetchat() {
                     <div className="user-wrapper">
                         <img src="images/FallenCap.jpg" width="40px" height="40px" alt="img.jpg" />
                         <div>
-                            <h4>Subham Saha</h4>
+                            <h4>{userData&&userData.name}</h4>
                             <small>Vet</small>
                         </div>
                     </div>
@@ -92,26 +132,38 @@ export default function Vetchat() {
                             <div className="msg-inbox">
                                 <div className="chats">
                                     <div className="msg-page">
-                                        <div className="outgoing-chats">
+
+                                        {chatData && 
+                                chatData[0].messages.map((item, index) => {
+                                    if (item.sender === userData.name) {
+                                        return (<div className="outgoing-chats" key={index}>
                                             <div className="outgoing-chats-msg">
-                                                <p> Hi !! This message is from me</p>
+                                                <p>{item.message}</p>
                                                 <span className="time">11.01 | January 1</span>
                                             </div>
                                             <div className="outgoing-chats-img">
                                                 <img src="images/profile-1.jpg" alt="user-2.jpeg" />
                                             </div>
-                                        </div>
-                                        <div className="received-chats">
-                                            <div className="received-chats-img">
-                                                <img src="images/FallenCap.jpg" alt="user-2.jpeg" />
-                                            </div>
-                                            <div className="received-msg">
-                                                <div className="received-msg-inbox">
-                                                    <p> Hi !! This is a message from FallenCap</p>
-                                                    <span className="time">11.01 | January 1</span>
+                                        </div>)
+                                    }
+                                    else {
+                                        return (
+                                            <div className="received-chats" key={index}>
+                                                <div className="received-chats-img">
+                                                    <img src="images/FallenCap.jpg" alt="user-2.jpeg" />
+                                                </div>
+                                                <div className="received-msg">
+                                                    <div className="received-msg-inbox">
+                                                        <p>{item.message}</p>
+                                                        <span className="time">11.01 | January 1</span>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+
+                                        )
+                                    }
+                                }
+                                )}
 
                                     </div>
                                 </div>
@@ -130,6 +182,7 @@ export default function Vetchat() {
                                         <button className="input-group-text"><i className="fa fa-paper-plane" aria-hidden="true"></i></button>
                                     </div>
                                 </div>
+                                <button className="btn btn-primary" onClick={postmessage}>Send</button>
 
                             </div>
                         </div>

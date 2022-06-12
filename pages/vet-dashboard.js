@@ -4,6 +4,7 @@ import { parseCookies } from 'nookies';
 import baseUrl from '../helpers/baseUrl';
 import { useRouter } from 'next/router';
 import {useEffect, useState} from 'react';
+import Vetcard from '../Component/Vetcard';
 export default function vetdasboard() {
     const router = useRouter();
     const {vet} = parseCookies();
@@ -95,7 +96,7 @@ export default function vetdasboard() {
                             </button>
                         </div>
 
-                        <div className="card-body">
+                        {/* <div className="card-body">
                             <div className="customer">
                                 <div className="info">
                                     <img src="images/FallenCap.jpg" className="chat-profile-dp" alt="img.jpg" />
@@ -109,29 +110,16 @@ export default function vetdasboard() {
                                     <span className="las la-phone"></span>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
                         
 
                         
                         
                         {livechat&&livechat.map((chat, index) => {
+                            if(chat.status === "active"){
                                 return(
-                                    <div className="card-body" key={index}>
-                            <div className="customer">
-                                <div className="info">
-                                    <img src="images/FallenCap.jpg" className="chat-profile-dp" alt="img.jpg" />
-                                    <span className="status"></span>
-                                    <div>
-                                        <h4>{chat.username}</h4>
-                                    </div>
-                                </div>
-                                <div className="react">
-                                    <span className="las la-sms"></span>
-                                    <span className="las la-phone"></span>
-                                </div>
-                            </div>
-                        </div>
-                                )
+                                    <Vetcard chat={chat} key={index}/>
+                                )}
                         })}
 
                     </div></main>

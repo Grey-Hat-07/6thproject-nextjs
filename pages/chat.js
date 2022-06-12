@@ -193,26 +193,7 @@ export default function chat() {
                     <div className="msg-inbox">
                         <div className="chats">
                             <div className="msg-page">
-                                <div className="outgoing-chats">
-                                    <div className="outgoing-chats-msg">
-                                        <p> Hi !! This message is from me</p>
-                                        <span className="time">11.01 | January 1</span>
-                                    </div>
-                                    <div className="outgoing-chats-img">
-                                        <img src="images/profile-1.jpg" alt="user-2.jpeg" />
-                                    </div>
-                                </div>
-                                <div className="received-chats">
-                                    <div className="received-chats-img">
-                                        <img src="images/FallenCap.jpg" alt="user-2.jpeg" />
-                                    </div>
-                                    <div className="received-msg">
-                                        <div className="received-msg-inbox">
-                                            <p> Hi !! This is a message from FallenCap</p>
-                                            <span className="time">11.01 | January 1</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                
 
                                 {chatData && 
                                 chatData[0].messages.map((item, index) => {
