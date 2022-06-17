@@ -7,6 +7,7 @@ export default async (req, res) => {
         userId: user,
         vetId: user,
         username,
+        vetname: "connecting",
         status: "active",
     });
     res.status(200).json(chat);

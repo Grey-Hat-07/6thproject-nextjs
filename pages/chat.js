@@ -52,7 +52,7 @@ export default function chat() {
                             <img src="images/FallenCap.jpg" alt="header-img.jpeg" />
                         </div>
                         <div className="active">
-                            <h4>{userData && userData.name}</h4>
+                            <h4>Not connected</h4>
                             <h6>3 hours ago...</h6>
                         </div>
                         <div className="header-icons">
@@ -179,7 +179,7 @@ export default function chat() {
                         <img src="images/FallenCap.jpg" alt="header-img.jpeg" />
                     </div>
                     <div className="active">
-                        <h4>{userData && userData.name}</h4>
+                        <h4>{chatData&&chatData[0].vetname}</h4>
                         <h6>3 hours ago...</h6>
                     </div>
                     <div className="header-icons">

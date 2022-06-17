@@ -2,11 +2,12 @@ import React from 'react'
 import { useState } from 'react'
 import baseUrl from '../../helpers/baseUrl';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 export default function Signup() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
-    const [role, setrole] = useState('');
+    const [AdminId, setAdminId] = useState('');
     const [policy, setPolicy] = useState(false);
     const router = useRouter()
   const handlesubmit = async(e) => {
@@ -19,7 +20,7 @@ export default function Signup() {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ name, email, password, role})
+      body: JSON.stringify({ name, email, password, AdminId})
     })
     const res2 = await res.json();
     if(res2.error){
@@ -32,6 +33,21 @@ export default function Signup() {
   }
   return (
     <div className="container-fluid">
+       <script src="/js/jQuery.js" type="text/javascript"></script>
+      <script src="/js/custom.js" type="text/javascript"></script>
+      <script src="/js/popper.min.js" type="text/javascript"></script>
+      <script src="/js/bootstrap.js" type="text/javascript"></script>
+      <script src="/js/wow.js" type="text/javascript"></script>
+      <Head>
+        <link href="/css/style.css" rel="stylesheet" type="text/css" />
+        <link href="/css/style2.css" rel="stylesheet" type="text/css" />
+        <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" />
+        <link href="/css/animate.css" rel="stylesheet" type="text/css" />
+        <link href="/css/font-awesome.css" rel="stylesheet" type="text/css" />
+        <link href="/css/owl.carousel.css" rel="stylesheet" type="text/css" />
+        <link href="/css/owl.theme.css" rel="stylesheet" type="text/css" />
+
+      </Head>
       <div className="container">
         <div className="row mbc-1 mtc-1">
           <div className="col-xl-12">
@@ -61,17 +77,7 @@ export default function Signup() {
                     value={email} onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
-              <div className="form-group">
-                <label htmlFor="exampleInputEmail1">Role</label>
-                <input
-                  type="text"
-                  className="form-control-2"
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
-                  placeholder="Enter Role"
-                    value={role} onChange={(e) => setrole(e.target.value)}
-                />
-              </div>
+              
               <div className="form-group">
                 <label htmlFor="exampleInputPassword1">Password</label>
                 <input
@@ -80,6 +86,17 @@ export default function Signup() {
                   id="exampleInputPassword1"
                   placeholder="Password"
                     value={password} onChange={(e) => setPassword(e.target.value)}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="exampleInputEmail1">Admin Id</label>
+                <input
+                  type="text"
+                  className="form-control-2"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                  placeholder="Enter Role"
+                    value={AdminId} onChange={(e)=>setAdminId(e.target.value)}
                 />
               </div>
               <div className="form-check">
