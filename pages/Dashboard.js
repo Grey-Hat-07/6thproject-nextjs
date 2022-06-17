@@ -2,8 +2,11 @@ import React from 'react'
 import Head from 'next/head'
 import { useEffect,useState } from 'react';
 import baseUrl from '../helpers/baseUrl';
+import jsCookie from 'js-cookie';
+import { useRouter } from 'next/router';
 export default function Dashboard(props) {
     const { Orders } = props;
+    const router = useRouter();
     const [counts,setCount] = useState({});
     let length =0;
     useEffect(async() => {
@@ -13,6 +16,11 @@ export default function Dashboard(props) {
 
     }, [])
     Orders.reverse();
+    const logout = () => {
+        jsCookie.remove('user');
+        jsCookie.remove('vet');
+        router.push('/Login');
+    }
 
     return (
         <div>
@@ -53,7 +61,7 @@ export default function Dashboard(props) {
                             </a>
                         </li>
                         <li>
-                            <a href="#" className="">
+                            <a href="#" onClick={logout} className="">
                                 <span className="las la-sign-out-alt"></span>
                                 <span className="disp-md-none">Logout</span>
                             </a>

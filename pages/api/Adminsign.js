@@ -4,8 +4,8 @@ import bcrypt from "bcryptjs";
 
 initDB();
 export default async (req, res) => {
-    const { name, email, password, role } = req.body;
-    if (!name || !email || !password || !role) {
+    const { name, email, password, AdminId } = req.body;
+    if (!name || !email || !password || !AdminId) {
         return res.status(400).json({ error: "Please provide all the required fields" });
     }
     const user = await Admin.findOne({ email });
@@ -18,7 +18,7 @@ export default async (req, res) => {
         name,
         email,
         password: hashedPassword,
-        role
+        AdminId
 
     }).save();
 

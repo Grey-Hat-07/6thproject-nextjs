@@ -1,6 +1,14 @@
 import React from 'react'
 import Head from 'next/head'
+import jsCookie from 'js-cookie'
+import { useRouter } from 'next/router'
 export default function account() {
+    const router = useRouter()
+    const logout = () => {
+        jsCookie.remove('user');
+        jsCookie.remove('vet');
+        router.push('/Login');
+    }
     return (
         <div>
             <script src="/js/admin.js" type="text/javascript"></script>
@@ -31,7 +39,7 @@ export default function account() {
                                 className="disp-md-none">Accounts</span></a>
                         </li>
                         <li>
-                            <a href="#" className="pt-2 pt-md-2"><span className="las la-sign-out-alt"></span> <span
+                            <a href="#" onClick={logout} className="pt-2 pt-md-2"><span className="las la-sign-out-alt"></span> <span
                                 className="disp-md-none">Logout</span></a>
                         </li>
                     </ul>
