@@ -1,10 +1,20 @@
 import React from 'react'
 import jsCookie from 'js-cookie'
 import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 import baseUrl from '../helpers/baseUrl';
 export default function Vetchat(props) {
     const {chat} = props;
     const router = useRouter();
+    const [account, setAccount] = useState();
+    useEffect(async() => {
+        const res = await fetch(`${baseUrl}/api/Account`);
+        const data = await res.json();
+        if(data){
+            setAccount(data);
+        }
+
+    }, [])
     const setcookies = async()=>{
         jsCookie.set('chat', chat._id);
         const res = await fetch(`${baseUrl}/api/Consult/chatstatus`, {
@@ -13,7 +23,8 @@ export default function Vetchat(props) {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                status: "connected"
+                status: "connected",
+                vetname: account.name
             })
         })
         router.push('/Vetchat');

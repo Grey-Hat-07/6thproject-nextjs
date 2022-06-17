@@ -17,7 +17,7 @@ res.status(200).json(data);
 }
 const postmessage = async (req, res) => {
     const {message, sender} = req.body;
-    console.log(message, sender);
+    // console.log(message, sender);
     const {chat} =req.cookies;
     const data = await Chat.findOne({_id: chat});
     data.messages.push({
