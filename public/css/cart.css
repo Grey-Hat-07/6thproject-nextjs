@@ -1,0 +1,216 @@
+@font-face {
+  font-family: "Rubik-Regular";
+  src: url("../fonts/Rubik-Regular.ttf");
+  src: url("../fonts/Rubik-Regular.woff2");
+}
+@font-face {
+  font-family: "Rubik-SemiBold";
+  src: url("../fonts/Rubik-SemiBold.ttf");
+  src: url("../fonts/Rubik-SemiBold.woff2");
+}
+@font-face {
+  font-family: "Rubik-Bold";
+  src: url("../fonts/Rubik-Bold.ttf");
+  src: url("../fonts/Rubik-Bold.woff2");
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+.container-fluid {
+  width: 100%;
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+  margin-right: auto;
+  margin-left: auto;
+}
+.container {
+  width: 100%;
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+  margin-right: auto;
+  margin-left: auto;
+}
+.bg-pink {
+  background-color: pink !important;
+}
+.navbar-brand {
+  display: inline-block;
+  padding-top: 0.3125rem;
+  padding-bottom: 0.3125rem;
+  margin-right: 0rem !important;
+  font-size: 1.25rem;
+  line-height: inherit;
+  white-space: nowrap;
+}
+.pal-6 {
+  padding-left: 30rem !important;
+}
+li a {
+  font-family: "Rubik-SemiBold";
+  font-size: 1.2rem;
+}
+li a:hover {
+  font-size: 1.3rem !important;
+}
+.cart-page {
+  margin: 5rem auto;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.cart-info {
+  display: flex;
+  flex-wrap: wrap;
+}
+th {
+  text-align: left;
+  padding: 5px;
+  color: #000;
+}
+td {
+  padding: 10px 5px;
+}
+td input {
+  width: 60px;
+  height: 30px;
+  padding: 5px;
+  border: 2px solid pink !important;
+  border-radius: 5rem;
+}
+td a {
+  color: pink;
+  font-size: 12px;
+  font-family: "Rubik-SemiBold";
+}
+td a:hover {
+  color: pink;
+  text-decoration: none;
+}
+td img {
+  width: 200px;
+  height: 200px;
+  margin-right: 10px;
+}
+.total-price {
+  display: flex;
+  justify-content: flex-end;
+}
+.total-price table {
+  border-top: 3px solid pink;
+  width: 100%;
+  max-width: 400px;
+}
+td:last-child {
+  text-align: right;
+}
+.border-bottom-cart {
+  border-bottom: 3px solid pink !important;
+}
+.pl-6 {
+  padding-left: 5rem;
+}
+.text-cart-1 {
+  font-family: "Rubik-Bold";
+  font-size: 1.2rem;
+}
+.text-cart-2 {
+  font-family: "Rubik-SemiBold";
+  font-size: 1rem;
+}
+.text-cart-3 {
+  font-family: "Rubik-SemiBold";
+}
+input {
+  writing-mode: horizontal-tb !important;
+  text-rendering: auto;
+  color: black;
+  letter-spacing: normal;
+  word-spacing: normal;
+  line-height: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  appearance: auto;
+  -webkit-rtl-ordering: logical;
+  cursor: text;
+  background-color: transparent !important;
+  margin: 0em;
+  padding: 1px 2px;
+  border-width: 2px solid;
+  border-style: inset;
+  border-color: pink !important;
+  border-image: initial;
+}
+.btn-2 {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  color: white;
+  padding: 0.375rem 2rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 5rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.btn-pink {
+  color: #fff;
+  background-color: pink;
+  border-color: pink;
+}
+.btn-2 a {
+  color: white;
+  text-decoration: none;
+}
+.btn-2 a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .pl-6 {
+    padding-left: 4rem;
+  }
+  td img {
+    width: 150px;
+    height: 150px;
+    margin-right: 10px;
+  }
+  .total-price table {
+    border-top: 3px solid pink;
+    width: 100%;
+    max-width: 300px;
+  }
+}
+@media (max-width: 576px) {
+  p {
+    margin-top: 0;
+    margin-bottom: 0.8rem !important;
+  }
+  .text-cart-1 {
+    font-family: "Rubik-Bold";
+    font-size: 1rem;
+  }
+  .pl-6 {
+    padding-left: 3rem;
+  }
+}
+@media (max-width: 360px) {
+  .mt-xs-5 {
+    padding-top: 0.6rem !important;
+  }
+  .ml-xs-5 {
+    padding-left: 2rem;
+  }
+}
