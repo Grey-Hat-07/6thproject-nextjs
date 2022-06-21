@@ -1,40 +1,39 @@
-import React from 'react'
-import Link from 'next/link'
-import { useState } from 'react'
-import baseUrl from '../../helpers/baseUrl';
-import { useRouter } from 'next/router';
-import jsCookie from 'js-cookie';
-import Head from 'next/head';
+import React from "react";
+import Link from "next/link";
+import { useState } from "react";
+import baseUrl from "../../helpers/baseUrl";
+import { useRouter } from "next/router";
+import jsCookie from "js-cookie";
+import Head from "next/head";
 export default function Signup() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
   const [policy, setPolicy] = useState(false);
-  const router = useRouter()
-  if (jsCookie.get('user')) {
-    router.push('/')
+  const router = useRouter();
+  if (jsCookie.get("user")) {
+    router.push("/");
   }
   const handlesubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     if (policy == false) {
-      return alert('Please accept the terms and conditions')
+      return alert("Please accept the terms and conditions");
     }
     const res = await fetch(`${baseUrl}/api/Signup`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({ name, email, password })
-    })
+      body: JSON.stringify({ name, email, password }),
+    });
     const res2 = await res.json();
     if (res2.error) {
-      alert(res2.error)
+      alert(res2.error);
+    } else {
+      console.log(res2);
+      router.push("/Login");
     }
-    else {
-      console.log(res2)
-      router.push('/Login')
-    }
-  }
+  };
   return (
     <div className="container-fluid">
       <script src="/js/jQuery.js" type="text/javascript"></script>
@@ -50,12 +49,13 @@ export default function Signup() {
         <link href="/css/font-awesome.css" rel="stylesheet" type="text/css" />
         <link href="/css/owl.carousel.css" rel="stylesheet" type="text/css" />
         <link href="/css/owl.theme.css" rel="stylesheet" type="text/css" />
-
       </Head>
       <div className="container">
         <div className="row mbc-1 mtc-1">
           <div className="col-xl-12">
-            <h1 className="texts-1 wow fadeInLeft">Customer & Patient Log In</h1>
+            <h1 className="texts-1 wow fadeInLeft">
+              Customer & Patient Log In
+            </h1>
           </div>
           <div className="col-xl-12 m-form-1">
             <form>
@@ -67,7 +67,8 @@ export default function Signup() {
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
                   placeholder="Enter name"
-                  value={name} onChange={(e) => setName(e.target.value)}
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                 />
               </div>
               <div className="form-group">
@@ -78,7 +79,8 @@ export default function Signup() {
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
                   placeholder="Enter email"
-                  value={email} onChange={(e) => setEmail(e.target.value)}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div className="form-group">
@@ -88,7 +90,8 @@ export default function Signup() {
                   className="form-control-2"
                   id="exampleInputPassword1"
                   placeholder="Password"
-                  value={password} onChange={(e) => setPassword(e.target.value)}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
               <div className="form-check">
@@ -96,15 +99,22 @@ export default function Signup() {
                   type="checkbox"
                   className="form-check-input"
                   id="exampleCheck1"
-                  value={policy} onChange={(e) => setPolicy(e.target.checked)}
+                  value={policy}
+                  onChange={(e) => setPolicy(e.target.checked)}
                 />
-                <label className="form-check-label" htmlFor="exampleCheck1"
-                >Accept our policy</label
-                >
+                <label className="form-check-label" htmlFor="exampleCheck1">
+                  Accept our policy
+                </label>
               </div>
-              <Link href='/Signup/Vetsignup'><a className='text-center'>Signup as Vet</a></Link><br />
-              <Link href='/Login'><a className='text-center'>Already have Account?</a></Link><br />
-              <button type="submit" className="btn-2 btn-purple-2 mt-3" onClick={handlesubmit}>
+              <Link href="/Login">
+                <a className="text-center">Already have Account?</a>
+              </Link>
+              <br />
+              <button
+                type="submit"
+                className="btn-2 btn-purple-2 mt-3"
+                onClick={handlesubmit}
+              >
                 Signup
               </button>
             </form>
@@ -112,5 +122,5 @@ export default function Signup() {
         </div>
       </div>
     </div>
-  )
+  );
 }
