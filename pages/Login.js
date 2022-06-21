@@ -31,7 +31,7 @@ export default function login() {
                 jsCookie.set('vet', res2.user.Vet_id);
             }
             if (res2.user.AdminId) {
-                jsCookie.set('AdminId', res2.user.AdminId);
+                jsCookie.set('role', res2.user.AdminId);
             }
             jsCookie.set('user', res2.user._id)
             // router.push('/')

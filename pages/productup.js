@@ -5,17 +5,8 @@ import baseUrl from '../helpers/baseUrl';
 import { getDownloadURL, ref, uploadBytesResumable } from '@firebase/storage';
 import { storage } from '../firebase/main.firebase'
 import { Productcard } from '../Component/Productcard';
-import jsCookie from 'js-cookie'
-import { useRouter } from 'next/router';
-import { parseCookies } from 'nookies';
 export default function productup(props) {
   var { products } = props;
-  const router = useRouter();
-  const logout = () => {
-    jsCookie.remove('user');
-    jsCookie.remove('AdminId');
-    router.push('/Login');
-}
   const [productname, setProductname] = useState('');
   const [price, setprice] = useState();
   const [image, setimage] = useState(null);
@@ -86,19 +77,7 @@ export default function productup(props) {
 
     //console.log(file.url);
   }
-  const { user, AdminId, vet } = parseCookies();
 
-  useEffect(() => {
-    if (!user) {
-      router.push("/Login");
-    }
-    if (AdminId) {
-      router.push("/Dashboard");
-    }
-    if(vet){
-      router.push("/vet-dashboard");
-    }
-  }, []);
 
   return (
     <div>
@@ -137,9 +116,9 @@ export default function productup(props) {
               </a>
             </li>
             <li>
-              <a href="#" className="" onClick={logout}>
+              <a href="#" className="">
                 <span className="las la-sign-out-alt"></span>
-                <span className="disp-md-none" >Logout</span>
+                <span className="disp-md-none">Logout</span>
               </a>
             </li>
           </ul>

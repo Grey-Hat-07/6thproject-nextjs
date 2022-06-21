@@ -5,13 +5,13 @@ import Head from "next/head";
 
 export default function Home() {
   const router = useRouter();
-  const { user, AdminId, vet } = parseCookies();
+  const { user, role, vet } = parseCookies();
 
   useEffect(() => {
     if (!user) {
       router.push("/Login");
     }
-    if (AdminId) {
+    if (role) {
       router.push("/Dashboard");
     }
     if(vet){

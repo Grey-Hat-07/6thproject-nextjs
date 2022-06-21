@@ -18,7 +18,7 @@ export default function Dashboard(props) {
     Orders.reverse();
     const logout = () => {
         jsCookie.remove('user');
-        jsCookie.remove('AdminId');
+        jsCookie.remove('vet');
         router.push('/Login');
     }
 

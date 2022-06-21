@@ -5,7 +5,6 @@ import jsCookie from 'js-cookie'
 import { useRouter } from 'next/router';
 export default function vetaccount() {
     const [data, setData] = useState([]);
-    const router = useRouter();
     const logout = () => {
         jsCookie.remove('user');
         jsCookie.remove('vet');
