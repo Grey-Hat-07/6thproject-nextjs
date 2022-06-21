@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import baseUrl from '../helpers/baseUrl';
 import jsCookie from 'js-cookie';
+import { parseCookies } from 'nookies';
 import { useRouter } from 'next/router';
 export default function chat() {
     const user = jsCookie.get('user');
@@ -11,6 +12,13 @@ export default function chat() {
     const [message, setMessage] = useState('')
     const [userData, setUserData] = useState();
     const [chatData, setChatData] = useState();
+
+ 
+    if (!user) {
+      window.location.href='/Login'
+      
+    }
+    
 
     useEffect(async () => {
         const res = await fetch(`${baseUrl}/api/Account`);

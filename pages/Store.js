@@ -2,9 +2,26 @@ import React from 'react'
 import Head from 'next/head'
 import { Card } from '../Component/Card'
 import baseUrl from '../helpers/baseUrl'
+import { parseCookies } from 'nookies'
+import { useEffect } from 'react'
+import { useRouter } from 'next/router'
 export default function Store(props) {
   const list = 3;
+  const router = useRouter();
   var totalfood = 0, totalaccess = 0,totalmed=0;
+  const { user, AdminId, vet } = parseCookies();
+
+  useEffect(() => {
+    if (!user) {
+      router.push("/Login");
+    }
+    if (AdminId) {
+      router.push("/Dashboard");
+    }
+    if(vet){
+      router.push("/vet-dashboard");
+    }
+  }, []);
   return (
     <div>
       <script src="/js/jQuery.js" type="text/javascript"></script>
