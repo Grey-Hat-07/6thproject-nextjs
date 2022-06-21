@@ -14,7 +14,7 @@ export default function Home() {
     if (AdminId) {
       router.push("/Dashboard");
     }
-    if (vet) {
+    if(vet){
       router.push("/vet-dashboard");
     }
   }, []);
@@ -30,7 +30,6 @@ export default function Home() {
       <script src="js/wow.js"></script>
       <script>new WOW().init();</script>
       <Head>
-        {/* <link href="" */}
         <link href="/css/style.css" type="text/css" rel="stylesheet" />
         <link href="/css/bootstrap.css" type="text/css" rel="stylesheet" />
         <link href="/css/animate.css" type="text/css" rel="stylesheet" />
