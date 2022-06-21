@@ -170,9 +170,6 @@ li a {
   font-family: "Rubik-SemiBold";
   font-size: 1.2rem;
 }
-li a:hover {
-  font-size: 1.3rem !important;
-}
 .mt-6 {
   margin-top: 10rem !important;
 }
