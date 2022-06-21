@@ -1,17 +1,17 @@
-<<<<<<< HEAD
+
 import React from "react";
 import { useState, useEffect } from "react";
 import baseUrl from "../helpers/baseUrl";
 import jsCookie from "js-cookie";
 import { parseCookies } from "nookies";
 import { useRouter } from "next/router";
-=======
+
 import React from 'react'
 import { useState, useEffect } from 'react'
 import baseUrl from '../helpers/baseUrl';
 import jsCookie from 'js-cookie';
 import { useRouter } from 'next/router';
->>>>>>> parent of f62e387 (commit)
+
 export default function chat() {
   const user = jsCookie.get("user");
   const chat = jsCookie.get("chat");
@@ -21,18 +21,17 @@ export default function chat() {
   const [userData, setUserData] = useState();
   const [chatData, setChatData] = useState();
 
-<<<<<<< HEAD
+
   // if (!user) {
   //   window.location.href='/Login'
 
   // }
-=======
+
     useEffect(async () => {
         const res = await fetch(`${baseUrl}/api/Account`);
         const usedata = await res.json();
         setUserData(usedata);
     }, []);
->>>>>>> parent of f62e387 (commit)
 
   useEffect(async () => {
     const res = await fetch(`${baseUrl}/api/Account`);
