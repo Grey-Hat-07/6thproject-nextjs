@@ -5,7 +5,7 @@ import baseUrl from '../helpers/baseUrl'
 import { useRouter } from 'next/router'
 import { Card } from '../Component/Card'
 import { useEffect, useState } from 'react'
-import jsCookie from 'js-cookie'
+// import jsCookie from 'js-cookie'
 export default function Cart(props) {
 
     const [cart, setCart] = useState();
