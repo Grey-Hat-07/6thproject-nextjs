@@ -88,7 +88,7 @@ export default function Navbar() {
                       <a className="nav-link" href="/chat">Consult</a>
                     </li>
                     <li className="nav-item pl-3">
-                      <a className="nav-link" href="#">About Us</a>
+                      <a className="nav-link" href="/Aboutus">About Us</a>
                     </li>
                     <li className="nav-item pl-3">
                       <a href="/cart" className='nav-link'><i className="fa fa-shopping-cart" aria-hidden="true"></i></a>

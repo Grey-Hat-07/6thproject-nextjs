@@ -7,7 +7,7 @@ export default function Signup() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
-    const [role, setrole] = useState('');
+    const [AdminId, setadminid] = useState('');
     const [policy, setPolicy] = useState(false);
     let regex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
     const router = useRouter()
@@ -25,7 +25,7 @@ export default function Signup() {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ name, email, password, role})
+      body: JSON.stringify({ name, email, password, AdminId})
     })
     const res2 = await res.json();
     if(res2.error){
@@ -83,14 +83,14 @@ export default function Signup() {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="exampleInputEmail1">Role</label>
+                <label htmlFor="exampleInputEmail1">AdminId</label>
                 <input
                   type="text"
                   className="form-control-2"
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
-                  placeholder="Enter Role"
-                    value={role} onChange={(e) => setrole(e.target.value)}
+                  placeholder="Enter AdminId"
+                    value={AdminId} onChange={(e) => setadminid(e.target.value)}
                 />
               </div>
               <div className="form-group">

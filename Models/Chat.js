@@ -14,6 +14,10 @@ const chatSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    vetname:{
+        type: String,
+        required:true
+    },
     status: {
         type: String,
         required: true,

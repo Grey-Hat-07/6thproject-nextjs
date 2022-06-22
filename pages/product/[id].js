@@ -10,6 +10,7 @@ const product = (props) => {
   const { recommended } = props;
   let list = 0, total = 4;
   var products = [];
+  const quantity = product.quantity;
   const router = useRouter();
   // if (router.asPath) {
   //   //window.location.reload();
@@ -155,7 +156,21 @@ const product = (props) => {
               <p className="text-product-4 pt-5 pt-lg-4 pt-md-3 pt-sm-2">
                 {product.description}
               </p>
+              {quantity==0&&<>
+              <p className="text-danger"> Currently product is unavailable</p>
+              <div className="btn-grp pt-3">
+                <button type="button" className="btn-2 btn-pink"
+                  disabled> 
+                  Add To Cart
+                </button>
+                <span className="pl-4">
+                  <button type="button" className="btn-2 btn-dark" disabled >
+                    Buy Now
+                  </button>
+                </span>
+              </div></>
 
+              }{quantity!=0&&
               <div className="btn-grp pt-3">
                 <button type="button" className="btn-2 btn-pink"
                   onClick={addToCart}> 
@@ -166,7 +181,7 @@ const product = (props) => {
                     Buy Now
                   </button>
                 </span>
-              </div>
+              </div>}
             </div>
           </div>
         </div>

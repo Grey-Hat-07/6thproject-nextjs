@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { parseCookies } from "nookies";
 import Head from "next/head";
 
+
 export default function Home() {
   const router = useRouter();
   const { user, AdminId, vet } = parseCookies();
@@ -101,16 +102,17 @@ export default function Home() {
                       Consult with our vets for your dogs health and a beautiful
                       life
                     </p>
-                    <button
+                    <a
                       type="button"
                       className="btn btn-outline-lights text-md-1"
+                      href='/chat'
                     >
                       Talk Now
                       <i
                         className="fa fa-long-arrow-right ml-1"
                         aria-hidden="true"
                       ></i>
-                    </button>
+                    </a>
                   </div>
                 </div>
                 <div className="carousel-item">
@@ -124,16 +126,17 @@ export default function Home() {
                     <p className="text-2 wow fadeInRightBig">
                       Buy medecines and other essentials for your dog
                     </p>
-                    <button
+                    <a
                       type="button"
                       className="btn btn-outline-lights text-md-1"
+                      href='/Store'
                     >
                       Buy Now
                       <i
                         className="fa fa-long-arrow-right ml-1"
                         aria-hidden="true"
                       ></i>
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>

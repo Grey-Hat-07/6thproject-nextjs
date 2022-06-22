@@ -48,7 +48,24 @@ export default function Vetchat() {
             })
         });
         const data = await res.json();
+        setMessage("");
 
+    }
+    const end = async () => {
+        const res = await fetch(`${baseUrl}/api/Consult/chatstatus`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                status: "end"
+            })
+        });
+        const data = await res.json();
+        jsCookie.remove('chat');
+        window.location.href = "/";
+        alert("Chat ended");
+        
 
     }
     return (
@@ -118,7 +135,7 @@ export default function Vetchat() {
                                 <img src="images/FallenCap.jpg" alt="header-img.jpeg" />
                             </div>
                             <div className="active">
-                                <h4>FallenCap</h4>
+                                <h4>{chatData&&chatData[0].username}</h4>
                                 <h6>3 hours ago...</h6>
                             </div>
                             <div className="header-icons">
@@ -186,6 +203,7 @@ export default function Vetchat() {
 
                             </div>
                         </div>
+                        <button className='btn btn-danger' onClick={end}>End</button>
                     </div>
                 </main>
 

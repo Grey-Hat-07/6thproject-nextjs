@@ -125,12 +125,12 @@ export default function Cart(props) {
                     </tr>
 
                     {
-                        cart ? cart.map((item, index) => {
+                        cart ?cart.length>0? cart.map((item, index) => {
                             total = total + item.quantity * item.price;
                             return (
                                 <Cartproduct key={index} product={item} setCart={setCart} cart={cart} />
                             )
-                        }) : <tr><td><h2>No Product</h2></td></tr>
+                        }) : <tr><td><h2>No Product</h2></td></tr>:<tr><td><h2>No Product</h2></td></tr>
 
                     }
 
