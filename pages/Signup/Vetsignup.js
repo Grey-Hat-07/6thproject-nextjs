@@ -10,11 +10,16 @@ export default function Signup() {
     const [name, setName] = useState('');
     const [Vet_id, setVet_id] = useState('');
     const [policy, setPolicy] = useState(false);
+    let regex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
     const router = useRouter()
   const handlesubmit = async(e) => {
     e.preventDefault()
     if(policy==false){
       return alert('Please accept the terms and conditions')
+    }
+    if(!regex.test(email)){
+      alert("Invalid email")
+      return;
     }
     const res=await fetch(`${baseUrl}/api/Vetsign`, {
       method: 'POST',

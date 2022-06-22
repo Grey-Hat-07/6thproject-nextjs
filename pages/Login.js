@@ -30,8 +30,8 @@ export default function login() {
             if (res2.user.Vet_id) {
                 jsCookie.set('vet', res2.user.Vet_id);
             }
-            if (res2.user.role) {
-                jsCookie.set('role', res2.user.role);
+            if (res2.user.AdminId) {
+                jsCookie.set('AdminId', res2.user.AdminId);
             }
             jsCookie.set('user', res2.user._id)
             // router.push('/')

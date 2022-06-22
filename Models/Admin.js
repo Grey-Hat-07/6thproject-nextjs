@@ -9,7 +9,7 @@ const AdminSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    role:{
+    AdminId:{
         type: String,
         required: true
     },

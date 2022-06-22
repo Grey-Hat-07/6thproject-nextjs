@@ -11,6 +11,7 @@ export default function Signup() {
   const [name, setName] = useState('');
   const [policy, setPolicy] = useState(false);
   const router = useRouter()
+  let regex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
   if (jsCookie.get('user')) {
     router.push('/')
   }
@@ -19,6 +20,11 @@ export default function Signup() {
     if (policy == false) {
       return alert('Please accept the terms and conditions')
     }
+    if(!regex.test(email)){
+      alert("Invalid email")
+      return;
+    }
+  
     const res = await fetch(`${baseUrl}/api/Signup`, {
       method: 'POST',
       headers: {
@@ -102,7 +108,6 @@ export default function Signup() {
                 >Accept our policy</label
                 >
               </div>
-              <Link href='/Signup/Vetsignup'><a className='text-center'>Signup as Vet</a></Link><br />
               <Link href='/Login'><a className='text-center'>Already have Account?</a></Link><br />
               <button type="submit" className="btn-2 btn-purple-2 mt-3" onClick={handlesubmit}>
                 Signup

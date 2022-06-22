@@ -11,7 +11,7 @@ export default function Navbar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [product, setProduct] = useState(true);
   useEffect(() => {
-    if (router.pathname === '/Login' || router.pathname === '/Customersignup' || router.pathname === '/Vetsignup' || router.pathname === '/adminsign') {
+    if (router.pathname === '/Login' || router.pathname === '/Signup/Customersignup' || router.pathname === '/Signup/Vetsignup' || router.pathname === '/Signup/adminsign') {
       setIsLoggedIn(false)
     } else {
       setIsLoggedIn(true)
@@ -58,6 +58,26 @@ export default function Navbar() {
               >
                 <span className="navbar-toggler-icon"></span>
               </button>
+              {!isLoggedIn&& <div className="collapse navbar-collapse" id="navbarNav">
+                  <ul className="navbar-nav pal-6">
+              <li className="nav-item dropdown pl-3">
+                      <a
+                        className="nav-link dropdown-toggle fs-1"
+                        href="#"
+                        id="navbarDropdown"
+                        role="button"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                      >
+                        <i className="fa fa-user-circle" aria-hidden="true"></i>
+                      </a>
+                      <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                        {/* <a className="dropdown-item" href="login I.html">Customer &<br />Paitient Login</a> */}
+                        <a href='/Signup/Vetsignup'>Signup as Vet</a><br/>
+                        <a href='/Signup/adminsign'>Signup as Admin</a>
+                        </div>
+                    </li></ul></div>}
               {isLoggedIn ?
                 <div className="collapse navbar-collapse" id="navbarNav">
                   <ul className="navbar-nav pal-6">

@@ -2,17 +2,23 @@ import React from 'react'
 import { useState } from 'react'
 import baseUrl from '../../helpers/baseUrl';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 export default function Signup() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
     const [role, setrole] = useState('');
     const [policy, setPolicy] = useState(false);
+    let regex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
     const router = useRouter()
   const handlesubmit = async(e) => {
     e.preventDefault()
     if(policy==false){
       return alert('Please accept the terms and conditions')
+    }
+    if(!regex.test(email)){
+      alert("Invalid email")
+      return;
     }
     const res=await fetch(`${baseUrl}/api/Adminsign`, {
       method: 'POST',
@@ -32,6 +38,21 @@ export default function Signup() {
   }
   return (
     <div className="container-fluid">
+      <script src="/js/jQuery.js" type="text/javascript"></script>
+      <script src="/js/custom.js" type="text/javascript"></script>
+      <script src="/js/popper.min.js" type="text/javascript"></script>
+      <script src="/js/bootstrap.js" type="text/javascript"></script>
+      <script src="/js/wow.js" type="text/javascript"></script>
+      <Head>
+        <link href="/css/style.css" rel="stylesheet" type="text/css" />
+        <link href="/css/style2.css" rel="stylesheet" type="text/css" />
+        <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" />
+        <link href="/css/animate.css" rel="stylesheet" type="text/css" />
+        <link href="/css/font-awesome.css" rel="stylesheet" type="text/css" />
+        <link href="/css/owl.carousel.css" rel="stylesheet" type="text/css" />
+        <link href="/css/owl.theme.css" rel="stylesheet" type="text/css" />
+
+      </Head>
       <div className="container">
         <div className="row mbc-1 mtc-1">
           <div className="col-xl-12">
