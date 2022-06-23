@@ -237,6 +237,10 @@ main {
   width: 50px;
   border-radius: 50%;
 }
+.previous-item-pic {
+  height: 80px;
+  width: 80px;
+}
 .customer {
   display: flex;
   justify-content: space-between;

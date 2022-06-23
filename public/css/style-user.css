@@ -1,0 +1,99 @@
+main {
+  padding: 2rem;
+  background: #f1f5f9;
+  min-height: 60vh;
+}
+.profile-pic-conatiner {
+  display: flex;
+  position: relative;
+  width: 220px;
+  height: 200px;
+}
+.profile-pic {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+.profile-pic-conatiner span i {
+  position: absolute;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  top: 150px;
+  right: 60px;
+  z-index: 100;
+}
+.card-account {
+  display: grid;
+  justify-content: space-between;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 2rem;
+}
+.account-font {
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+.btn-2 {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  color: white;
+  padding: 0.375rem 2rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 10px;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.btn-purple-2 {
+  background-color: pink;
+}
+.card-header2 h1 {
+  font-family: "Rubik-Bold";
+}
+.over-scroll {
+  overflow: scroll;
+}
+.previous-item-pic {
+  height: 80px;
+  width: 80px;
+}
+.info {
+  align-items: center;
+}
+.card-header2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 2rem;
+}
+.card-account2 {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 2rem;
+  height: 80vh;
+}
+.customer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0.7rem;
+}
+.info h4 {
+  font-family: "Rubik-SemiBold";
+}
+.react span {
+  font-size: 2rem;
+  display: inline-block;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  color: pink;
+}
