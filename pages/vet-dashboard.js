@@ -5,9 +5,11 @@ import baseUrl from '../helpers/baseUrl';
 import { useRouter } from 'next/router';
 import {useEffect, useState} from 'react';
 import Vetcard from '../Component/Vetcard';
+
 export default function vetdasboard() {
     const router = useRouter();
     const {vet} = parseCookies();
+    const [userData,setUserData]= useState();
     useEffect(() => {
         if(!vet){
             router.push('/');
@@ -30,6 +32,11 @@ export default function vetdasboard() {
         }
         
     })
+    useEffect(async () => {
+        const res = await fetch(`${baseUrl}/api/Account`);
+        const usedata = await res.json();
+        setUserData(usedata);
+    }, []);
 
     return (
         <div>
@@ -37,11 +44,11 @@ export default function vetdasboard() {
             <link rel="stylesheet" href="/css/line-awesome.css" type="text/css" />
             <script src="/js/jQuery.js" type="text/javascript"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.js" type="text/javascript"></script>
-            <script src="/js/admin.js" type="text/javascript"></script>
+            <script src="js/admin.js" type="text/javascript"></script>
             <input type="checkbox" id="nav-toggle" />
             <div className="sidebar">
                 <div className="sidebar-brand">
-                    <a href="index.html">
+                    <a href="/vet-dashboard">
                         <img src="images/logowhite.png" className="logo logo-xl" alt="logo.png" />
                     </a>
                 </div>
@@ -67,7 +74,7 @@ export default function vetdasboard() {
             <div className="main-content">
                 <header>
                     <h2>
-                        <div id="clicking">
+                        <div id="clickings">
                             <label htmlFor="nav-toggle">
                                 <span className="las la-bars"></span>
                             </label>
@@ -81,7 +88,7 @@ export default function vetdasboard() {
                     <div className="user-wrapper">
                         <img src="images/FallenCap.jpg" width="40px" height="40px" alt="img.jpg" />
                         <div>
-                            <h4>Subham Saha</h4>
+                            <h4>{userData&&userData.name}</h4>
                             <small>Vet</small>
                         </div>
                     </div>

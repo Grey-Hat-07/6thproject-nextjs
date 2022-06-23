@@ -157,7 +157,7 @@ const product = (props) => {
                 {product.description}
               </p>
               {quantity==0&&<>
-              <p className="text-danger"> Currently product is unavailable</p>
+              <p className="text-danger"> Currently the product is unavailable</p>
               <div className="btn-grp pt-3">
                 <button type="button" className="btn-2 btn-pink"
                   disabled> 

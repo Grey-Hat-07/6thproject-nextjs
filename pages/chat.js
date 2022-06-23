@@ -25,12 +25,6 @@ export default function chat() {
         setUserData(usedata);
     }, []);
 
-  useEffect(async () => {
-    const res = await fetch(`${baseUrl}/api/Account`);
-    const usedata = await res.json();
-    setUserData(usedata);
-  }, []);
-
   if (!chat) {
     const start = async () => {
       const res = await fetch(`${baseUrl}/api/Consult/createchat`, {
@@ -98,12 +92,12 @@ export default function chat() {
                                         </div>
                                     </div>
                                 </div> */}
-                  <button
+                  {userData?<button
                     className="btn btn-primary py-3 mt-3 "
                     onClick={start}
                   >
                     Start Chat
-                  </button>
+                  </button>:<button className='btn btn-secondary py-3 mt-3'>Loading..</button>}
                 </div>
               </div>
             </div>
