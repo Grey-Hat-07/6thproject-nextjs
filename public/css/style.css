@@ -147,6 +147,26 @@ html,
 body {
   font-family: "Rubik-Regular" !important;
 }
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  text-align: center !important;
+  min-width: 13rem !important;
+  padding: 0.5rem 0;
+  margin: 0.125rem 0 0;
+  font-size: 1rem;
+  color: #212529;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem;
+}
 
 .pal-1 {
   padding-left: 5rem !important;
@@ -172,6 +192,8 @@ li a {
 }
 li a:hover {
   font-size: 1.3rem !important;
+  text-decoration: none;
+  color: #212529;
 }
 .mt-6 {
   margin-top: 10rem !important;
