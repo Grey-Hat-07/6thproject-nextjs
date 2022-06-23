@@ -2,18 +2,31 @@ import React from 'react'
 import Head from 'next/head'
 import { useEffect,useState } from 'react';
 import baseUrl from '../helpers/baseUrl';
+import jsCookie from 'js-cookie'
+import { useRouter } from 'next/router';
 export default function Dashboard(props) {
     const { Orders } = props;
     const [counts,setCount] = useState({});
+    const [userData,setUserData]= useState();
     let length =0;
+    const router = useRouter();
     useEffect(async() => {
         const res =await fetch(`${baseUrl}/api/Count`);
         const count = await res.json();
         setCount(count);
 
     }, [])
+    useEffect(async()=>{
+        const res = await fetch(`${baseUrl}/api/Account`);
+        const data = await res.json()
+        setUserData(data);
+    },[])
     Orders.reverse();
-
+    const logout=()=>{
+        jsCookie.remove('user');
+        jsCookie.remove('AdminId');
+        router.push('/Login');
+    }
     return (
         <div>
             <Head>
@@ -53,7 +66,7 @@ export default function Dashboard(props) {
                             </a>
                         </li>
                         <li>
-                            <a href="#" className="">
+                            <a href="#" className="" onClick={logout}>
                                 <span className="las la-sign-out-alt"></span>
                                 <span className="disp-md-none">Logout</span>
                             </a>
@@ -83,7 +96,7 @@ export default function Dashboard(props) {
                             alt="img.jpg"
                         />
                         <div>
-                            <h4>Subham Sahaxdg</h4>
+                            <h4>{userData&&userData.name}</h4>
                             <small>Seller</small>
                         </div>
                     </div>

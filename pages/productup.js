@@ -2,11 +2,14 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import baseUrl from '../helpers/baseUrl';
+import jsCookie from 'js-cookie'
+import { useRouter } from 'next/router';
 import { getDownloadURL, ref, uploadBytesResumable } from '@firebase/storage';
 import { storage } from '../firebase/main.firebase'
 import { Productcard } from '../Component/Productcard';
 export default function productup(props) {
   var { products } = props;
+  const router = useRouter();
   const [productname, setProductname] = useState('');
   const [price, setprice] = useState();
   const [image, setimage] = useState(null);
@@ -14,12 +17,19 @@ export default function productup(props) {
   const [category, setcategory] = useState('');
   const [description, setdescription] = useState('');
   const [quantity, setquantity] = useState('');
+
+  const [userData,setUserData]= useState();
   //const [items, setItems] = useState([]);
   // useEffect(async () => {
   //   const res = await fetch(`${baseUrl}/api/Product`);
   //   const data = await res.json();
   //   setItems(data);
-  // })
+  // }) 
+  useEffect(async()=>{
+    const res = await fetch(`${baseUrl}/api/Account`);
+    const data = await res.json()
+    setUserData(data);
+},[])
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -77,6 +87,11 @@ export default function productup(props) {
 
     //console.log(file.url);
   }
+  const logout = () => {
+    jsCookie.remove('user');
+    jsCookie.remove('AdminId');
+    router.push('/Login');
+  }
 
 
   return (
@@ -116,7 +131,7 @@ export default function productup(props) {
               </a>
             </li>
             <li>
-              <a href="#" className="">
+              <a href="#" className="" onClick={logout}>
                 <span className="las la-sign-out-alt"></span>
                 <span className="disp-md-none">Logout</span>
               </a>
@@ -147,7 +162,7 @@ export default function productup(props) {
               alt="img.jpg"
             />
             <div>
-              <h4>Subham Saha</h4>
+              <h4>{userData&&userData.name}</h4>
               <small>Seller</small>
             </div>
           </div>

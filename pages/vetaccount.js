@@ -26,7 +26,7 @@ export default function vetaccount() {
             <input type="checkbox" id="nav-toggle" />
             <div className="sidebar">
                 <div className="sidebar-brand">
-                    <a href="index.html">
+                    <a href="/vet-dashboard">
                         <img src="images/logowhite.png" className="logo logo-xl" alt="logo.png" />
                     </a>
                 </div>
@@ -66,7 +66,7 @@ export default function vetaccount() {
                     <div className="user-wrapper">
                         <img src="images/FallenCap.jpg" width="40px" height="40px" alt="img.jpg" />
                         <div>
-                            <h4>Subham Saha</h4>
+                            <h4>{data&&data.name}</h4>
                             <small>Vet</small>
                         </div>
                     </div>

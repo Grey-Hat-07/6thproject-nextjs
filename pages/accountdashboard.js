@@ -1,6 +1,22 @@
 import React from 'react'
 import Head from 'next/head'
+import baseUrl from '../helpers/baseUrl';
+import { useState, useEffect } from 'react'
+import jsCookie from 'js-cookie'
+import { useRouter } from 'next/router';
 export default function account() {
+    const [userData,setUserData] = useState();
+    const router = useRouter();
+    useEffect(async()=>{
+        const res = await fetch(`${baseUrl}/api/Account`);
+        const data = await res.json()
+        setUserData(data);
+    },[])
+    const logout=()=>{
+        jsCookie.remove('user');
+        jsCookie.remove('AdminId');
+        router.push('/Login');
+    }
     return (
         <div>
             <script src="/js/admin.js" type="text/javascript"></script>
@@ -31,7 +47,7 @@ export default function account() {
                                 className="disp-md-none">Accounts</span></a>
                         </li>
                         <li>
-                            <a href="#" className="pt-2 pt-md-2"><span className="las la-sign-out-alt"></span> <span
+                            <a href="#" className="" onClick={logout}><span className="las la-sign-out-alt"></span> <span
                                 className="disp-md-none">Logout</span></a>
                         </li>
                     </ul>
@@ -55,7 +71,7 @@ export default function account() {
                     <div className="user-wrapper">
                         <img src="images/FallenCap.jpg" width="40px" height="40px" alt="img.jpg" />
                         <div>
-                            <h4>Subham Saha</h4>
+                            <h4>{userData&&userData.name}</h4>
                             <small>Seller</small>
                         </div>
                     </div>
@@ -67,8 +83,8 @@ export default function account() {
                         <span><i className="las la-pencil-alt"></i></span>
                     </div>
                     <div className="card-account mt-1">
-                        <p className="account-font mt-2">Name: Subham Saha</p>
-                        <p className="account-font mt-2">Email: sahasubham792@gmail.com</p>
+                        <p className="account-font mt-2">Name: {userData&&userData.name}</p>
+                        <p className="account-font mt-2">Email: {userData&&userData.email}</p>
                         <p className="account-font mt-2">Phone: 1234567890</p>
                         <p className="account-font mt-2">Adress: </p>
                         <div className="mt-2">
