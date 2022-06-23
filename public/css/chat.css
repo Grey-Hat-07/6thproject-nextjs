@@ -1,6 +1,42 @@
 .mt-chat-1 {
   margin-top: 4%;
 }
+.mt-chat-2 {
+  margin-top: 10px;
+}
+.mt-chat-3 {
+  margin-top: 1rem;
+}
+.mb-chat-1 {
+  margin-bottom: 10px;
+}
+.btn-2 {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  color: #343a40;
+  padding: 0.175rem 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 50px;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.btn-white {
+  background-color: white;
+  font-family: "Rubik-SemiBold";
+}
+.btn-pink {
+  background-color: pink;
+  font-family: "Rubik-SemiBold";
+}
 .msg-header {
   border: transparent;
   border-radius: 5rem;
@@ -22,7 +58,7 @@
   border-radius: 50%;
 }
 .active {
-  width: 120px;
+  width: 200px;
   float: left;
   margin-top: 12px;
 }
@@ -140,9 +176,43 @@
   width: 61% !important;
   background-color: #fff;
 }
+.input-group-2 {
+  float: right;
+  margin-top: 6px;
+  margin-right: 7px;
+  outline: none !important;
+  border-radius: 5rem;
+  width: 61% !important;
+  background-color: #fff;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  width: 100%;
+}
 .form-control {
   border: none !important;
   border-radius: 5rem !important;
+}
+.form-control-2 {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  flex: 1 1 auto;
+  width: 1%;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: none !important;
+  border-radius: 5rem !important;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 .input-group-text {
   background: transparent !important;
@@ -152,16 +222,41 @@
   color: pink;
   float: right;
 }
+.pink {
+  color: pink;
+  float: right;
+}
+.input-group-append {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.input-group-text-2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0.375rem 0.75rem;
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  text-align: center;
+  white-space: nowrap;
+}
 .bottom-icons {
   float: left;
-  margin-top: 12px;
+  margin-top: 9px;
   width: 30%;
   margin-left: 22px;
   color: #fff;
   font-size: 1.2rem;
 }
 .bottom-icons .fa {
-  padding: 5px;
+  padding: 5px 10px;
   cursor: pointer;
 }
 .form-control:focus {
@@ -199,7 +294,7 @@
     float: left;
   }
   .active {
-    width: 120px;
+    width: 200px;
     float: left;
     margin-top: 7px;
   }
