@@ -1,9 +1,9 @@
-import React from 'react'
-import { useState, useEffect } from 'react'
-import baseUrl from '../helpers/baseUrl';
-import jsCookie from 'js-cookie';
-import { useRouter } from 'next/router';
-import { parseCookies } from 'nookies';
+import React from "react";
+import { useState, useEffect } from "react";
+import baseUrl from "../helpers/baseUrl";
+import jsCookie from "js-cookie";
+import { useRouter } from "next/router";
+import { parseCookies } from "nookies";
 export default function chat() {
   const user = jsCookie.get("user");
   const chat = jsCookie.get("chat");
@@ -13,17 +13,16 @@ export default function chat() {
   const [userData, setUserData] = useState();
   const [chatData, setChatData] = useState();
 
-
   // if (!user) {
   //   window.location.href='/Login'
 
   // }
 
-    useEffect(async () => {
-        const res = await fetch(`${baseUrl}/api/Account`);
-        const usedata = await res.json();
-        setUserData(usedata);
-    }, []);
+  useEffect(async () => {
+    const res = await fetch(`${baseUrl}/api/Account`);
+    const usedata = await res.json();
+    setUserData(usedata);
+  }, []);
 
   if (!chat) {
     const start = async () => {
@@ -58,8 +57,7 @@ export default function chat() {
               <img src="images/FallenCap.jpg" alt="header-img.jpeg" />
             </div>
             <div className="active">
-              <h4>Not connected</h4>
-              <h6>3 hours ago...</h6>
+              <h4 className="mt-chat-2">Not connected</h4>
             </div>
             <div className="header-icons">
               <i className="fa fa-phone" aria-hidden="true"></i>
@@ -92,12 +90,18 @@ export default function chat() {
                                         </div>
                                     </div>
                                 </div> */}
-                  {userData?<button
-                    className="btn btn-primary py-3 mt-3 "
-                    onClick={start}
-                  >
-                    Start Chat
-                  </button>:<button className='btn btn-secondary py-3 mt-3'>Loading..</button>}
+                  {userData ? (
+                    <button
+                      className="btn-2 btn-pink py-3 mt-3 "
+                      onClick={start}
+                    >
+                      Start Chat
+                    </button>
+                  ) : (
+                    <button className="btn-2 btn-pink py-3 mt-3">
+                      Loading..
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
@@ -181,7 +185,6 @@ export default function chat() {
 
         <link href="css/style.css" rel="stylesheet" type="text/css" />
         <link href="css/chat.css" rel="stylesheet" type="text/css" />
-        <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
         <link href="css/font-awesome.css" rel="stylesheet" type="text/css" />
         <link href="css/animate.css" rel="stylesheet" type="text/css" />
 
@@ -191,8 +194,7 @@ export default function chat() {
               <img src="images/FallenCap.jpg" alt="header-img.jpeg" />
             </div>
             <div className="active">
-              <h4>{chatData && chatData[0].vetname}</h4>
-              <h6>3 hours ago...</h6>
+              <h4 className="mt-chat-2">{chatData && chatData[0].vetname}</h4>
             </div>
             <div className="header-icons">
               <i className="fa fa-phone" aria-hidden="true"></i>
@@ -212,7 +214,7 @@ export default function chat() {
                           <div className="outgoing-chats" key={index}>
                             <div className="outgoing-chats-msg">
                               <p>{item.message}</p>
-                              <span className="time">11.01 | January 1</span>
+                              <span className="time">{item.timestamp}</span>
                             </div>
                             <div className="outgoing-chats-img">
                               <img
@@ -234,7 +236,7 @@ export default function chat() {
                             <div className="received-msg">
                               <div className="received-msg-inbox">
                                 <p>{item.message}</p>
-                                <span className="time">11.01 | January 1</span>
+                                <span className="time">{item.timestamp}</span>
                               </div>
                             </div>
                           </div>
@@ -250,6 +252,9 @@ export default function chat() {
                 <i className="fa fa-camera" aria-hidden="true"></i>
                 <i className="fa fa-microphone" aria-hidden="true"></i>
                 <i className="fa fa-smile-o" aria-hidden="true"></i>
+                <button className="btn-2 btn-white" onClick={end}>
+                  End Chat
+                </button>
               </div>
               <div className="input-group">
                 <input
@@ -260,17 +265,14 @@ export default function chat() {
                   onChange={(e) => setMessage(e.target.value)}
                 />
                 <div className="input-group-append">
-                  <button className="input-group-text" onClick={postmessage}>
+                  <span className="input-group-text" onClick={postmessage}>
                     <i className="fa fa-paper-plane" aria-hidden="true"></i>
-                  </button>
+                  </span>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <button className="btn btn-danger mt-2 " onClick={end}>
-          End Chat
-        </button>
       </div>
     );
   }
