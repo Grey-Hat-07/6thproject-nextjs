@@ -2,45 +2,40 @@ import React from 'react'
 import { parseCookies } from 'nookies'
 import baseUrl from '../helpers/baseUrl';
 import { useState, useEffect } from 'react';
+import Head from 'next/head'
 export default function userAccount(props) {
     const { user } = parseCookies();
     const { Orders } = props;
-    const [Data,setData] = useState();
+    const [Data, setData] = useState();
     Orders.reverse();
     // console.log(Orders)
-    useEffect(async()=>{
-        const res= await fetch(`${baseUrl}/api/Account`);
+    useEffect(async () => {
+        const res = await fetch(`${baseUrl}/api/Account`);
         const data = await res.json();
-        
+
         setData(data);
-    },[])
+    }, [])
     return (
-        
-        <div>
-            {Orders && user &&
-                Orders.map((order, index) => {
-                    if (order.userId === user) {
-                        console.log(order)
-                        return <>
-                            {/* {order.email} */}
-                        </>
-                    }
-                })
-            }
+
+        <div><Head>
             <link href="css/style.css" type="text/css" rel="stylesheet" />
             <link href="css/style-user.css" type="text/css" rel="stylesheet" />
             <link href="css/bootstrap.css" type="text/css" rel="stylesheet" />
             <link href="css/animate.css" type="text/css" rel="stylesheet" />
             <link href="css/font-awesome.css" type="text/css" rel="stylesheet" />
             <link rel="stylesheet" href="css/line-awesome.css" type="text/css" />
+            </Head>
+            <script src="js/jQuery.js" type="text/javascript"></script>
+            <script src="js/bootstrap.js" type="text/javascript"></script>
+            <script src="js/owl.carousel.js" type="text/javascript"></script>
             <main>
                 <div className="profile-pic-conatiner">
                     <img src="images/FallenCap.jpg" className="profile-pic" alt="profilepic.jpeg" />
                     <span><i className="las la-pencil-alt"></i></span>
                 </div>
                 <div className="card-account mt-1">
-                    <p className="account-font mt-2">Name: {Data&&Data.name}</p>
-                    <p className="account-font mt-2">Email: {Data&&Data.email}</p>
+                    <p className="account-font mt-2">Name: {Data && Data.name}</p>
+                    <p className="account-font mt-2">Email: {Data && Data.email}</p>
                     <p className="account-font mt-2">Phone: 1234567890</p>
                     <p className="account-font mt-2">Adress: </p>
                     <div className="mt-2">
@@ -214,7 +209,7 @@ export default function userAccount(props) {
             </main>
 
 
-            </div>
+        </div>
     )
 }
 export async function getStaticProps(context) {

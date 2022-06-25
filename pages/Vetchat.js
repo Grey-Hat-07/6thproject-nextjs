@@ -62,7 +62,7 @@ export default function Vetchat() {
     });
     const data = await res.json();
     jsCookie.remove("chat");
-    window.location.href = "/";
+    window.location.href = "/Vetchat";
     alert("Chat ended");
   };
   return (

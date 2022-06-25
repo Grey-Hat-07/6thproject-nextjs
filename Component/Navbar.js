@@ -6,7 +6,7 @@ import jsCookie from 'js-cookie';
 import { parseCookies } from 'nookies';
 export default function Navbar() {
   const router = useRouter();
-  const { vet } = parseCookies();
+  const { vet,user } = parseCookies();
   const [isdashboard, setIsdashboard] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [product, setProduct] = useState(true);
@@ -22,6 +22,10 @@ export default function Navbar() {
     else {
       setIsdashboard(false)
     }
+    if(!user){
+      if(router.pathname != '/Login' && router.pathname != '/Signup/Customersignup' && router.pathname != '/Signup/Vetsignup' && router.pathname != '/Signup/adminsign'){
+      window.location.href='/Login';}
+    }
     // if (router.pathname === '/product/id') {
     //   setProduct(true)
     // }
@@ -29,6 +33,7 @@ export default function Navbar() {
     //   setProduct(false)
     // }
   }, [router.pathname])
+  
 
   return (
     <>
@@ -37,6 +42,7 @@ export default function Navbar() {
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="/images/logo.png" rel="shortcut icon" type="image/png" />
       </Head>
       {!isdashboard &&
         <div className="container-fluid bg-pink">
@@ -106,13 +112,15 @@ export default function Navbar() {
                         <i className="fa fa-user-circle" aria-hidden="true"></i>
                       </a>
                       <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a className='text-4' href= '/userAccount'>User Account</a><br/>
                         {/* <a className="dropdown-item" href="login I.html">Customer &<br />Paitient Login</a> */}
                         <button className='btn btn-danger m-2' onClick={
                           () => {
                             jsCookie.remove('user'); if (vet) { jsCookie.remove('vet') }
                             router.push('/Login');
                           }
-                        }>logout</button></div>
+                        }>logout</button>
+                        </div>
                     </li>
                   </ul>
                 </div> : null}
