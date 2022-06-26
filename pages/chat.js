@@ -141,9 +141,8 @@ export default function chat() {
 
       if (data && data[0].status === "end") {
         jsCookie.remove("chat");
-        alert("Chat ended");
         window.location.href = "/";
-        
+        alert("Chat ended");
 
         return;
       }

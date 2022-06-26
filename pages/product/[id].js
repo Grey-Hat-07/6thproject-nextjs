@@ -195,7 +195,7 @@ const product = (props) => {
               <div className="span12">
                 <div id="owl-demo">
                   {recommended.map((recomproduct) => {
-                    if (recomproduct.category === product.category && list <= total && recomproduct._id !== product._id) {
+                    if (recomproduct.category === product.category && list <= total && recomproduct._id !== product._id&& recomproduct.quantity!==0) {
                       list++;
                       return (
                         <Similarcard key={recomproduct._id} recomproduct={recomproduct} />
