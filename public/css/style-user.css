@@ -79,7 +79,7 @@ main {
   background: #fff;
   padding: 2rem;
   border-radius: 2rem;
-  height: 80vh;
+  height: 60vh;
 }
 .customer {
   display: flex;
@@ -97,3 +97,26 @@ main {
   margin-left: 0.5rem;
   color: pink;
 }
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+table {
+  border-collapse: collapse;
+}
+thead td {
+  text-align: center;
+  font-family: "Rubik-SemiBold";
+  font-size: 2rem;
+}
+thead tr {
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 2px solid #f0f0f0;
+  padding: 0.5rem 0rem;
+}
+tbody td {
+  text-align: center;
+  padding: 1rem 0rem;
+  font-size: 1.5rem;
+}
+

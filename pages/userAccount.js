@@ -47,167 +47,53 @@ export default function userAccount(props) {
             </main>
 
             <main>
-                <div className="card-header2">
-                    <h1>Previous order<span className="las la-history"></span></h1>
-                </div>
-                <div className="card-account2 over-scroll">
-                    <div className="card-body">
-                        <div className="customer">
-                            <div className="info">
-                                <img src="images/PngItem_413148.png" className="previous-item-pic" alt="img.jpg" />
-                                <div>
-                                    <h4>Dog Food</h4>
-                                </div>
+    <div class="card-header2">
+        <h1>Previous order<span class="las la-history"></span></h1>
+    </div>
+    <div class="card-account2 over-scroll">
+        <div class="card-body">
+            <div class="table-respnsive">
+                <table width="100%">
+                    <thead>
+                        <tr>
+                            <td>Item</td>
+                            <td>Price</td>
+                            <td>Order Date</td>
+                        </tr>
+                    </thead>
+                    
+                    {Orders&&user&&Orders.map((order) => {
+                        if(order.userId === user){
+                            console.log(order)
+                            return(
+                                <tbody>
+                        <td>
+                            {order.products.map((product) => {
+                                return(
+                                    <div>
+                                        {product.productname}<br/>
+                                    </div>
+                                )
+                            })}
+                        </td>
+                        <td>${order.total}</td>
+                        <td>{order.time.toString()}</td>
+                        <td>
+                            <div class="react">
+                                <span class="las la-cart-arrow-down"></span>
+                                <span class="lar la-comment"></span>
                             </div>
-                            <div className="react">
-                                <span className="las la-cart-arrow-down"></span>
-                                <span className="lar la-comment"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="card-body">
-                        <div className="customer">
-                            <div className="info">
-                                <img src="images/PngItem_413148.png" className="previous-item-pic" alt="img.jpg" />
-                                <div>
-                                    <h4>Dog Food</h4>
-                                </div>
-                            </div>
-                            <div className="react">
-                                <span className="las la-cart-arrow-down"></span>
-                                <span className="lar la-comment"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="card-body">
-                        <div className="customer">
-                            <div className="info">
-                                <img src="images/PngItem_413148.png" className="previous-item-pic" alt="img.jpg" />
-                                <div>
-                                    <h4>Dog Food</h4>
-                                </div>
-                            </div>
-                            <div className="react">
-                                <span className="las la-cart-arrow-down"></span>
-                                <span className="lar la-comment"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="card-body">
-                        <div className="customer">
-                            <div className="info">
-                                <img src="images/PngItem_413148.png" className="previous-item-pic" alt="img.jpg" />
-                                <div>
-                                    <h4>Dog Food</h4>
-                                </div>
-                            </div>
-                            <div className="react">
-                                <span className="las la-cart-arrow-down"></span>
-                                <span className="lar la-comment"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="card-body">
-                        <div className="customer">
-                            <div className="info">
-                                <img src="images/PngItem_413148.png" className="previous-item-pic" alt="img.jpg" />
-                                <div>
-                                    <h4>Dog Food</h4>
-                                </div>
-                            </div>
-                            <div className="react">
-                                <span className="las la-cart-arrow-down"></span>
-                                <span className="lar la-comment"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="card-body">
-                        <div className="customer">
-                            <div className="info">
-                                <img src="images/PngItem_413148.png" className="previous-item-pic" alt="img.jpg" />
-                                <div>
-                                    <h4>Dog Food</h4>
-                                </div>
-                            </div>
-                            <div className="react">
-                                <span className="las la-cart-arrow-down"></span>
-                                <span className="lar la-comment"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="card-body">
-                        <div className="customer">
-                            <div className="info">
-                                <img src="images/PngItem_413148.png" className="previous-item-pic" alt="img.jpg" />
-                                <div>
-                                    <h4>Dog Food</h4>
-                                </div>
-                            </div>
-                            <div className="react">
-                                <span className="las la-cart-arrow-down"></span>
-                                <span className="lar la-comment"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="card-body">
-                        <div className="customer">
-                            <div className="info">
-                                <img src="images/PngItem_413148.png" className="previous-item-pic" alt="img.jpg" />
-                                <div>
-                                    <h4>Dog Food</h4>
-                                </div>
-                            </div>
-                            <div className="react">
-                                <span className="las la-cart-arrow-down"></span>
-                                <span className="lar la-comment"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="card-body">
-                        <div className="customer">
-                            <div className="info">
-                                <img src="images/PngItem_413148.png" className="previous-item-pic" alt="img.jpg" />
-                                <div>
-                                    <h4>Dog Food</h4>
-                                </div>
-                            </div>
-                            <div className="react">
-                                <span className="las la-cart-arrow-down"></span>
-                                <span className="lar la-comment"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="card-body">
-                        <div className="customer">
-                            <div className="info">
-                                <img src="images/PngItem_413148.png" className="previous-item-pic" alt="img.jpg" />
-                                <div>
-                                    <h4>Dog Food</h4>
-                                </div>
-                            </div>
-                            <div className="react">
-                                <span className="las la-cart-arrow-down"></span>
-                                <span className="lar la-comment"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="card-body">
-                        <div className="customer">
-                            <div className="info">
-                                <img src="images/PngItem_413148.png" className="previous-item-pic" alt="img.jpg" />
-                                <div>
-                                    <h4>Dog Food</h4>
-                                </div>
-                            </div>
-                            <div className="react">
-                                <span className="las la-cart-arrow-down"></span>
-                                <span className="lar la-comment"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </main>
-
+                        </td>
+                    </tbody>
+                            )
+                        }
+                    })
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
 
         </div>
     )
