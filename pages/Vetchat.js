@@ -82,11 +82,11 @@ export default function Vetchat() {
       <script src="/js/admin.js" type="text/javascript"></script>
       <input type="checkbox" id="nav-toggle" />
       <div className="sidebar">
-        <div className="sidebar-brand">
-          <a href="index.html">
+      <div className="sidebar-brand">
+          <a href="/vet-dashboard">
             <img
               src="images/logowhite.png"
-              className="logo logo-xl"
+              className="logo-vet logo-xl"
               alt="logo.png"
             />
           </a>
