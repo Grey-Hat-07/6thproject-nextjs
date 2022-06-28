@@ -62,7 +62,7 @@ export default function Vetchat() {
     });
     const data = await res.json();
     jsCookie.remove("chat");
-    window.location.href = "/";
+    window.location.href = "/Vetchat";
     alert("Chat ended");
   };
   return (
@@ -82,8 +82,8 @@ export default function Vetchat() {
       <script src="/js/vet.js" type="text/javascript"></script>
       <input type="checkbox" id="nav-toggle" />
       <div className="sidebar">
-        <div className="sidebar-brand">
-          <a href="index.html">
+      <div className="sidebar-brand">
+          <a href="/vet-dashboard">
             <img
               src="images/logowhite.png"
               className="logo-vet logo-xl"
