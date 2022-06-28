@@ -10,6 +10,9 @@
 .mb-chat-1 {
   margin-bottom: 10px;
 }
+.pt-chat-1 {
+  padding-top: 10px !important;
+}
 .btn-2 {
   display: inline-block;
   font-weight: 400;
