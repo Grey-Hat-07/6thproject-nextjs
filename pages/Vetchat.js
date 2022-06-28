@@ -79,14 +79,14 @@ export default function Vetchat() {
         src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.js"
         type="text/javascript"
       ></script>
-      <script src="/js/admin.js" type="text/javascript"></script>
+      <script src="/js/vet.js" type="text/javascript"></script>
       <input type="checkbox" id="nav-toggle" />
       <div className="sidebar">
         <div className="sidebar-brand">
           <a href="index.html">
             <img
               src="images/logowhite.png"
-              className="logo logo-xl"
+              className="logo-vet logo-xl"
               alt="logo.png"
             />
           </a>
@@ -223,7 +223,10 @@ export default function Vetchat() {
                     onChange={(e) => setMessage(e.target.value)}
                   />
                   <div className="input-group-append-2">
-                    <span className="input-group-text-2" onClick={postmessage}>
+                    <span
+                      className="input-group-text-2 pt-chat-1"
+                      onClick={postmessage}
+                    >
                       <i
                         className="fa fa-paper-plane pink"
                         aria-hidden="true"
