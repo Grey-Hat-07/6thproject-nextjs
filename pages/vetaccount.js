@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import baseUrl from '../helpers/baseUrl';
 import jsCookie from 'js-cookie'
 import { useRouter } from 'next/router';
-export default function vetaccount() {
+export default function Vetaccount() {
     const [data, setData] = useState([]);
     const router = useRouter();
     const logout = () => {

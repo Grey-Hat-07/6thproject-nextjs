@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 import { getDownloadURL, ref, uploadBytesResumable } from '@firebase/storage';
 import { storage } from '../firebase/main.firebase'
 import { Productcard } from '../Component/Productcard';
-export default function productup(props) {
+export default function Productup(props) {
   var { products } = props;
   const router = useRouter();
   const [productname, setProductname] = useState('');

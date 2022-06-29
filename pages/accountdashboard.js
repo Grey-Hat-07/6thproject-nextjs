@@ -4,7 +4,7 @@ import baseUrl from '../helpers/baseUrl';
 import { useState, useEffect } from 'react'
 import jsCookie from 'js-cookie'
 import { useRouter } from 'next/router';
-export default function account() {
+export default function Account() {
     const [userData,setUserData] = useState();
     const router = useRouter();
     useEffect(async()=>{

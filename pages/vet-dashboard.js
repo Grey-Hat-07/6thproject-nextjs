@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Vetcard from "../Component/Vetcard";
 
-export default function vetdasboard() {
+export default function Vetdasboard() {
   const router = useRouter();
   const { vet } = parseCookies();
   const [userData, setUserData] = useState();

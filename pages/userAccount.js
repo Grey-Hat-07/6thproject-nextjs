@@ -3,7 +3,7 @@ import { parseCookies } from 'nookies'
 import baseUrl from '../helpers/baseUrl';
 import { useState, useEffect } from 'react';
 import Head from 'next/head'
-export default function userAccount(props) {
+export default function UserAccount(props) {
     const { user } = parseCookies();
     const { Orders } = props;
     const [Data, setData] = useState();

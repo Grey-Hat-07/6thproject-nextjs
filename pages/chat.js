@@ -4,7 +4,7 @@ import baseUrl from "../helpers/baseUrl";
 import jsCookie from "js-cookie";
 import { useRouter } from "next/router";
 import { parseCookies } from "nookies";
-export default function chat() {
+export default function Chat() {
   const user = jsCookie.get("user");
   const chat = jsCookie.get("chat");
   // const {data} = props;
