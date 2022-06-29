@@ -128,7 +128,7 @@ const product = (props) => {
 
   return (
 
-    <>
+    <><Head>
       <script src="/js/jQuery.js" type="text/javascript"></script>
       <script src="/js/product.js" type="text/javascript"></script>
       <script src="/js/bootstrap.js" type="text/javascript"></script>
@@ -142,7 +142,7 @@ const product = (props) => {
       <link rel="stylesheet" href="/css/font-awesome.css" type="text/css" />
       <link href="/css/owl.carousel.css" type="text/css" rel="stylesheet" />
       <link href="/css/owl.theme.css" type="text/css" rel="stylesheet" />
-
+      </Head>
       <div className="container">
         <div className="row">
           <div className="col-xl-5 col-lg-5 col-md-5">

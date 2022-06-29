@@ -4,50 +4,51 @@ import baseUrl from '../../helpers/baseUrl';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 export default function Signup() {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [name, setName] = useState('');
-    const [AdminId, setadminid] = useState('');
-    const [policy, setPolicy] = useState(false);
-    let regex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
-    const router = useRouter()
-  const handlesubmit = async(e) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
+  const [AdminId, setadminid] = useState('');
+  const [policy, setPolicy] = useState(false);
+  let regex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
+  const router = useRouter()
+  const handlesubmit = async (e) => {
     e.preventDefault()
-    if(policy==false){
+    if (policy == false) {
       return alert('Please accept the terms and conditions')
     }
-    if(!regex.test(email)){
+    if (!regex.test(email)) {
       alert("Invalid email")
       return;
     }
-    if(AdminId!=='0987'){
+    if (AdminId !== '0987') {
       alert("Admin Id is wrong")
       return;
     }
-    const res=await fetch(`${baseUrl}/api/Adminsign`, {
+    const res = await fetch(`${baseUrl}/api/Adminsign`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ name, email, password, AdminId})
+      body: JSON.stringify({ name, email, password, AdminId })
     })
     const res2 = await res.json();
-    if(res2.error){
+    if (res2.error) {
       alert(res2.error)
     }
-    else{
+    else {
       console.log(res2)
-      router.push('/Login')            
+      router.push('/Login')
     }
   }
   return (
     <div className="container-fluid">
-      <script src="/js/jQuery.js" type="text/javascript"></script>
-      <script src="/js/custom.js" type="text/javascript"></script>
-      <script src="/js/popper.min.js" type="text/javascript"></script>
-      <script src="/js/bootstrap.js" type="text/javascript"></script>
-      <script src="/js/wow.js" type="text/javascript"></script>
       <Head>
+        <script src="/js/jQuery.js" type="text/javascript"></script>
+        <script src="/js/custom.js" type="text/javascript"></script>
+        <script src="/js/popper.min.js" type="text/javascript"></script>
+        <script src="/js/bootstrap.js" type="text/javascript"></script>
+        <script src="/js/wow.js" type="text/javascript"></script>
+
         <link href="/css/style.css" rel="stylesheet" type="text/css" />
         <link href="/css/style2.css" rel="stylesheet" type="text/css" />
         <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" />
@@ -72,7 +73,7 @@ export default function Signup() {
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
                   placeholder="Enter name"
-                    value={name} onChange={(e) => setName(e.target.value)}
+                  value={name} onChange={(e) => setName(e.target.value)}
                 />
               </div>
               <div className="form-group">
@@ -83,7 +84,7 @@ export default function Signup() {
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
                   placeholder="Enter email"
-                    value={email} onChange={(e) => setEmail(e.target.value)}
+                  value={email} onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div className="form-group">
@@ -94,7 +95,7 @@ export default function Signup() {
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
                   placeholder="Enter AdminId"
-                    value={AdminId} onChange={(e) => setadminid(e.target.value)}
+                  value={AdminId} onChange={(e) => setadminid(e.target.value)}
                 />
               </div>
               <div className="form-group">
@@ -104,7 +105,7 @@ export default function Signup() {
                   className="form-control-2"
                   id="exampleInputPassword1"
                   placeholder="Password"
-                    value={password} onChange={(e) => setPassword(e.target.value)}
+                  value={password} onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
               <div className="form-check">
@@ -112,10 +113,10 @@ export default function Signup() {
                   type="checkbox"
                   className="form-check-input"
                   id="exampleCheck1"
-                    value={policy} onChange={(e) => setPolicy(e.target.checked)}
+                  value={policy} onChange={(e) => setPolicy(e.target.checked)}
                 />
                 <label className="form-check-label" htmlFor="exampleCheck1"
-                  >Accept our policy</label
+                >Accept our policy</label
                 >
               </div>
               <button type="submit" className="btn-2 btn-purple-2 mt-3" onClick={handlesubmit}>
