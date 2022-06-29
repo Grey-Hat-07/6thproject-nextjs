@@ -129,11 +129,11 @@ const product = (props) => {
   return (
 
     <><Head>
-      <script src="/js/jQuery.js" type="text/javascript"></script>
-      <script src="/js/product.js" type="text/javascript"></script>
-      <script src="/js/bootstrap.js" type="text/javascript"></script>
-      <script src="/js/owl.carousel.js" type="text/javascript"></script>
-      <script src="/js/wow.js"></script>
+      <script async src="/js/jQuery.js" type="text/javascript"></script>
+      <script async src="/js/product.js" type="text/javascript"></script>
+      <script async src="/js/bootstrap.js" type="text/javascript"></script>
+      <script async src="/js/owl.carousel.js" type="text/javascript"></script>
+      <script async src="/js/wow.js"></script>
 
       <link rel="stylesheet" href="/css/style.css" type="text/css" />
       <link rel="stylesheet" href="/css/product.css" type="text/css" />
