@@ -179,7 +179,7 @@ export default function Home() {
               <h1 className="text-3 wow fadeInLeft">Dog is our best friend</h1>
               <p className="mt-4 ml-4 wow fadeInRight">
                 Dogs provide us with unconditional love and companionship.
-                They’re at our sides when we’re sick, and they always seem to
+                They&apos;re at our sides when we&apos;re sick, and they always seem to
                 know when we need a little extra affection. They love us without
                 judgment, even when we are ignoring them or not feeding them a
                 second dinner. Dogs seem to understand us on another level that
