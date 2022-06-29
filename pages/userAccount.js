@@ -24,10 +24,11 @@ export default function UserAccount(props) {
             <link href="css/animate.css" type="text/css" rel="stylesheet" />
             <link href="css/font-awesome.css" type="text/css" rel="stylesheet" />
             <link rel="stylesheet" href="css/line-awesome.css" type="text/css" />
-            </Head>
             <script src="js/jQuery.js" type="text/javascript"></script>
             <script src="js/bootstrap.js" type="text/javascript"></script>
             <script src="js/owl.carousel.js" type="text/javascript"></script>
+            </Head>
+            
             <main>
                 <div className="profile-pic-conatiner">
                     <img src="images/FallenCap.jpg" className="profile-pic" alt="profilepic.jpeg" />
@@ -47,12 +48,12 @@ export default function UserAccount(props) {
             </main>
 
             <main>
-    <div class="card-header2">
-        <h1>Previous order<span class="las la-history"></span></h1>
+    <div className="card-header2">
+        <h1>Previous order<span className="las la-history"></span></h1>
     </div>
-    <div class="card-account2 over-scroll">
-        <div class="card-body">
-            <div class="table-respnsive">
+    <div className="card-account2 over-scroll">
+        <div className="card-body">
+            <div className="table-respnsive">
                 <table width="100%">
                     <thead>
                         <tr>
@@ -62,15 +63,15 @@ export default function UserAccount(props) {
                         </tr>
                     </thead>
                     
-                    {Orders&&user&&Orders.map((order) => {
+                    {Orders&&user&&Orders.map((order,index) => {
                         if(order.userId === user){
                             console.log(order)
                             return(
-                                <tbody>
+                                <tbody key={index}>
                         <td>
-                            {order.products.map((product) => {
+                            {order.products.map((product,id) => {
                                 return(
-                                    <div>
+                                    <div key={id}>
                                         {product.productname}<br/>
                                     </div>
                                 )
@@ -79,9 +80,9 @@ export default function UserAccount(props) {
                         <td>${order.total}</td>
                         <td>{order.time.toString()}</td>
                         <td>
-                            <div class="react">
-                                <span class="las la-cart-arrow-down"></span>
-                                <span class="lar la-comment"></span>
+                            <div className="react">
+                                <span className="las la-cart-arrow-down"></span>
+                                <span className="lar la-comment"></span>
                             </div>
                         </td>
                     </tbody>

@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import baseUrl from '../helpers/baseUrl';
 import jsCookie from 'js-cookie'
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 export default function Vetaccount() {
     const [data, setData] = useState([]);
     const router = useRouter();
@@ -19,11 +20,13 @@ export default function Vetaccount() {
 
     return (
         <div>
+            <Head>
             <link rel="stylesheet" href="/css/vet-dashboard.css" type="text/css" />
             <link rel="stylesheet" href="/css/line-awesome.css" type="text/css" />
             <script src="/js/jQuery.js" type="text/javascript"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.js" type="text/javascript"></script>
             <script src="/js/admin.js" type="text/javascript"></script>
+            </Head>
             <input type="checkbox" id="nav-toggle" />
             <div className="sidebar">
                 <div className="sidebar-brand">

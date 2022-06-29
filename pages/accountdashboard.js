@@ -19,10 +19,11 @@ export default function Account() {
     }
     return (
         <div>
-            <script src="/js/admin.js" type="text/javascript"></script>
+            
             <Head>
             <link rel="stylesheet" href="css/account.css" type="text/css" />
             <link rel="stylesheet" href="css/line-awesome.css" type="text/css" />
+            <script src="/js/admin.js" type="text/javascript"></script>
             </Head>
             <input type="checkbox" id="nav-toggle" />
             <div className="sidebar">

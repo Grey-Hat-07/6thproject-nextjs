@@ -5,7 +5,7 @@ import baseUrl from "../helpers/baseUrl";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Vetcard from "../Component/Vetcard";
-
+import Head from "next/head";
 export default function Vetdasboard() {
   const router = useRouter();
   const { vet } = parseCookies();
@@ -37,7 +37,7 @@ export default function Vetdasboard() {
   }, []);
 
   return (
-    <div>
+    <div><Head>
       <link rel="stylesheet" href="/css/vet-dashboard.css" type="text/css" />
       <link rel="stylesheet" href="/css/line-awesome.css" type="text/css" />
       <script src="/js/jQuery.js" type="text/javascript"></script>
@@ -46,6 +46,7 @@ export default function Vetdasboard() {
         type="text/javascript"
       ></script>
       <script src="js/vet.js" type="text/javascript"></script>
+      </Head>
       <input type="checkbox" id="nav-toggle" />
       <div className="sidebar">
         <div className="sidebar-brand">

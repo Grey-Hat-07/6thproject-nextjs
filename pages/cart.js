@@ -106,16 +106,16 @@ export default function Cart(props) {
       };
     return (
         <div>
-
+          <Head>
             <link href="/css/cart.css" type="text/css" rel="stylesheet" />
             <link href="/css/style.css" type="text/css" rel="stylesheet" />
             <link href="/css/bootstrap.css" type="text/css" rel="stylesheet" />
             <link href="/css/animate.css" type="text/css" rel="stylesheet" />
             <link href="/css/font-awesome.css" type="text/css" rel="stylesheet" />
-
             <script src="js/jQuery.js" type="text/javascript"></script>
             <script src="js/bootstrap.js" type="text/javascript"></script>
             <script src="js/wow.js"></script>
+            </Head>
             <div className="container cart-page">
                 <table>
                     <tr className="border-bottom-cart">
