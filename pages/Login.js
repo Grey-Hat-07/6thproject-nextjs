@@ -86,7 +86,7 @@ export default function login() {
                                     value={password} onChange={(e) => setPassword(e.target.value)}
                                 />
                             </div>
-                            <Link href='/Signup/Customersignup'><a className='text-center'>Don't have Account?</a></Link><br />
+                            <Link href='/Signup/Customersignup'><a className='text-center'>Don&apos;t have Account?</a></Link><br />
                             <button type="submit" className="btn-2 btn-purple-2 mt-3"
                                 onClick={handlesubmit}>
                                 Log In

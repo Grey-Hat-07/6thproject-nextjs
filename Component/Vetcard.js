@@ -42,7 +42,7 @@ export default function Vetchat(props) {
                     </div>
                 </div>
                 <div className="react">
-                    <span className="las la-sms" onClick={setcookies}></span>
+                    {account&&<span className="las la-sms" onClick={setcookies}></span>}
                     <span className="las la-phone"></span>
                 </div>
             </div>

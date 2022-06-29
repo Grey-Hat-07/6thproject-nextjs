@@ -20,6 +20,10 @@ export default function Signup() {
       alert("Invalid email")
       return;
     }
+    if(AdminId!=='0987'){
+      alert("Admin Id is wrong")
+      return;
+    }
     const res=await fetch(`${baseUrl}/api/Adminsign`, {
       method: 'POST',
       headers: {
