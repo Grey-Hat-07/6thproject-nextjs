@@ -5,7 +5,7 @@ import baseUrl from '../helpers/baseUrl';
 import { useRouter } from 'next/router';
 import jsCookie from 'js-cookie'
 import Head from 'next/head';
-export default function login() {
+export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const router = useRouter()

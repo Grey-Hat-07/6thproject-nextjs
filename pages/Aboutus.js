@@ -3,6 +3,9 @@ import Head from 'next/head'
 export default function Aboutus() {
   return (
     <div>
+      <script src="js/jQuery.js" type="text/javascript"></script>
+      <script src="js/bootstrap.js" type="text/javascript"></script>
+      <script src="js/owl.carousel.js" type="text/javascript"></script>
       <Head>
         <link href="css/style.css" type="text/css" rel="stylesheet" />
         <link href="css/about.css" type="text/css" rel="stylesheet" />
@@ -10,9 +13,7 @@ export default function Aboutus() {
         <link href="css/animate.css" type="text/css" rel="stylesheet" />
         <link href="css/font-awesome.css" type="text/css" rel="stylesheet" />
       </Head>
-      <script src="js/jQuery.js" type="text/javascript"></script>
-      <script src="js/bootstrap.js" type="text/javascript"></script>
-      <script src="js/owl.carousel.js" type="text/javascript"></script>
+      
 
       <div className="bg-light">
     <div className="container py-5">
