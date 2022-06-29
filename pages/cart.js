@@ -112,9 +112,9 @@ export default function Cart(props) {
             <link href="/css/bootstrap.css" type="text/css" rel="stylesheet" />
             <link href="/css/animate.css" type="text/css" rel="stylesheet" />
             <link href="/css/font-awesome.css" type="text/css" rel="stylesheet" />
-            <script src="js/jQuery.js" type="text/javascript"></script>
-            <script src="js/bootstrap.js" type="text/javascript"></script>
-            <script src="js/wow.js"></script>
+            <script async src="js/jQuery.js" type="text/javascript"></script>
+            <script async src="js/bootstrap.js" type="text/javascript"></script>
+            <script async src="js/wow.js"></script>
             </Head>
             <div className="container cart-page">
                 <table>

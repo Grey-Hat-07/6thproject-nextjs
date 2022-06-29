@@ -37,16 +37,16 @@ export default function Vetdasboard() {
   }, []);
 
   return (
-    <div><Head>
+    <div>
       <link rel="stylesheet" href="/css/vet-dashboard.css" type="text/css" />
       <link rel="stylesheet" href="/css/line-awesome.css" type="text/css" />
       <script src="/js/jQuery.js" type="text/javascript"></script>
-      <script
+      <script async
         src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.js"
         type="text/javascript"
       ></script>
-      <script src="js/vet.js" type="text/javascript"></script>
-      </Head>
+      <script async src="js/vet.js" type="text/javascript"></script>
+      
       <input type="checkbox" id="nav-toggle" />
       <div className="sidebar">
         <div className="sidebar-brand">
