@@ -9,8 +9,8 @@ export default function Document() {
                 <Main />
                 <NextScript />
                 {/* <script src="js/jQuery.js" type="text/javascript"></script> */}
-                <script async src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.js" type="text/javascript"></script>
-                <script async src="/js/admin.js" type="text/javascript"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.js" type="text/javascript"></script>
+                <script src="/js/admin.js" type="text/javascript"></script>
                 <script>
                     new WOW().init();
                 </script>

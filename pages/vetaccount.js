@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 export default function Vetaccount() {
     const [data, setData] = useState([]);
+    const router = useRouter();
     const logout = () => {
         jsCookie.remove('user');
         jsCookie.remove('vet');
@@ -17,14 +18,10 @@ export default function Vetaccount() {
         setData(data);
     },[])
 
-<<<<<<< HEAD
+
     return (
         <div>
             <Head>
-=======
-  return (
-    <div>
->>>>>>> parent of d9f2703 (commit)
             <link rel="stylesheet" href="/css/vet-dashboard.css" type="text/css" />
             <link rel="stylesheet" href="/css/line-awesome.css" type="text/css" />
             <script async src="/js/jQuery.js" type="text/javascript"></script>
@@ -33,11 +30,15 @@ export default function Vetaccount() {
             </Head>
             <input type="checkbox" id="nav-toggle" />
             <div className="sidebar">
-                <div className="sidebar-brand">
-                    <a href="/vet-dashboard">
-                        <img src="images/logowhite.png" className="logo logo-xl" alt="logo.png" />
-                    </a>
-                </div>
+            <div className="sidebar-brand">
+          <a href="/vet-dashboard">
+            <img
+              src="images/logowhite.png"
+              className="logo-vet logo-xl"
+              alt="logo.png"
+            />
+          </a>
+        </div>
 
                 <div className="sidebar-menu">
                     <ul>

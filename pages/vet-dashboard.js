@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Vetcard from "../Component/Vetcard";
 import Head from "next/head";
-import Link from "next/link";
+
 export default function Vetdasboard() {
   const router = useRouter();
   const { vet } = parseCookies();
@@ -51,34 +51,34 @@ export default function Vetdasboard() {
       <input type="checkbox" id="nav-toggle" />
       <div className="sidebar">
         <div className="sidebar-brand">
-          <Link href="/vet-dashboard">
+          <a href="/vet-dashboard">
             <img
               src="images/logowhite.png"
               className="logo-vet logo-xl"
               alt="logo.png"
             />
-          </Link>
+          </a>
         </div>
 
         <div className="sidebar-menu">
           <ul>
             <li>
-              <Link href="/vet-dashboard" className="pt-1">
+              <a href="/vet-dashboard" className="pt-1">
                 <i className="las la-comments"></i>{" "}
                 <span className="disp-md-none">Consult</span>
-              </Link>
+              </a>
             </li>
             <li>
-              <Link href="/vetaccount">
+              <a href="/vetaccount">
                 <span className="las la-user-circle"></span>{" "}
                 <span className="disp-md-none">Accounts</span>
-              </Link>
+              </a>
             </li>
             <li>
-              <Link href="#" onClick={logout}>
+              <a href="#" onClick={logout}>
                 <span className="las la-sign-out-alt"></span>{" "}
                 <span className="disp-md-none">Logout</span>
-              </Link>
+              </a>
             </li>
           </ul>
         </div>
