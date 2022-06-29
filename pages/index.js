@@ -23,14 +23,14 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <script async src="js/jQuery.js" type="text/javascript"></script>
-        <script async src="js/script.js" type="text/javascript"></script>
-        <script async src="js/bootstrap.js" type="text/javascript"></script>
-        <script async src="js/owl.carousel.js" type="text/javascript"></script>
-        <script async src="js/popper.min.js" type="text/javascript"></script>
-        <script async src="js/popper.min.js" type="text/javascript"></script>
-        <script async src="js/wow.js"></script>
-        <script async>new WOW().init();</script>
+        <script src="js/jQuery.js" type="text/javascript"></script>
+        <script src="js/script.js" type="text/javascript"></script>
+        <script src="js/bootstrap.js" type="text/javascript"></script>
+        <script src="js/owl.carousel.js" type="text/javascript"></script>
+        <script src="js/popper.min.js" type="text/javascript"></script>
+        <script src="js/popper.min.js" type="text/javascript"></script>
+        <script src="js/wow.js"></script>
+        <script>new WOW().init();</script>
 
         {/* <link href="" */}
         <link href="/css/style.css" type="text/css" rel="stylesheet" />
