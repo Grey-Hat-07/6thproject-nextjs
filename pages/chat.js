@@ -179,9 +179,9 @@ export default function Chat() {
     // console.log(chatData);
     return (
       <div>
-        <script src="/js/jQuery.js" type="text/javascript"></script>
+        <script async src="/js/jQuery.js" type="text/javascript"></script>
         {/* <script src="/js/cart.js" type="text/javascript"></script> */}
-        <script src="/js/bootstrap.js" type="text/javascript"></script>
+        <script async src="/js/bootstrap.js" type="text/javascript"></script>
 
         <link href="css/style.css" rel="stylesheet" type="text/css" />
         <link href="css/chat.css" rel="stylesheet" type="text/css" />

@@ -42,14 +42,14 @@ export default function Login() {
     }
     return (
         <div className="container-fluid">
-            <Head>
-                <script async src="js/jQuery.js" type="text/javascript"></script>
-                <script async src="js/custom.js" type="text/javascript"></script>
-                <script async src="js/popper.min.js" type="text/javascript"></script>
-                <script async src="js/bootstrap.js" type="text/javascript"></script>
-                <script async src="js/wow.js" type="text/javascript"></script>
-                <script async src="js/owl.carousel.js" type="text/javascript"></script>
 
+            <script async src="js/jQuery.js" type="text/javascript"></script>
+            <script async src="js/custom.js" type="text/javascript"></script>
+            <script async src="js/popper.min.js" type="text/javascript"></script>
+            <script async src="js/bootstrap.js" type="text/javascript"></script>
+            <script async src="js/wow.js" type="text/javascript"></script>
+            <script async src="js/owl.carousel.js" type="text/javascript"></script>
+            <Head>
                 <link href="css/style.css" rel="stylesheet" type="text/css" />
                 <link href="css/style2.css" rel="stylesheet" type="text/css" />
                 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
