@@ -2,6 +2,7 @@ import React from 'react'
 import Head from 'next/head'
 import { Card } from '../Component/Card'
 import baseUrl from '../helpers/baseUrl'
+import Link from 'next/link'
 export default function Store(props) {
   const list = 3;
   var totalfood = 0, totalaccess = 0, totalmed = 0;
@@ -31,7 +32,7 @@ export default function Store(props) {
             <div className="carousel-caption d-none d-md-block">
               <p className="text-s-1 wow fadeInLeftBig">Feed your dog</p>
               <h1 className="text-s-2 wow fadeInRightBig">A bowl of goodness</h1>
-              <button type="button" className="btn btn-outline-light"><a href="/store/Foodstore" className="button-text-1">Explore Range</a></button>
+              <button type="button" className="btn btn-outline-light"><Link href="/store/Foodstore" className="button-text-1">Explore Range</Link></button>
             </div>
           </div>
         </div>
@@ -61,7 +62,7 @@ export default function Store(props) {
           <div className="col-xl-12">
             <div className="text-center">
               <button type="button" className="btn btn-outline-dark btn-lg">
-                <a href="/store/Foodstore" className="button-text-2">Explore More</a>
+                <Link href="/store/Foodstore" className="button-text-2">Explore More</Link>
               </button>
             </div>
           </div>
@@ -90,9 +91,9 @@ export default function Store(props) {
           <div className="col-xl-12">
             <div className="text-center">
               <button type="button" className="btn btn-outline-dark btn-lg">
-                <a href="/store/Accessories" className="button-text-2">
+                <Link href="/store/Accessories" className="button-text-2">
                   Explore More
-                </a>
+                </Link>
               </button>
             </div>
           </div>
@@ -120,9 +121,9 @@ export default function Store(props) {
           <div className="col-xl-12">
             <div className="text-center">
               <button type="button" className="btn btn-outline-dark btn-lg">
-                <a href="/store/medicines" className="button-text-2">
+                <Link href="/store/medicines" className="button-text-2">
                   Explore More
-                </a>
+                </Link>
               </button>
             </div>
           </div>

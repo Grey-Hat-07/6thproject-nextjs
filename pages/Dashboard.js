@@ -4,6 +4,7 @@ import { useEffect,useState } from 'react';
 import baseUrl from '../helpers/baseUrl';
 import jsCookie from 'js-cookie'
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 export default function Dashboard(props) {
     const { Orders } = props;
     const [counts,setCount] = useState({});
@@ -40,36 +41,36 @@ export default function Dashboard(props) {
             <input type="checkbox" id="nav-toggle" />
             <div className="sidebar">
                 <div className="sidebar-brand">
-                    <a href="/Dashboard">
+                    <Link href="/Dashboard">
                         <img src="images/logowhite.png" className="logo logo-xl" alt="logo.png" />
-                    </a>
+                    </Link>
                 </div>
 
                 <div className="sidebar-menu">
                     <ul>
                         <li>
-                            <a href="/Dashboard" className="pt-1">
+                            <Link href="/Dashboard" className="pt-1">
                                 <span className="las la-igloo"></span>
                                 <span className="disp-md-none">Dashboard</span>
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="/productup">
+                            <Link href="/productup">
                                 <span className="las la-clipboard-list"></span>
                                 <span className="disp-md-none">Items</span>
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="/accountdashboard">
+                            <Link href="/accountdashboard">
                                 <span className="las la-user-circle"></span>
                                 <span className="disp-md-none">Accounts</span>
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="#" className="" onClick={logout}>
+                            <Link href="#" className="" onClick={logout}>
                                 <span className="las la-sign-out-alt"></span>
                                 <span className="disp-md-none">Logout</span>
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </div>
@@ -151,9 +152,9 @@ export default function Dashboard(props) {
                                 <div className="card-header">
                                     <h3>Add items</h3>
                                     <button>
-                                        <a href="/productup" className="text-1">
+                                        <Link href="/productup" className="text-1">
                                             Click here <span className="las la-arrow-right"></span>
-                                        </a>
+                                        </Link>
                                     </button>
                                 </div>
                             </div>
@@ -161,9 +162,9 @@ export default function Dashboard(props) {
                                 <div className="card">
                                     <div className="card-header">
                                         <h3>Business progress</h3>
-                                        <button><a href="#" className="text-1">
+                                        <button><Link href="#" className="text-1">
                                             Know more <span className="las la-arrow-right"></span>
-                                        </a>
+                                        </Link>
                                         </button>
                                     </div>
                                     <div className="card-body">
@@ -220,9 +221,9 @@ export default function Dashboard(props) {
                                     <div className="card-header">
                                         <h3>Monthly Sales</h3>
                                         <button>
-                                            <a href="#" className="text-1">
+                                            <Link href="#" className="text-1">
                                                 Show more <span className="las la-arrow-right"></span>
-                                            </a>
+                                            </Link>
                                         </button>
                                     </div>
                                     <div className="card-body">
@@ -235,9 +236,9 @@ export default function Dashboard(props) {
                             <div className="card">
                                 <div className="card-header">
                                     <h3>Recent orders</h3>
-                                    <button><a href="#" className="text-1">
+                                    <button><Link href="#" className="text-1">
                                         Show more <span className="las la-arrow-right"></span>
-                                    </a>
+                                    </Link>
                                     </button>
                                 </div>
                                 <div className="card-body">

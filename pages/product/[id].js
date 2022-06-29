@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import jsCookie from "js-cookie";
 import Head from "next/head";
 import Similarcard from "../../Component/Similarcard";
-const product = (props) => {
+const Product = (props) => {
   
   const { product } = props;
   const { recommended } = props;
@@ -233,4 +233,4 @@ export async function getServerSideProps({ params: { id } }) {
 
 }
 
-export default product;
+export default Product;

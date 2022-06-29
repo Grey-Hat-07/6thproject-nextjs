@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Vetcard from "../Component/Vetcard";
 import Head from "next/head";
+import Link from "next/link";
 export default function Vetdasboard() {
   const router = useRouter();
   const { vet } = parseCookies();
@@ -40,7 +41,7 @@ export default function Vetdasboard() {
     <div>
       <link rel="stylesheet" href="/css/vet-dashboard.css" type="text/css" />
       <link rel="stylesheet" href="/css/line-awesome.css" type="text/css" />
-      <script src="/js/jQuery.js" type="text/javascript"></script>
+      <script async src="/js/jQuery.js" type="text/javascript"></script>
       <script async
         src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.js"
         type="text/javascript"
@@ -50,34 +51,34 @@ export default function Vetdasboard() {
       <input type="checkbox" id="nav-toggle" />
       <div className="sidebar">
         <div className="sidebar-brand">
-          <a href="/vet-dashboard">
+          <Link href="/vet-dashboard">
             <img
               src="images/logowhite.png"
               className="logo-vet logo-xl"
               alt="logo.png"
             />
-          </a>
+          </Link>
         </div>
 
         <div className="sidebar-menu">
           <ul>
             <li>
-              <a href="/vet-dashboard" className="pt-1">
+              <Link href="/vet-dashboard" className="pt-1">
                 <i className="las la-comments"></i>{" "}
                 <span className="disp-md-none">Consult</span>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/vetaccount">
+              <Link href="/vetaccount">
                 <span className="las la-user-circle"></span>{" "}
                 <span className="disp-md-none">Accounts</span>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" onClick={logout}>
+              <Link href="#" onClick={logout}>
                 <span className="las la-sign-out-alt"></span>{" "}
                 <span className="disp-md-none">Logout</span>
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
