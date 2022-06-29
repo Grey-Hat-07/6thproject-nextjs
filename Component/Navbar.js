@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Link from 'next/link'
+
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import jsCookie from 'js-cookie';

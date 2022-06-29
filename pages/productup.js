@@ -101,7 +101,7 @@ export default function Productup(props) {
         <link rel="stylesheet" href="/css/productup.css" type="text/css" />
         <link rel="stylesheet" href="/css/line-awesome.css" type="text/css" />
         <link rel="stylesheet" href="/css/dashboard-cus.css" type="text/css" />
-        <script async src="/js/admin.js" type="text/javascript"></script>
+        <script src="/js/admin.js" type="text/javascript"></script>
       </Head>
       <input type="checkbox" id="nav-toggle" />
             <div className="sidebar">

@@ -62,7 +62,7 @@ export default function Vetchat() {
     });
     const data = await res.json();
     jsCookie.remove("chat");
-    window.location.href = "/Vetchat";
+    window.location.href = "/vet-dashboard";
     alert("Chat ended");
   };
   return (
@@ -166,7 +166,7 @@ export default function Vetchat() {
               <div className="msg-inbox">
                 <div className="chats">
                   <div className="msg-page">
-                    {chatData &&
+                    {chatData &&userData&&
                       chatData[0].messages.map((item, index) => {
                         if (item.sender === userData.name) {
                           return (

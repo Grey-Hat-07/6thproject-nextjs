@@ -24,9 +24,9 @@ export default function Vetaccount() {
             <Head>
             <link rel="stylesheet" href="/css/vet-dashboard.css" type="text/css" />
             <link rel="stylesheet" href="/css/line-awesome.css" type="text/css" />
-            <script async src="/js/jQuery.js" type="text/javascript"></script>
-            <script async src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.js" type="text/javascript"></script>
-            <script async src="/js/admin.js" type="text/javascript"></script>
+            <script src="/js/jQuery.js" type="text/javascript"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.js" type="text/javascript"></script>
+            <script src="/js/admin.js" type="text/javascript"></script>
             </Head>
             <input type="checkbox" id="nav-toggle" />
             <div className="sidebar">
