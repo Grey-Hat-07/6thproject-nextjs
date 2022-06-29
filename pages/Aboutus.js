@@ -11,9 +11,9 @@ export default function Aboutus() {
         <link href="css/animate.css" type="text/css" rel="stylesheet" />
         <link href="css/font-awesome.css" type="text/css" rel="stylesheet" />
       </Head>
-      <script async src="js/jQuery.js" type="text/javascript"></script>
-      <script async src="js/bootstrap.js" type="text/javascript"></script>
-      <script async src="js/owl.carousel.js" type="text/javascript"></script>
+      <script src="js/jQuery.js" type="text/javascript"></script>
+      <script src="js/bootstrap.js" type="text/javascript"></script>
+      <script src="js/owl.carousel.js" type="text/javascript"></script>
 
 
       <div className="bg-light">
