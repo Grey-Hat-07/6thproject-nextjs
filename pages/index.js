@@ -29,14 +29,14 @@ export default function Home() {
 
   return (
     <div>
-      
+        <script src="js/wow.js"async/>
         <script src="js/jQuery.js" type="text/javascript" defer/>
         <script src="js/script.js" type="text/javascript" defer/>
         <script src="js/bootstrap.js" type="text/javascript" defer/>
         <script src="js/owl.carousel.js" type="text/javascript" defer/>
         <script src="js/popper.min.js" type="text/javascript" defer/>
         <script src="js/popper.min.js" type="text/javascript" defer/>
-        <script src="js/wow.js" defer/>
+        
         {/* <script defer>new WOW().init();</script> */}
         <Head>
         {/* <link href="" */}
@@ -134,11 +134,10 @@ export default function Home() {
                     <p className="text-2 wow fadeInRightBig">
                       Buy medecines and other essentials for your dog
                     </p>
-                    <div onClick={async()=>{ await router.push("/chat")}}>
+                    <div onClick={async()=>{ await router.push("/Store")}}>
                     <a
                       type="button"
                       className="btn btn-outline-lights text-md-1"
-                      href='/Store'
                     >
                       Buy Now
                       <i
