@@ -27,6 +27,12 @@ export default function Productup(props) {
   //   setItems(data);
   // }) 
   useEffect(async()=>{
+    if(router.isFallback)
+    {
+      window.location.href="/Dashboard";
+    }
+  },[])
+  useEffect(async()=>{
     const res = await fetch(`${baseUrl}/api/Account`);
     const data = await res.json()
     setUserData(data);

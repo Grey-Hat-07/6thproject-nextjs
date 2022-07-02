@@ -22,7 +22,7 @@ export default function Home() {
     }
     if(router.isFallback)
     {
-      router.reload();
+      window.location.href="/";
     }
 
   }, []);
@@ -30,8 +30,9 @@ export default function Home() {
   return (
     <div>
         <script src="js/wow.js"async/>
-        <script src="js/jQuery.js" type="text/javascript" defer/>
         <script src="js/script.js" type="text/javascript" defer/>
+        <script src="js/jQuery.js" type="text/javascript" defer/>
+        
         <script src="js/bootstrap.js" type="text/javascript" defer/>
         <script src="js/owl.carousel.js" type="text/javascript" defer/>
         <script src="js/popper.min.js" type="text/javascript" defer/>
