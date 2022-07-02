@@ -140,7 +140,7 @@ export default function Store(props) {
     </div>
   )
 }
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   const res = await fetch(`${baseUrl}/api/Product`, {
     method: 'GET'
   })

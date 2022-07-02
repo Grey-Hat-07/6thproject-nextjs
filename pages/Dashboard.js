@@ -284,7 +284,7 @@ export default function Dashboard(props) {
         </div>
     )
 }
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
     const res = await fetch(`${baseUrl}/api/Order`, {
         method: 'GET'
     })
