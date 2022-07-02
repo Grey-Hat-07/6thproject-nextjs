@@ -1,14 +1,16 @@
 const logo = document.querySelector(".logo");
 const clicking = document.querySelector("#clicking");
-
+if(clicking){
 clicking.addEventListener("click", function () {
   logo.classList.toggle("logo-1");
 });
+}
 
 // progress wheel
 
 let number = document.querySelector("#number-1");
 let counter = 0;
+if(number){
 setInterval(() => {
   if (counter == 65) {
     clearInterval();
@@ -16,10 +18,11 @@ setInterval(() => {
     counter += 1;
     number.textContent = counter + "%";
   }
-}, 30);
+}, 30);}
 
 let numberAgain = document.querySelector("#number-2");
 let counterAgain = 0;
+if(numberAgain){
 setInterval(() => {
   if (counterAgain == 65) {
     clearInterval();
@@ -27,7 +30,7 @@ setInterval(() => {
     counterAgain += 1;
     numberAgain.textContent = counter + "%";
   }
-}, 30);
+}, 30);}
 
 // Chart js
 

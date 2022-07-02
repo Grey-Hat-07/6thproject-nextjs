@@ -21,12 +21,12 @@ export default function Vetaccount() {
 
     return (
         <div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.js" type="text/javascript" defer></script>
+            <script src="/js/admin.js" type="text/javascript" defer></script>
+            <script src="/js/jQuery.js" type="text/javascript" defer></script>
             <Head>
             <link rel="stylesheet" href="/css/vet-dashboard.css" type="text/css" />
             <link rel="stylesheet" href="/css/line-awesome.css" type="text/css" />
-            <script src="/js/jQuery.js" type="text/javascript"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.js" type="text/javascript"></script>
-            <script src="/js/admin.js" type="text/javascript"></script>
             </Head>
             <input type="checkbox" id="nav-toggle" />
             <div className="sidebar">
@@ -42,14 +42,23 @@ export default function Vetaccount() {
 
                 <div className="sidebar-menu">
                     <ul>
-                        <li>
-                            <a href="/vet-dashboard" className="pt-1"><i className="las la-comments"></i> <span
-                                className="disp-md-none">Consult</span></a>
-                        </li>
-                        <li>
-                            <a href="/vetaccount"><span className="las la-user-circle"></span> <span
-                                className="disp-md-none">Accounts</span></a>
-                        </li>
+                    <li><div onClick={async()=>{
+              await router.push("/vet-dashboard");
+            }}>
+              <a href="#" className="pt-1">
+                <i className="las la-comments"></i>{" "}
+                <span className="disp-md-none">Consult</span>
+              </a></div>
+            </li>
+            <li>
+            <div onClick={async()=>{
+              await router.push("/vetaccount");
+            }}>
+              <a href="#">
+                <span className="las la-user-circle"></span>{" "}
+                <span className="disp-md-none">Accounts</span>
+              </a></div>
+            </li>
                         <li>
                             <a href="#" onClick={logout}><span className="las la-sign-out-alt"></span> <span
                                 className="disp-md-none">Logout</span></a>

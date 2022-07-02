@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import jsCookie from 'js-cookie';
 import { parseCookies } from 'nookies';
+import Link from 'next/link';
 export default function Navbar() {
   const router = useRouter();
   const { vet,user } = parseCookies();
@@ -48,11 +49,11 @@ export default function Navbar() {
         <div className="container-fluid bg-pink">
           <div className="container bg-pink">
             <nav className="navbar navbar-expand-lg navbar-light bg-pink">
-              <a href="/" className="navbar-brand pal-1" >
+              <div onClick={async()=>{window.location.href="/";}}  className="navbar-brand pal-1" >
                 <img src="/images/logo.png"
                   width="80" height="80"
                   className="w-sm" alt="logo.png" />
-              </a>
+              </div>
               <button
                 className="navbar-toggler"
                 type="button"
@@ -80,24 +81,24 @@ export default function Navbar() {
                       </a>
                       <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                         {/* <a className="dropdown-item" href="login I.html">Customer &<br />Paitient Login</a> */}
-                        <a href='/Signup/Vetsignup'>Signup as Vet</a><br/>
-                        <a href='/Signup/adminsign'>Signup as Admin</a>
+                        <Link href='/Signup/Vetsignup'>Signup as Vet</Link><br/>
+                        <Link href='/Signup/adminsign'>Signup as Admin</Link>
                         </div>
                     </li></ul></div>}
               {isLoggedIn ?
                 <div className="collapse navbar-collapse" id="navbarNav">
                   <ul className="navbar-nav pal-6">
                     <li className="nav-item pl-3">
-                      <a className="nav-link" href="/Store">Store</a>
+                    <div className="nav-link"><Link href="/Store">Store</Link></div>
                     </li>
                     <li className="nav-item pl-3">
-                      <a className="nav-link" href="/chat">Consult</a>
+                      <div className="nav-link"><Link href="/chat">Consult</Link></div>
                     </li>
                     <li className="nav-item pl-3">
-                      <a className="nav-link" href="/Aboutus">About Us</a>
+                    <div className="nav-link"><Link href="/Aboutus">About Us</Link></div>
                     </li>
                     <li className="nav-item pl-3">
-                      <a href="/cart" className='nav-link'><i className="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                    <div className="nav-link"><Link href="/cart"><i className="fa fa-shopping-cart" aria-hidden="true"></i></Link></div>
                     </li>
                     <li className="nav-item dropdown pl-3">
                       <a
@@ -112,7 +113,7 @@ export default function Navbar() {
                         <i className="fa fa-user-circle" aria-hidden="true"></i>
                       </a>
                       <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a className='text-4' href= '/userAccount'>User Account</a><br/>
+                      <Link className='text-2' href= '/userAccount'>User Account</Link><br/>
                         {/* <a className="dropdown-item" href="login I.html">Customer &<br />Paitient Login</a> */}
                         <button className='btn btn-danger m-2' onClick={
                           () => {

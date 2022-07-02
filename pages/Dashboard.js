@@ -48,22 +48,25 @@ export default function Dashboard(props) {
                 <div className="sidebar-menu">
                     <ul>
                         <li>
-                            <a href="/Dashboard" className="pt-1">
+                            <div onClick={async()=>{await router.push("/Dashboard")}} className="pt-1">
+                                <a href='#'>
                                 <span className="las la-igloo"></span>
-                                <span className="disp-md-none">Dashboard</span>
-                            </a>
+                                <span className="disp-md-none">Dashboard</span></a>
+                            </div>
                         </li>
                         <li>
-                            <a href="/productup">
+                            <div onClick={async()=>{await router.push("/productup")}} >
+                                <a href='#'>
                                 <span className="las la-clipboard-list"></span>
-                                <span className="disp-md-none">Items</span>
-                            </a>
+                                <span className="disp-md-none">Items</span></a>
+                            </div>
                         </li>
                         <li>
-                            <a href="/accountdashboard">
+                            <div onClick={async()=>{await router.push("/accountdashboard")}}>
+                                <a href='#'>
                                 <span className="las la-user-circle"></span>
-                                <span className="disp-md-none">Accounts</span>
-                            </a>
+                                <span className="disp-md-none">Accounts</span></a>
+                            </div>
                         </li>
                         <li>
                             <a href="#" className="" onClick={logout}>

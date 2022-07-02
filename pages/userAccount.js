@@ -24,9 +24,9 @@ export default function UserAccount(props) {
             <link href="css/animate.css" type="text/css" rel="stylesheet" />
             <link href="css/font-awesome.css" type="text/css" rel="stylesheet" />
             <link rel="stylesheet" href="css/line-awesome.css" type="text/css" />
-            <script src="js/jQuery.js" type="text/javascript"></script>
-            <script src="js/bootstrap.js" type="text/javascript"></script>
-            <script src="js/owl.carousel.js" type="text/javascript"></script>
+            <script src="js/jQuery.js" type="text/javascript defer"></script>
+            <script src="js/bootstrap.js" type="text/javascript defer"></script>
+            <script src="js/owl.carousel.js" type="text/javascript defer"></script>
             </Head>
             
             <main>

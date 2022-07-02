@@ -74,12 +74,12 @@ export default function Vetchat() {
       <link href="css/font-awesome.css" rel="stylesheet" type="text/css" />
       <link href="css/animate.css" rel="stylesheet" type="text/css" />
 
-      <script src="/js/jQuery.js" type="text/javascript"></script>
+      <script src="/js/jQuery.js" type="text/javascript" defer></script>
       <script
         src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.js"
-        type="text/javascript"
+        type="text/javascript" defer
       ></script>
-      <script src="/js/vet.js" type="text/javascript"></script>
+      <script src="/js/vet.js" type="text/javascript" defer></script>
       
       <input type="checkbox" id="nav-toggle" />
       <div className="sidebar">
@@ -87,7 +87,7 @@ export default function Vetchat() {
           <a href="/vet-dashboard">
             <img
               src="images/logowhite.png"
-              className="logo-vet logo-xl"
+              className="logo-vet-1 logo-xl"
               alt="logo.png"
             />
           </a>

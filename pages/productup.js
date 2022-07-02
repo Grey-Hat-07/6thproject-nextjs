@@ -96,12 +96,12 @@ export default function Productup(props) {
 
   return (
     <div>
-      
+      {/* <script src="/js/admin.js" type="text/javascript" defer></script> */}
       <Head>
         <link rel="stylesheet" href="/css/productup.css" type="text/css" />
         <link rel="stylesheet" href="/css/line-awesome.css" type="text/css" />
         <link rel="stylesheet" href="/css/dashboard-cus.css" type="text/css" />
-        <script src="/js/admin.js" type="text/javascript"></script>
+        
       </Head>
       <input type="checkbox" id="nav-toggle" />
             <div className="sidebar">
@@ -112,24 +112,27 @@ export default function Productup(props) {
                 </div>
 
                 <div className="sidebar-menu">
-                    <ul>
+                <ul>
                         <li>
-                            <a href="/Dashboard" className="pt-1">
+                            <div onClick={async()=>{await router.push("/Dashboard")}} className="pt-1">
+                                <a href='#'>
                                 <span className="las la-igloo"></span>
-                                <span className="disp-md-none">Dashboard</span>
-                            </a>
+                                <span className="disp-md-none">Dashboard</span></a>
+                            </div>
                         </li>
                         <li>
-                            <a href="/productup">
+                            <div onClick={async()=>{await router.push("/productup")}} >
+                                <a href='#'>
                                 <span className="las la-clipboard-list"></span>
-                                <span className="disp-md-none">Items</span>
-                            </a>
+                                <span className="disp-md-none">Items</span></a>
+                            </div>
                         </li>
                         <li>
-                            <a href="/accountdashboard">
+                            <div onClick={async()=>{await router.push("/accountdashboard")}}>
+                                <a href='#'>
                                 <span className="las la-user-circle"></span>
-                                <span className="disp-md-none">Accounts</span>
-                            </a>
+                                <span className="disp-md-none">Accounts</span></a>
+                            </div>
                         </li>
                         <li>
                             <a href="#" className="" onClick={logout}>

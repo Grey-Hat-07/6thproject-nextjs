@@ -3,42 +3,49 @@ import { useRouter } from "next/router";
 import { parseCookies } from "nookies";
 import Head from "next/head";
 
-
+import Router from "next/router";
 export default function Home() {
   const router = useRouter();
   const { user, AdminId, vet } = parseCookies();
-
+   
+  
   useEffect(() => {
+    
     if (!user) {
       router.push("/Login");
     }
     if (AdminId) {
-      router.push("/Dashboard");
+      window.location.href="/Dashboard";
     }
     if (vet) {
       router.push("/vet-dashboard");
     }
+    if(router.isFallback)
+    {
+      router.reload();
+    }
+
   }, []);
 
   return (
     <div>
-      <Head>
-        <script src="js/jQuery.js" type="text/javascript"></script>
-        <script src="js/script.js" type="text/javascript"></script>
-        <script src="js/bootstrap.js" type="text/javascript"></script>
-        <script src="js/owl.carousel.js" type="text/javascript"></script>
-        <script src="js/popper.min.js" type="text/javascript"></script>
-        <script src="js/popper.min.js" type="text/javascript"></script>
-        <script src="js/wow.js"></script>
-        <script>new WOW().init();</script>
-
+      
+        <script src="js/jQuery.js" type="text/javascript" defer/>
+        <script src="js/script.js" type="text/javascript" defer/>
+        <script src="js/bootstrap.js" type="text/javascript" defer/>
+        <script src="js/owl.carousel.js" type="text/javascript" defer/>
+        <script src="js/popper.min.js" type="text/javascript" defer/>
+        <script src="js/popper.min.js" type="text/javascript" defer/>
+        <script src="js/wow.js" defer/>
+        {/* <script defer>new WOW().init();</script> */}
+        <Head>
         {/* <link href="" */}
-        <link href="/css/style.css" type="text/css" rel="stylesheet" />
+        <link href="/css/style.css" type="text/css" rel="stylesheet"   />
         <link href="/css/bootstrap.css" type="text/css" rel="stylesheet" />
-        <link href="/css/animate.css" type="text/css" rel="stylesheet" />
+        <link href="/css/animate.css" type="text/css" rel="stylesheet"  />
         <link href="/css/font-awesome.css" type="text/css" rel="stylesheet" />
         <link href="css/owl.carousel.css" type="text/css" rel="stylesheet" />
-        <link href="/css/owl.theme.css" type="text/css" rel="stylesheet" />
+        <link href="/css/owl.theme.css" type="text/css" rel="stylesheet"  />
       </Head>
       <div className="container-fluid">
         <div className="row">
