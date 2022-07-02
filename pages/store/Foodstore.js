@@ -67,7 +67,7 @@ export default function Foodstore(props) {
     </div>
   )
 }
-export async function getServerSidePropss(context) {
+export async function getServerSideProps(context) {
   const res = await fetch(`${baseUrl}/api/Product`, {
     method: 'GET'
   })
