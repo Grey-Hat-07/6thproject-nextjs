@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import baseUrl from '../helpers/baseUrl';
 import jsCookie from 'js-cookie'
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { getDownloadURL, ref, uploadBytesResumable } from '@firebase/storage';
 import { storage } from '../firebase/main.firebase'
@@ -106,9 +107,9 @@ export default function Productup(props) {
       <input type="checkbox" id="nav-toggle" />
             <div className="sidebar">
                 <div className="sidebar-brand">
-                    <a href="/Dashboard">
+                    <Link href="/Dashboard">
                         <img src="images/logowhite.png" className="logo logo-xl" alt="logo.png" />
-                    </a>
+                    </Link>
                 </div>
 
                 <div className="sidebar-menu">

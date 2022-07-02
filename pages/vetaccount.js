@@ -4,6 +4,7 @@ import baseUrl from '../helpers/baseUrl';
 import jsCookie from 'js-cookie'
 import { useRouter } from 'next/router';
 import Head from 'next/head';
+import Link from 'next/link';
 export default function Vetaccount() {
     const [data, setData] = useState([]);
     const router = useRouter();
@@ -31,13 +32,13 @@ export default function Vetaccount() {
             <input type="checkbox" id="nav-toggle" />
             <div className="sidebar">
             <div className="sidebar-brand">
-          <a href="/vet-dashboard">
+          <Link href="/vet-dashboard">
             <img
               src="images/logowhite.png"
               className="logo-vet logo-xl"
               alt="logo.png"
             />
-          </a>
+          </Link>
         </div>
 
                 <div className="sidebar-menu">

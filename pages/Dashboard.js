@@ -4,6 +4,7 @@ import { useEffect,useState } from 'react';
 import baseUrl from '../helpers/baseUrl';
 import jsCookie from 'js-cookie'
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 export default function Dashboard(props) {
     const { Orders } = props;
     const [counts,setCount] = useState({});
@@ -40,9 +41,9 @@ export default function Dashboard(props) {
             <input type="checkbox" id="nav-toggle" />
             <div className="sidebar">
                 <div className="sidebar-brand">
-                    <a href="/Dashboard">
+                    <Link href="/Dashboard">
                         <img src="images/logowhite.png" className="logo logo-xl" alt="logo.png" />
-                    </a>
+                    </Link>
                 </div>
 
                 <div className="sidebar-menu">
@@ -154,7 +155,7 @@ export default function Dashboard(props) {
                                 <div className="card-header">
                                     <h3>Add items</h3>
                                     <button>
-                                        <a href="/productup" className="text-1">
+                                        <a onClick={async()=>{await router.push('/productup')}} className="text-1">
                                             Click here <span className="las la-arrow-right"></span>
                                         </a>
                                     </button>

@@ -15,7 +15,7 @@ export default function Store(props) {
         <script src="/js/owl.carousel.js" type="text/javascript" defer></script>
         <script src="/js/popper.min.js" type="text/javascript" defer></script>
         <script src="/js/popper.min.js" type="text/javascript" defer></script>
-        <script src="/js/wow.js"></script>
+        <script src="/js/wow.js" defer></script>
 
         <link href="/css/style3.css" type="text/css" rel="stylesheet" />
         <link href="/css/style.css" type="text/css" rel="stylesheet" />

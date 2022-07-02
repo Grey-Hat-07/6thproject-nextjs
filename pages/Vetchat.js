@@ -4,6 +4,7 @@ import { parseCookies } from "nookies";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import baseUrl from "../helpers/baseUrl";
+import Link from "next/link";
 export default function Vetchat() {
   const router = useRouter();
   const logout = () => {
@@ -84,28 +85,33 @@ export default function Vetchat() {
       <input type="checkbox" id="nav-toggle" />
       <div className="sidebar">
       <div className="sidebar-brand">
-          <a href="/vet-dashboard">
+          <Link href="/vet-dashboard">
             <img
               src="images/logowhite.png"
               className="logo-vet-1 logo-xl"
               alt="logo.png"
             />
-          </a>
+          </Link>
         </div>
 
         <div className="sidebar-menu">
-          <ul>
-            <li>
-              <a href="/vet-dashboard" className="pt-1">
+        <ul>
+            <li><div onClick={async()=>{
+              await router.push("/vet-dashboard");
+            }}>
+              <a href="#" className="pt-1">
                 <i className="las la-comments"></i>{" "}
                 <span className="disp-md-none">Consult</span>
-              </a>
+              </a></div>
             </li>
             <li>
-              <a href="/vetaccount">
+            <div onClick={async()=>{
+              await router.push("/vetaccount");
+            }}>
+              <a href="#">
                 <span className="las la-user-circle"></span>{" "}
                 <span className="disp-md-none">Accounts</span>
-              </a>
+              </a></div>
             </li>
             <li>
               <a href="#" onClick={logout}>

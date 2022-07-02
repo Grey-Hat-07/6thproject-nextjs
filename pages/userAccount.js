@@ -17,16 +17,18 @@ export default function UserAccount(props) {
     }, [])
     return (
 
-        <div><Head>
+        <div>
+            <script src="js/jQuery.js" type="text/javascript " defer></script>
+            <script src="js/bootstrap.js" type="text/javascript " defer></script>
+            <script src="js/owl.carousel.js" type="text/javascript " defer></script>
+            <Head>
             <link href="css/style.css" type="text/css" rel="stylesheet" />
             <link href="css/style-user.css" type="text/css" rel="stylesheet" />
             <link href="css/bootstrap.css" type="text/css" rel="stylesheet" />
             <link href="css/animate.css" type="text/css" rel="stylesheet" />
             <link href="css/font-awesome.css" type="text/css" rel="stylesheet" />
             <link rel="stylesheet" href="css/line-awesome.css" type="text/css" />
-            <script src="js/jQuery.js" type="text/javascript defer"></script>
-            <script src="js/bootstrap.js" type="text/javascript defer"></script>
-            <script src="js/owl.carousel.js" type="text/javascript defer"></script>
+            
             </Head>
             
             <main>

@@ -110,17 +110,17 @@ export default function Home() {
                       Consult with our vets for your dogs health and a beautiful
                       life
                     </p>
+                    <div onClick={async()=>{ await router.push("/chat")}}>
                     <a
                       type="button"
                       className="btn btn-outline-lights text-md-1"
-                      href='/chat'
                     >
                       Talk Now
                       <i
                         className="fa fa-long-arrow-right ml-1"
                         aria-hidden="true"
                       ></i>
-                    </a>
+                    </a></div>
                   </div>
                 </div>
                 <div className="carousel-item">
@@ -134,6 +134,7 @@ export default function Home() {
                     <p className="text-2 wow fadeInRightBig">
                       Buy medecines and other essentials for your dog
                     </p>
+                    <div onClick={async()=>{ await router.push("/chat")}}>
                     <a
                       type="button"
                       className="btn btn-outline-lights text-md-1"
@@ -144,7 +145,7 @@ export default function Home() {
                         className="fa fa-long-arrow-right ml-1"
                         aria-hidden="true"
                       ></i>
-                    </a>
+                    </a></div>
                   </div>
                 </div>
               </div>

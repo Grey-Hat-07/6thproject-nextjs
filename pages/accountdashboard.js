@@ -3,6 +3,7 @@ import Head from 'next/head'
 import baseUrl from '../helpers/baseUrl';
 import { useState, useEffect } from 'react'
 import jsCookie from 'js-cookie'
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 export default function Account() {
     const [userData,setUserData] = useState();
@@ -28,9 +29,9 @@ export default function Account() {
             <input type="checkbox" id="nav-toggle" />
             <div className="sidebar">
                 <div className="sidebar-brand">
-                    <a href="/Dashboard">
+                    <Link href="/Dashboard">
                         <img src="images/logowhite.png" className="logo logo-xl" alt="logo.png" />
-                    </a>
+                    </Link>
                 </div>
 
                 <div className="sidebar-menu">
