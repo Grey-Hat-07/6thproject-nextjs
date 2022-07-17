@@ -89,16 +89,16 @@ export default function Navbar() {
                 <div className="collapse navbar-collapse" id="navbarNav">
                   <ul className="navbar-nav pal-6">
                     <li className="nav-item pl-3">
-                    <div className="nav-link"><Link href="/Store">Store</Link></div>
+                    <div className="nav-link"><a href="#" onClick={async()=>{  window.location.href="/Store"}}>Store</a></div>
                     </li>
                     <li className="nav-item pl-3">
-                      <div className="nav-link"><Link href="/chat">Consult</Link></div>
+                      <div className="nav-link"><a href="#" onClick={async()=>{  window.location.href="/chat"}}>Consult</a></div>
                     </li>
                     <li className="nav-item pl-3">
-                    <div className="nav-link"><Link href="/Aboutus">About Us</Link></div>
+                    <div className="nav-link"><a href="#" onClick={async()=>{  window.location.href="/Aboutus"}}>About Us</a></div>
                     </li>
                     <li className="nav-item pl-3">
-                    <div className="nav-link"><Link href="/cart"><i className="fa fa-shopping-cart" aria-hidden="true"></i></Link></div>
+                    <div className="nav-link"><a href="#" onClick={async()=>{  window.location.href="/cart"}}><i className="fa fa-shopping-cart" aria-hidden="true"></i></a></div>
                     </li>
                     <li className="nav-item dropdown pl-3">
                       <a
@@ -113,7 +113,7 @@ export default function Navbar() {
                         <i className="fa fa-user-circle" aria-hidden="true"></i>
                       </a>
                       <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <Link className='text-2' href= '/userAccount'>User Account</Link><br/>
+                      <a className='' href= '#' onClick={async()=>{  window.location.href="/userAccount"}}>User Account</a><br/>
                         {/* <a className="dropdown-item" href="login I.html">Customer &<br />Paitient Login</a> */}
                         <button className='btn btn-danger m-2' onClick={
                           () => {

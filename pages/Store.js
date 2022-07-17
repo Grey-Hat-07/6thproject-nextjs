@@ -6,12 +6,12 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 export default function Store(props) {
-  useEffect(async()=>{
-    if(router.isFallback)
-    {
-      window.location.href="/";
-    }
-  },[])
+  // useEffect(async()=>{
+  //   if(router.isFallback)
+  //   {
+  //     window.location.href="/";
+  //   }
+  // },[])
   const list = 3;
   var totalfood = 0, totalaccess = 0, totalmed = 0;
   return (
