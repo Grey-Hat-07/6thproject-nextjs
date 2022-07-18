@@ -41,29 +41,29 @@ export default function Dashboard(props) {
             <input type="checkbox" id="nav-toggle" />
             <div className="sidebar">
                 <div className="sidebar-brand">
-                    <Link href="/Dashboard">
-                        <img src="images/logowhite.png" className="logo logo-xl" alt="logo.png" />
+                    <Link href="/Dashboard"><a>
+                        <img src="images/logowhite.png" className="logo logo-xl" alt="logo.png" /></a>
                     </Link>
                 </div>
 
                 <div className="sidebar-menu">
                     <ul>
                         <li>
-                            <div onClick={async()=>{await router.push("/Dashboard")}} className="pt-1">
+                            <div onClick={async()=>{    window.location.href="/Dashboard"}} className="pt-1">
                                 <a href='#'>
                                 <span className="las la-igloo"></span>
                                 <span className="disp-md-none">Dashboard</span></a>
                             </div>
                         </li>
                         <li>
-                            <div onClick={async()=>{await router.push("/productup")}} >
+                            <div onClick={async()=>{window.location.href="/productup"}} >
                                 <a href='#'>
                                 <span className="las la-clipboard-list"></span>
                                 <span className="disp-md-none">Items</span></a>
                             </div>
                         </li>
                         <li>
-                            <div onClick={async()=>{await router.push("/accountdashboard")}}>
+                            <div onClick={async()=>{window.location.href="/accountdashboard"}}>
                                 <a href='#'>
                                 <span className="las la-user-circle"></span>
                                 <span className="disp-md-none">Accounts</span></a>

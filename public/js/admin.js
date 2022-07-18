@@ -33,7 +33,7 @@ setInterval(() => {
 }, 30);}
 
 // Chart js
-
+if(document.getElementById("myChart")){
 const ctx = document.getElementById("myChart").getContext("2d");
 const myChart = new Chart(ctx, {
   type: "bar",
@@ -54,10 +54,10 @@ const myChart = new Chart(ctx, {
       },
     },
   },
-});
+});}
 
 //Hover sidebar
-const hover = documnet.querySelector(".hover");
+const hover = document.querySelector(".hover");
 hover.addEventListener("click", function () {
   hover.classList.toggle("active");
 });
